@@ -13,7 +13,11 @@ module.exports = {
             xl: '1024px',
             '2xl': '1440px',
         },
-        extend: {},
+        extend: {
+            colors: {
+                accent: '#339933',
+            },
+        },
     },
     plugins: [],
 };
