@@ -20,6 +20,7 @@ module.exports = {
                 sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },
             colors: {
+                black: '#282828',
                 accent: '#339933',
             },
         },
