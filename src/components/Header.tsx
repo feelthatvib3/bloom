@@ -4,13 +4,14 @@ import { navigationLinks } from '../data/navigation';
 import Cart from './Cart';
 import MobileMenu from './MobileMenu';
 import MobileMenuButton from './MobileMenuButton';
+import Container from './Container';
 
 export default function Header() {
     const [isMobileMenuOpened, setIsMobileMenuOpened] =
         useState<boolean>(false);
     return (
-        <header className="fixed z-50 w-full border-b">
-            <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-5 py-3">
+        <header className="fixed z-50 w-full border-b bg-white">
+            <Container className="flex items-center justify-between py-3 lg:py-5 xl:py-7">
                 <div>
                     <a href="/">
                         <img
@@ -44,7 +45,7 @@ export default function Header() {
                         setIsMobileMenuOpened={setIsMobileMenuOpened}
                     />
                 </div>
-            </div>
+            </Container>
             <MobileMenu
                 isMobileMenuOpened={isMobileMenuOpened}
                 setIsMobileMenuOpened={setIsMobileMenuOpened}
