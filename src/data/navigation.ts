@@ -1,9 +1,9 @@
-interface INavigationLink {
+interface NavigationLink {
     name: string;
     href: string;
 }
 
-export const navigationLinks: INavigationLink[] = [
+export const navigationLinks: NavigationLink[] = [
     { name: 'Main Page', href: '/' },
     { name: 'Categories', href: '/categories' },
     { name: 'All products', href: '/products' },
