@@ -13,7 +13,7 @@ export default function MobileMenuButton({
     return (
         <img
             src={menuImage}
-            alt="Mobile Menu Image"
+            alt="Mobile Menu"
             width={44}
             height={44}
             onClick={() => setIsMobileMenuOpened(!isMobileMenuOpened)}
