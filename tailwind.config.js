@@ -24,6 +24,7 @@ module.exports = {
                 lightgray: '#F1F3F4',
                 darkgray: '#8B8B8B',
                 accent: '#339933',
+                divider: '#DDDDDD',
             },
             backgroundImage: {
                 'hero-pattern': "url('/src/assets/hero-bg.jpg')",
