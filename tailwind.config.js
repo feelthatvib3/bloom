@@ -25,6 +25,9 @@ module.exports = {
                 darkgray: '#8B8B8B',
                 accent: '#339933',
             },
+            backgroundImage: {
+                'hero-pattern': "url('/src/assets/hero-bg.jpg')",
+            },
         },
     },
     plugins: [],
