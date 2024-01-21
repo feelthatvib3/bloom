@@ -13,12 +13,10 @@ export default function MobileMenu({
 }: MobileMenuProps) {
     return (
         <div
-            className={`${isMobileMenuOpened ? 'visible opacity-100' : 'invisible opacity-0'} fixed right-0 top-0 h-full w-full bg-black/15 lg:hidden`}
+            className={`${isMobileMenuOpened ? 'visible opacity-100' : 'invisible opacity-0'} fixed right-0 top-0 z-50 h-full w-full bg-black/15 lg:hidden`}
             onClick={() => setIsMobileMenuOpened(!isMobileMenuOpened)}
         >
-            <div
-                className={`${isMobileMenuOpened && 'translate-x-0'} ml-auto h-full w-1/2 translate-x-[1000px] bg-white pl-8 pr-5 pt-3`}
-            >
+            <div className="ml-auto h-full w-1/2 bg-white pl-8 pr-5 pt-3">
                 <img
                     src={closeButton}
                     alt="Close Button"
