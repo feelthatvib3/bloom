@@ -26,6 +26,7 @@ export default function Footer() {
                         <div className="flex gap-x-3 lg:gap-x-4">
                             <a
                                 href="https://www.instagram.com/startainstitute/"
+                                target="_blank"
                                 rel="noreferrer"
                             >
                                 <img
@@ -33,7 +34,11 @@ export default function Footer() {
                                     alt="Instagram Brand Logo"
                                 />
                             </a>
-                            <a href="https://whatsapp.com/" rel="noreferrer">
+                            <a
+                                href="https://whatsapp.com/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <img
                                     src={whatsappImage}
                                     alt="WhatsApp Brand Logo"
@@ -47,6 +52,7 @@ export default function Footer() {
                             href="https://www.google.com/maps/place/Starta+Institute+by+Tel-Ran/@52.5079337,13.374401,249m/data=!3m3!1e3!4b1!5s0x47a851cbc6be2f3b:0x7edf0a3a9c29227c!4m6!3m5!1s0x47a8515353a68755:0xd0866511db4f838f!8m2!3d52.5079329!4d13.3750447!16s%2Fg%2F11sb3nrbfl?entry=ttu"
                             className="text-[28px] font-semibold lg:text-[40px]"
                             rel="noreferrer"
+                            target="_blank"
                         >
                             Linkstraße 2, 8 OG, 10 785, Berlin, Deutschland
                         </a>
@@ -68,6 +74,7 @@ export default function Footer() {
                     >
                         <a
                             href="https://www.maps.ie/population/"
+                            target="_blank"
                             rel="noreferrer"
                         >
                             Population calculator map
