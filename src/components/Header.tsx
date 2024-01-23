@@ -17,8 +17,7 @@ export default function Header() {
                         <img
                             src={logoImage}
                             alt="React Garden Logo"
-                            width={44}
-                            height={44}
+                            className="h-11 w-11 lg:h-[70px] lg:w-[70px]"
                         />
                     </a>
                 </div>
