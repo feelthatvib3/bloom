@@ -5,8 +5,8 @@ import Title from './Title';
 
 export default function Footer() {
     return (
-        <footer>
-            <Container className="py-3">
+        <footer className="py-14 lg:py-[60px] 2xl:py-20">
+            <Container>
                 <Title>Contact</Title>
                 <div className="mt-6 grid grid-cols-1 gap-y-3 lg:mt-8 lg:grid-cols-3 lg:gap-x-3 xl:grid-cols-4 2xl:grid-cols-5">
                     <div className="rounded-xl bg-lightgray px-5 py-6 lg:col-span-2 2xl:col-span-3">
