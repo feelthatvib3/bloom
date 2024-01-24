@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import logoImage from '../assets/logo.svg';
 import { navigationLinks } from '../data/navigation';
-import Cart from './Cart';
+import CartButton from './CartButton';
 import MobileMenu from './MobileMenu';
 import MobileMenuButton from './MobileMenuButton';
 import Container from './Container';
@@ -38,7 +38,7 @@ export default function Header() {
                     </ul>
                 </nav>
                 <div className="flex items-center gap-x-5">
-                    <Cart />
+                    <CartButton />
                     <MobileMenuButton
                         isMobileMenuOpened={isMobileMenuOpened}
                         setIsMobileMenuOpened={setIsMobileMenuOpened}
