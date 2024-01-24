@@ -8,6 +8,7 @@ import DiscountBanner from '../components/DiscountBanner';
 import { Product, fetchProducts } from '../store/features/productsSlice';
 import ProductCard from '../components/ProductCard';
 import NavigationButton from '../ui/NavigationButton';
+import CategoryCard from '../components/CategoryCard';
 
 export default function HomePage() {
     const { categories } = useAppSelector(
@@ -37,29 +38,12 @@ export default function HomePage() {
             <section className="py-14 lg:py-[60px] 2xl:py-20">
                 <Container>
                     <Title
+                        text="Categories"
                         link={{ href: '/categories', text: 'All categories' }}
-                    >
-                        Categories
-                    </Title>
+                    />
                     <ul className="mt-6 grid place-items-stretch gap-y-5 md:grid-cols-2 md:gap-x-5 lg:mt-8 xl:grid-cols-4">
                         {slicedCategories.map((category: Category) => (
-                            <li key={category.id}>
-                                <a
-                                    href={`/categories/${category.id}`}
-                                    className="flex flex-col gap-y-3 text-center"
-                                >
-                                    <div className="md:h-[250px]">
-                                        <img
-                                            src={`http://localhost:3333${category.image}`}
-                                            alt={`${category.title} category`}
-                                            className="h-full w-full rounded-xl object-cover"
-                                        />
-                                    </div>
-                                    <p className="text-xl font-medium">
-                                        {category.title}
-                                    </p>
-                                </a>
-                            </li>
+                            <CategoryCard category={category} />
                         ))}
                     </ul>
                     <NavigationButton
@@ -76,9 +60,10 @@ export default function HomePage() {
             </section>
             <section>
                 <Container>
-                    <Title link={{ href: '/sales', text: 'All sales' }}>
-                        Sale
-                    </Title>
+                    <Title
+                        text="Sale"
+                        link={{ href: '/sales', text: 'All sales' }}
+                    />
                     <ul className="mt-6 grid gap-y-5 md:grid-cols-2 md:gap-x-5 lg:mt-8 xl:grid-cols-4">
                         {slicedProducts.map((product) => (
                             <ProductCard key={product.id} product={product} />
