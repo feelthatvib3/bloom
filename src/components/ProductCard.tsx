@@ -1,5 +1,5 @@
 import { Product } from '../store/features/productsSlice';
-import Discount from './Discount';
+import DiscountBadge from '../ui/DiscountBadge';
 
 interface ProductCardProps {
     product: Product;
@@ -18,7 +18,9 @@ export default function ProductCard({ product }: ProductCardProps) {
                     />
                     {discont_price && (
                         <div className="absolute right-4 top-4">
-                            <Discount discountValue={discont_price as number} />
+                            <DiscountBadge
+                                discountValue={discont_price as number}
+                            />
                         </div>
                     )}
                 </div>
