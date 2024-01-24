@@ -1,7 +1,7 @@
 import errorImage from '../assets/404.svg';
 import Button from '../components/Button';
 import Container from '../components/Container';
-import Title from '../components/Title';
+import Title from '../ui/Title';
 
 export default function NotFoundPage() {
     return (
@@ -10,7 +10,7 @@ export default function NotFoundPage() {
                 <img src={errorImage} alt="404 Error" />
                 <div className="py-8">
                     <Title>Page Not Found</Title>
-                    <p className="text-darkgray pt-4 text-xl">
+                    <p className="pt-4 text-xl text-darkgray">
                         We're sorry, the page you requested could not be found.
                         Please go back to the homepage.
                     </p>
