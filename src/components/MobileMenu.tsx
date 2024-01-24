@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import closeButton from '../assets/close.svg';
-import { navigationLinks } from '../data/navigation';
+import { navigationLinks } from '../data/navigationLinks';
 
 interface MobileMenuProps {
     isMobileMenuOpened: boolean;
