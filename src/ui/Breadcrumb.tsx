@@ -21,11 +21,9 @@ export default function Breadcrumb() {
                     <div key={name} className="flex items-center">
                         <div className="h-[1px] w-4 bg-divider"></div>
                         {isLast ? (
-                            <NavigationButton
-                                text={name}
-                                href=""
-                                breadcrumbLastItem
-                            />
+                            <div className="flex shrink-0 items-center justify-center rounded-md border border-divider px-4 py-2 text-sm font-medium">
+                                {name}
+                            </div>
                         ) : (
                             <NavigationButton text={name} href="/" />
                         )}
