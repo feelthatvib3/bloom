@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 interface NavigationButtonProps {
     text: string;
     href: string;
@@ -10,11 +12,11 @@ export default function NavigationButton({
     className,
 }: NavigationButtonProps) {
     return (
-        <a
-            href={href}
+        <Link
+            to={href}
             className={`flex shrink-0 items-center justify-center rounded-md border border-divider px-4 py-2 text-sm font-medium text-darkgray transition-colors hover:bg-lightgray active:bg-transparent active:text-black ${className ?? ''}`}
         >
             {text}
-        </a>
+        </Link>
     );
 }
