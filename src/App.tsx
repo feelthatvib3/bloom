@@ -4,7 +4,7 @@ import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import CategoriesPage from './pages/CategoriesPage';
-import CategoryProductsPage from './pages/CategoryProductsPage';
+import ProductsPage from './pages/ProductsPage';
 
 export default function App() {
     return (
@@ -16,7 +16,15 @@ export default function App() {
                     <Route path="/categories" element={<CategoriesPage />} />
                     <Route
                         path="/categories/:categoryId"
-                        element={<CategoryProductsPage />}
+                        element={<ProductsPage type="category" />}
+                    />
+                    <Route
+                        path="/products"
+                        element={<ProductsPage type="products" />}
+                    />
+                    <Route
+                        path="/sales"
+                        element={<ProductsPage type="sales" />}
                     />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
