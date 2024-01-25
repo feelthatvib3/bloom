@@ -16,7 +16,7 @@ export default function ProductCard({
         <li className="group overflow-hidden rounded-md border border-divider">
             <Link to={`/products/${id}`}>
                 {/* image, button, discountBadge */}
-                <div className="relative h-[220px] px-4 pb-4 lg:h-[250px]">
+                <div className="relative h-[220px] overflow-hidden px-4 pb-4 lg:h-[250px] 2xl:h-[285px]">
                     <img
                         src={`http://localhost:3333${image}`}
                         alt={title}
@@ -24,7 +24,7 @@ export default function ProductCard({
                     />
                     {withAddToCartButton && (
                         <button
-                            className={`rigth-4 absolute bottom-4 left-4 z-10 flex w-[calc(100%-32px)] items-center justify-center rounded-md bg-accent px-8 py-4 text-xl font-semibold text-white opacity-0 transition-all hover:bg-black group-hover:opacity-100`}
+                            className={`rigth-4 absolute bottom-4 left-4 z-10 flex w-[calc(100%-32px)] translate-y-16 items-center justify-center rounded-md bg-accent px-8 py-4 text-xl font-semibold text-white opacity-0 transition-all  hover:bg-black group-hover:translate-y-0 group-hover:opacity-100`}
                         >
                             Add to cart
                         </button>
