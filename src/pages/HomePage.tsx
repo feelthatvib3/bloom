@@ -5,25 +5,24 @@ import { RootState, useAppDispatch, useAppSelector } from '../store/index';
 import { useEffect } from 'react';
 import { Category, fetchCategories } from '../store/features/categoriesSlice';
 import DiscountBanner from '../components/DiscountBanner';
-import { Product, fetchProducts } from '../store/features/productsSlice';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../ui/ProductCard';
 import NavigationButton from '../ui/NavigationButton';
 import CategoryCard from '../components/CategoryCard';
+import { fetchDiscountedProducts } from '../store/features/productsSlice';
 
 export default function HomePage() {
     const { categories } = useAppSelector(
         (state: RootState) => state.categories,
     );
-    const slicedCategories = categories.slice(0, 4);
+    const firstFourCategories = categories.slice(0, 4);
 
     const { products } = useAppSelector((state: RootState) => state.products);
-    const slicedProducts = products
-        .filter((product: Product) => product.discont_price)
-        .slice(0, 4);
+    const firstFourDiscountedProducts = products.slice(0, 4);
+
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(fetchCategories());
-        dispatch(fetchProducts());
+        dispatch(fetchDiscountedProducts());
     }, []);
     return (
         <main>
@@ -42,7 +41,7 @@ export default function HomePage() {
                         link={{ href: '/categories', text: 'All categories' }}
                     />
                     <ul className="mt-6 grid place-items-stretch gap-y-5 md:grid-cols-2 md:gap-x-5 lg:mt-8 xl:grid-cols-4">
-                        {slicedCategories.map((category: Category) => (
+                        {firstFourCategories.map((category: Category) => (
                             <CategoryCard category={category} />
                         ))}
                     </ul>
@@ -65,7 +64,7 @@ export default function HomePage() {
                         link={{ href: '/sales', text: 'All sales' }}
                     />
                     <ul className="mt-6 grid gap-y-5 md:grid-cols-2 md:gap-x-5 lg:mt-8 xl:grid-cols-4">
-                        {slicedProducts.map((product) => (
+                        {firstFourDiscountedProducts.map((product) => (
                             <ProductCard key={product.id} product={product} />
                         ))}
                     </ul>
