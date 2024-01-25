@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { NavigationLink as NavigationLinkType } from '../data/navigationLinks';
 
 interface NavigationLinkProps {
@@ -9,12 +10,12 @@ export default function NavigationLink({
 }: NavigationLinkProps) {
     return (
         <li>
-            <a
-                href={navigationLink.href}
+            <Link
+                to={navigationLink.href}
                 className="text-xl font-medium text-black transition-colors hover:text-accent"
             >
                 {navigationLink.name}
-            </a>
+            </Link>
         </li>
     );
 }
