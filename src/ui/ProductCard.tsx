@@ -47,7 +47,7 @@ export default function ProductCard({
                         <span className="text-4xl font-semibold">${price}</span>
                         {discont_price && (
                             <span className="text-lg font-medium text-darkgray line-through">
-                                ${discont_price.toPrecision(3)}
+                                ${discont_price}
                             </span>
                         )}
                     </div>
