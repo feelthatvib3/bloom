@@ -13,13 +13,15 @@ export default function ProductsPage({ type }: ProductsPageProps) {
         (state: RootState) => state.products,
     );
     return (
-        <main className="pt-8 xl:pt-10">
-            <Container>
-                <Breadcrumb />
-                <div className="mt-8 xl:mt-10"></div>
-                <Title text={categoryTitle} />
-                <ProductsList type={type} />
-            </Container>
+        <main>
+            <section className="pt-8 xl:pt-10">
+                <Container>
+                    <Breadcrumb />
+                    <div className="lg:mt-8 xl:mt-10"></div>
+                    <Title text={categoryTitle} />
+                    <ProductsList type={type} />
+                </Container>
+            </section>
         </main>
     );
 }
