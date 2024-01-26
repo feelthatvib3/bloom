@@ -19,7 +19,7 @@ export default function CategoriesPage() {
             <section className="pt-8 xl:pt-10">
                 <Container>
                     <Breadcrumb />
-                    <div className="mt-8 xl:mt-10"></div>
+                    <div className="lg:mt-8 xl:mt-10"></div>
                     <Title text="Categories" />
                     <ul className="mt-6 grid gap-5 md:grid-cols-2 lg:mt-8 xl:grid-cols-3 2xl:mt-10 2xl:grid-cols-5 2xl:gap-[30px]">
                         {categories.map((category: Category) => (
