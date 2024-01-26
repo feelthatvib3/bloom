@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../index';
+import { RootState, useAppDispatch } from '../index';
 import { Category } from './categoriesSlice';
 
 export interface Product {
@@ -17,11 +17,13 @@ export interface Product {
 interface ProductsState {
     categoryTitle: string;
     products: Product[];
+    currentProduct: Product | null;
 }
 
 const initialState: ProductsState = {
     categoryTitle: '',
     products: [],
+    currentProduct: null,
 };
 
 export const fetchAllProducts = createAsyncThunk(
@@ -58,10 +60,33 @@ export const fetchDiscountedProducts = createAsyncThunk(
     },
 );
 
+export const fetchProductById = createAsyncThunk(
+    'products/fetchProductById',
+    async (productId: string, thunkAPI) => {
+        try {
+            const response: Response = await fetch(
+                `http://localhost:3333/products/${productId}`,
+            );
+            const productData: [Product] = await response.json();
+            return productData[0];
+        } catch (error) {
+            console.error('Error fetching product by id:', error);
+        }
+    },
+);
+
 export const ProductsSlice = createSlice({
     name: 'products',
     initialState,
-    reducers: {},
+    reducers: {
+        clearProducts: (state) => {
+            state.products = [];
+            state.categoryTitle = '';
+        },
+        clearCurrentProduct: (state) => {
+            state.currentProduct = null;
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
             state.products = action.payload;
@@ -78,7 +103,15 @@ export const ProductsSlice = createSlice({
             state.products = action.payload;
             state.categoryTitle = 'Discounted items';
         });
+        builder.addCase(fetchProductById.fulfilled, (state, action) => {
+            if (action.payload) {
+                state.currentProduct = action.payload;
+            }
+            state.categoryTitle = 'Discounted items';
+        });
     },
 });
+
+export const { clearCurrentProduct, clearProducts } = ProductsSlice.actions;
 
 export default ProductsSlice.reducer;
