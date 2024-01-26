@@ -19,7 +19,7 @@ export default function DiscountBadge({
         <div
             className={`rounded-md bg-accent px-2 py-1 text-xl font-semibold text-white ${className}`}
         >
-            {discountPercentage}%
+            -{discountPercentage}%
         </div>
     );
 }
