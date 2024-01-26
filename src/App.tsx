@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import CategoriesPage from './pages/CategoriesPage';
 import ProductsPage from './pages/ProductsPage';
+import ProductInfoPage from './pages/ProductInfoPage';
 
 export default function App() {
     return (
@@ -25,6 +26,10 @@ export default function App() {
                     <Route
                         path="/sales"
                         element={<ProductsPage type="sales" />}
+                    />
+                    <Route
+                        path="/products/:productId"
+                        element={<ProductInfoPage />}
                     />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
