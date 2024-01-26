@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState, useAppDispatch } from '../index';
 import { Category } from './categoriesSlice';
 
 export interface Product {
