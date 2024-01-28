@@ -20,7 +20,7 @@ export default function ProductsPage({ type }: ProductsPageProps) {
                     <Breadcrumb />
                     <div className="lg:mt-8 xl:mt-10"></div>
                     <Title text={categoryTitle} />
-                    <ProductFilter />
+                    <ProductFilter type={type} />
                     <ProductsList type={type} />
                 </Container>
             </section>
