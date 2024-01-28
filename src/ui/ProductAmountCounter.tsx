@@ -17,7 +17,7 @@ export default function ProductAmountCounter() {
         <div className="flex">
             <button
                 onClick={handleDecreaseAmountButton}
-                className="z-10 flex w-[47px] items-center justify-center rounded-md border border-divider bg-white"
+                className="z-10 flex w-[47px] items-center justify-center rounded-md border border-divider bg-white transition-colors hover:bg-lightgray"
             >
                 <span className="h-[2px] w-4 rounded-full bg-darkgray"></span>
             </button>
@@ -30,7 +30,7 @@ export default function ProductAmountCounter() {
             />
             <button
                 onClick={handleIncreaseAmountButton}
-                className="z-10 flex w-[47px] -translate-x-4 items-center justify-center rounded-md border border-divider bg-white"
+                className="z-10 flex w-[47px] -translate-x-4 items-center justify-center rounded-md border border-divider bg-white transition-colors hover:bg-lightgray"
             >
                 <span className="h-[2px] w-4 translate-x-1/2 rounded-full bg-darkgray"></span>
                 <span className="h-[2px] w-4 -translate-x-1/2 rotate-90 rounded-full bg-darkgray"></span>
