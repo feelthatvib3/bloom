@@ -26,6 +26,7 @@ export default function ProductAmountCounter() {
                 min={1}
                 value={productAmount}
                 type="number"
+                readOnly
             />
             <button
                 onClick={handleIncreaseAmountButton}
