@@ -29,6 +29,9 @@ module.exports = {
             backgroundImage: {
                 'hero-pattern': "url('/src/assets/hero-bg.jpg')",
             },
+            content: {
+                checkmark: "url('/src/assets/checkmark.svg')",
+            },
         },
     },
     plugins: [],
