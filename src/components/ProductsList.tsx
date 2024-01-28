@@ -32,7 +32,7 @@ export default function ProductsList({ type }: ProductsListProps) {
         };
     }, [type]);
     return (
-        <ul className="mt-6 grid gap-5 md:grid-cols-2 lg:mt-8 xl:grid-cols-4 2xl:mt-10 2xl:gap-8">
+        <ul className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 2xl:gap-8">
             {products.map((product) => (
                 <ProductCard
                     key={product.id}
