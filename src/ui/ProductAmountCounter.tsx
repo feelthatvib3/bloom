@@ -1,6 +1,6 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
-export default function ProductAmountConter() {
+export default function ProductAmountCounter() {
     const [productAmount, setProductAmount] = useState<number>(1);
 
     const handleIncreaseAmountButton = () =>
@@ -13,15 +13,6 @@ export default function ProductAmountConter() {
             setProductAmount(productAmount - 1);
         }
     };
-
-    const handleInputAmount = (event: ChangeEvent<HTMLInputElement>) => {
-        if (+event.target.value <= 0) {
-            setProductAmount(1);
-        } else {
-            setProductAmount(+event.target.value);
-        }
-    };
-
     return (
         <div className="flex">
             <button
@@ -33,9 +24,7 @@ export default function ProductAmountConter() {
             <input
                 className="no-spinner z-0 max-w-[70px] -translate-x-2 rounded-md border border-divider bg-white px-3 py-3 text-center text-lg font-semibold focus:outline-none"
                 min={1}
-                defaultValue={productAmount}
                 value={productAmount}
-                onChange={handleInputAmount}
                 type="number"
             />
             <button

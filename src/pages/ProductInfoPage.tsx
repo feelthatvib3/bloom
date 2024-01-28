@@ -8,7 +8,7 @@ import {
 } from '../store/features/productsSlice';
 import Breadcrumb from '../ui/Breadcrumb';
 import DiscountBadge from '../ui/DiscountBadge';
-import ProductAmountConter from '../ui/ProductAmountCounter';
+import ProductAmountCounter from '../ui/ProductAmountCounter';
 
 export default function ProductInfoPage() {
     const [isDescriptionCollapsed, setIsDescriptionCollapsed] =
@@ -89,7 +89,7 @@ export default function ProductInfoPage() {
                             </div>
                             {/* counter + button */}
                             <div className="flex flex-col gap-y-3 md:gap-y-5 xl:flex-row xl:gap-x-1 2xl:gap-x-5">
-                                <ProductAmountConter />
+                                <ProductAmountCounter />
                                 <button className="flex w-full items-center justify-center rounded-md bg-accent px-8 py-3 text-xl font-semibold text-white transition-colors hover:bg-black">
                                     Add to cart
                                 </button>
