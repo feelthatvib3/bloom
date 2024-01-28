@@ -4,14 +4,11 @@ import capitalize from '../utils/capitalize';
 
 export default function Breadcrumb() {
     const location = useLocation();
-    console.log(location);
     const pathnames = location.pathname
         .split('/')
-        .filter((pathname) => pathname)
-        .map(capitalize);
-
+        .filter((pathname) => pathname);
     return (
-        <div className="flex">
+        <div className="hidden lg:flex">
             <NavigationButton text="Main page" href="/" />
             {pathnames.map((name, index) => {
                 const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
@@ -22,10 +19,13 @@ export default function Breadcrumb() {
                         <div className="h-[1px] w-4 bg-divider"></div>
                         {isLast ? (
                             <div className="flex shrink-0 items-center justify-center rounded-md border border-divider px-4 py-2 text-sm font-medium">
-                                {name}
+                                {capitalize(name)}
                             </div>
                         ) : (
-                            <NavigationButton text={name} href="/" />
+                            <NavigationButton
+                                text={capitalize(name)}
+                                href={routeTo}
+                            />
                         )}
                     </div>
                 );
