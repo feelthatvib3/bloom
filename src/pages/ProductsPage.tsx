@@ -17,7 +17,7 @@ export default function ProductsPage({ type }: ProductsPageProps) {
         <main>
             <section className="pt-8 xl:pt-10">
                 <Container>
-                    <Breadcrumb />
+                    <Breadcrumb lastPathname={categoryTitle} />
                     <div className="lg:mt-8 xl:mt-10"></div>
                     <Title text={categoryTitle} />
                     <ProductFilter type={type} />

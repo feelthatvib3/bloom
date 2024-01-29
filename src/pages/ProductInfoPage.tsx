@@ -36,7 +36,7 @@ export default function ProductInfoPage() {
         <main>
             <section className="pt-8 xl:pt-10">
                 <Container>
-                    <Breadcrumb />
+                    <Breadcrumb lastPathname={currentProduct?.title} />
                     {/* title (visible by default; hidden after 'lg' breakpoint) */}
                     <h1 className="text-[28px] font-bold leading-[110%] lg:hidden lg:text-[32px] xl:text-[40px]">
                         {currentProduct?.title}
