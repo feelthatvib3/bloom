@@ -2,7 +2,11 @@ import { useLocation } from 'react-router-dom';
 import NavigationButton from './NavigationButton';
 import capitalize from '../utils/capitalize';
 
-export default function Breadcrumb() {
+interface BreadcrumbProps {
+    lastPathname?: string;
+}
+
+export default function Breadcrumb({ lastPathname }: BreadcrumbProps) {
     const location = useLocation();
     const pathnames = location.pathname
         .split('/')
@@ -19,7 +23,7 @@ export default function Breadcrumb() {
                         <div className="h-[1px] w-4 bg-divider"></div>
                         {isLast ? (
                             <div className="flex shrink-0 items-center justify-center rounded-md border border-divider px-4 py-2 text-sm font-medium">
-                                {capitalize(name)}
+                                {capitalize(lastPathname || name)}
                             </div>
                         ) : (
                             <NavigationButton
