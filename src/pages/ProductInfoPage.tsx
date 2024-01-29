@@ -105,7 +105,7 @@ export default function ProductInfoPage() {
                                     {currentProduct?.description}
                                 </p>
                                 {currentProduct &&
-                                    currentProduct.description.length > 250 && (
+                                    currentProduct.description.length > 400 && (
                                         <button
                                             onClick={
                                                 handleDescriptionButtonClick
