@@ -22,7 +22,7 @@ export default function Select({ options, onSelect }: SelectProps) {
         setIsOpened(false);
     };
     return (
-        <div className="relative min-w-[200px]">
+        <div className="relative w-[200px]">
             <div
                 onClick={toggleDropdown}
                 className="flex shrink-0 cursor-pointer items-center justify-between gap-x-2 rounded-md border border-divider bg-white py-2 pl-4 pr-2"
