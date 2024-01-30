@@ -1,6 +1,6 @@
 import errorImage from '../assets/404.svg';
 import Button from '../components/ui/Button';
-import Container from '../components/Container';
+import Container from '../components/layout/Container';
 import Title from '../components/ui/Title';
 
 export default function NotFoundPage() {

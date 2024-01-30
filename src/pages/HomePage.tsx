@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Container from '../components/Container';
+import Container from '../components/layout/Container';
 import Button from '../components/ui/Button';
 import Title from '../components/ui/Title';
 import { RootState, useAppDispatch, useAppSelector } from '../store/index';
 import { Category, fetchCategories } from '../store/features/categoriesSlice';
-import DiscountBanner from '../components/DiscountBanner';
-import ProductCard from '../components/ui/ProductCard';
+import DiscountBanner from '../components/layout/DiscountBanner';
+import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
 import { fetchDiscountedProducts } from '../store/features/productsSlice';
 

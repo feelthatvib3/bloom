@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Product } from '../../store/features/productsSlice';
-import DiscountBadge from './DiscountBadge';
-import Button from './Button';
+import { Product } from '../store/features/productsSlice';
+import DiscountBadge from './ui/DiscountBadge';
+import Button from './ui/Button';
 
 interface ProductCardProps {
     product: Product;

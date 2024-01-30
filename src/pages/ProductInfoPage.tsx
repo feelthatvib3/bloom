@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Container from '../components/Container';
+import Container from '../components/layout/Container';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
 import {
     clearCurrentProduct,

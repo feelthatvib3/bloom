@@ -5,7 +5,7 @@ import {
     fetchDiscountedProducts,
     fetchProductsByCategoryId,
 } from '../store/features/productsSlice';
-import ProductCard from './ui/ProductCard';
+import ProductCard from './ProductCard';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
 import { useParams } from 'react-router-dom';
 

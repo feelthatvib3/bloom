@@ -1,4 +1,4 @@
-import Container from '../components/Container';
+import Container from '../components/layout/Container';
 import { RootState, useAppSelector } from '../store';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Title from '../components/ui/Title';

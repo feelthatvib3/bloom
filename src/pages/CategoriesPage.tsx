@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Container from '../components/Container';
+import Container from '../components/layout/Container';
 import Title from '../components/ui/Title';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
 import { Category, fetchCategories } from '../store/features/categoriesSlice';
