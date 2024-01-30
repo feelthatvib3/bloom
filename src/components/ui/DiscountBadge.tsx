@@ -1,4 +1,4 @@
-import calculateDiscountPercentage from '../utils/calculateDiscountPercentage';
+import calculateDiscountPercentage from '../../utils/calculateDiscountPercentage';
 
 interface DiscountProps {
     regularPrice: number;

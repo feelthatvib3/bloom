@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import capitalize from '../utils/capitalize';
-import Button from '../components/Button';
+import capitalize from '../../utils/capitalize';
+import Button from './Button';
 
 interface BreadcrumbProps {
     lastPathname?: string;
