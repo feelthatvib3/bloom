@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import errorImage from '../assets/404.svg';
 import Button from '../components/ui/Button';
 import Container from '../components/layout/Container';
 import Title from '../components/ui/Title';
 
 export default function NotFoundPage() {
+    const navigate = useNavigate();
     return (
         <main>
             <Container className="flex max-w-screen-lg flex-col items-center justify-center py-20 text-center">
@@ -15,7 +17,12 @@ export default function NotFoundPage() {
                         Please go back to the homepage.
                     </p>
                 </div>
-                <Button>Go Home</Button>
+                <Button
+                    onClick={() => navigate('/')}
+                    className="px-[52px] lg:px-14"
+                >
+                    Go Home
+                </Button>
             </Container>
         </main>
     );
