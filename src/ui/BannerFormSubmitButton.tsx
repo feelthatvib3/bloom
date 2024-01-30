@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-
 interface BannerButtonProps {
     isDiscountRequestSent: boolean;
 }
