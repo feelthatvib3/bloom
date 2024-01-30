@@ -1,19 +1,22 @@
-import { useLocation } from 'react-router-dom';
-import NavigationButton from './NavigationButton';
+import { useLocation, useNavigate } from 'react-router-dom';
 import capitalize from '../utils/capitalize';
+import Button from '../components/Button';
 
 interface BreadcrumbProps {
     lastPathname?: string;
 }
 
 export default function Breadcrumb({ lastPathname }: BreadcrumbProps) {
+    const navigate = useNavigate();
     const location = useLocation();
     const pathnames = location.pathname
         .split('/')
         .filter((pathname) => pathname);
     return (
-        <div className="hidden lg:flex">
-            <NavigationButton text="Main page" href="/" />
+        <div className="hidden lg:flex lg:items-center">
+            <Button intent="breadcrumb" onClick={() => navigate('/')}>
+                Main page
+            </Button>
             {pathnames.map((name, index) => {
                 const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
                 const isLast = index === pathnames.length - 1;
@@ -26,10 +29,12 @@ export default function Breadcrumb({ lastPathname }: BreadcrumbProps) {
                                 {capitalize(lastPathname || name)}
                             </div>
                         ) : (
-                            <NavigationButton
-                                text={capitalize(name)}
-                                href={routeTo}
-                            />
+                            <Button
+                                intent="breadcrumb"
+                                onClick={() => navigate(routeTo)}
+                            >
+                                {capitalize(name)}
+                            </Button>
                         )}
                     </div>
                 );
