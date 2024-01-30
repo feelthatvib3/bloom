@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../components/layout/Container';
 import Button from '../components/ui/Button';
@@ -11,6 +11,8 @@ import CategoryCard from '../components/CategoryCard';
 import { fetchDiscountedProducts } from '../store/features/productsSlice';
 
 export default function HomePage() {
+    const saleSectionRef = useRef<HTMLDivElement | null>(null);
+
     const navigate = useNavigate();
     const { categories } = useAppSelector(
         (state: RootState) => state.categories,
@@ -19,6 +21,15 @@ export default function HomePage() {
 
     const { products } = useAppSelector((state: RootState) => state.products);
     const firstFourDiscountedProducts = products.slice(0, 4);
+
+    const scrollToSaleSection = () => {
+        if (saleSectionRef.current) {
+            saleSectionRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            });
+        }
+    };
 
     const dispatch = useAppDispatch();
     useEffect(() => {
@@ -32,7 +43,12 @@ export default function HomePage() {
                     <h1 className="max-w-[1050px] pb-6 pt-[50px] text-[52px] font-bold leading-[110%] md:text-6xl lg:pb-10 lg:pt-[60px] lg:text-[68px] xl:text-[90px] 2xl:pt-[80px] 2xl:text-[96px]">
                         Amazing Discounts on Garden Products!
                     </h1>
-                    <Button>Check out</Button>
+                    <Button
+                        onClick={scrollToSaleSection}
+                        className="px-[52px] lg:px-14"
+                    >
+                        Check out
+                    </Button>
                 </Container>
             </section>
             <section className="py-14 lg:py-[60px] 2xl:py-20">
@@ -63,7 +79,7 @@ export default function HomePage() {
                     <DiscountBanner />
                 </Container>
             </section>
-            <section>
+            <section ref={saleSectionRef}>
                 <Container>
                     <Title
                         text="Sale"
