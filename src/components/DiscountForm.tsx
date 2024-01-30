@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import BannerFormSubmitButton from '../ui/BannerFormSubmitButton';
+import Button from './Button';
 
 interface Inputs {
     name: string;
@@ -28,6 +28,8 @@ export default function DiscountForm() {
                 body: JSON.stringify(data),
             },
         );
+        const responseData = await response.json();
+        console.log(responseData);
 
         setIsDiscountRequestSent(true);
         reset();
@@ -63,25 +65,30 @@ export default function DiscountForm() {
                 type="text"
                 placeholder="Name"
                 {...nameInput}
-                className={`rounded-md border border-white bg-transparent px-5 py-3  text-lg font-medium text-white placeholder:text-lg placeholder:font-medium placeholder:text-white focus:outline-none ${errors.name && 'border-2 border-red-500 placeholder:text-red-500'}`}
+                className={`rounded-md border border-white bg-transparent px-5 py-3 text-lg font-medium text-white placeholder:text-lg placeholder:font-medium placeholder:text-white focus:outline-none ${errors.name && 'border-2'}`}
             />
             <input
                 defaultValue=""
                 type="text"
                 placeholder="Phone number"
                 {...phoneNumberInput}
-                className={`rounded-md border border-white bg-transparent px-5 py-3  text-lg font-medium text-white placeholder:text-lg placeholder:font-medium placeholder:text-white focus:outline-none ${errors.phoneNumber && 'border-2 border-red-500 placeholder:text-red-500'}`}
+                className={`rounded-md border border-white bg-transparent px-5 py-3  text-lg font-medium text-white placeholder:text-lg placeholder:font-medium placeholder:text-white focus:outline-none ${errors.phoneNumber && 'border-2'}`}
             />
             <input
                 defaultValue=""
                 type="email"
                 placeholder="Email"
                 {...emailInput}
-                className={`rounded-md border border-white bg-transparent px-5 py-3  text-lg font-medium text-white placeholder:text-lg placeholder:font-medium placeholder:text-white focus:outline-none ${errors.phoneNumber && 'border-2 border-red-500 placeholder:text-red-500'}`}
+                className={`rounded-md border border-white bg-transparent px-5 py-3  text-lg font-medium text-white placeholder:text-lg placeholder:font-medium placeholder:text-white focus:outline-none ${errors.email && 'border-2'}`}
             />
-            <BannerFormSubmitButton
-                isDiscountRequestSent={isDiscountRequestSent}
-            />
+            <Button
+                intent="banner"
+                className={`${isDiscountRequestSent ? 'bg-transparent text-white' : 'bg-white text-black hover:bg-black hover:text-white'} mt-5`}
+                type="submit"
+                disabled={isDiscountRequestSent}
+            >
+                {isDiscountRequestSent ? 'Request submitted' : 'Get a discount'}
+            </Button>
         </form>
     );
 }
