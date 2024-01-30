@@ -1,4 +1,4 @@
-import cartImage from '../assets/cart.svg';
+import cartImage from '../../assets/cart.svg';
 
 export default function CartButton() {
     const array = Array(100); // later obtained from redux store

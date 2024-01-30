@@ -1,5 +1,5 @@
 import DiscountForm from '../DiscountForm';
-import discountImage from '../assets/banner.png';
+import discountImage from '../../assets/banner.png';
 
 export default function DiscountBanner() {
     return (

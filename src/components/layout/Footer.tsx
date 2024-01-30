@@ -1,5 +1,5 @@
-import instagramImage from '../assets/instagram.svg';
-import whatsappImage from '../assets/whatsapp.svg';
+import instagramImage from '../../assets/instagram.svg';
+import whatsappImage from '../../assets/whatsapp.svg';
 import Container from './Container';
 import Title from '../ui/Title';
 

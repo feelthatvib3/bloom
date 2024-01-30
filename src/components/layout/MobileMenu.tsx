@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import closeButton from '../assets/close.svg';
+import closeButton from '../../assets/close.svg';
 import { navigationLinks } from '../../data/navigationLinks';
 
 interface MobileMenuProps {
