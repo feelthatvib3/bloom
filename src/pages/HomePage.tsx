@@ -43,7 +43,10 @@ export default function HomePage() {
                     />
                     <ul className="mt-6 grid place-items-stretch gap-y-5 md:grid-cols-2 md:gap-x-5 lg:mt-8 xl:grid-cols-4">
                         {firstFourCategories.map((category: Category) => (
-                            <CategoryCard category={category} />
+                            <CategoryCard
+                                key={category.id}
+                                category={category}
+                            />
                         ))}
                     </ul>
                     <Button
