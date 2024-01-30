@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import Container from '../components/Container';
-import Title from '../ui/Title';
+import Title from '../components/ui/Title';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
 import { Category, fetchCategories } from '../store/features/categoriesSlice';
 import CategoryCard from '../components/CategoryCard';
-import Breadcrumb from '../ui/Breadcrumb';
+import Breadcrumb from '../components/ui/Breadcrumb';
 
 export default function CategoriesPage() {
     const { categories } = useAppSelector(

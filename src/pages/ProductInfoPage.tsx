@@ -6,10 +6,10 @@ import {
     clearCurrentProduct,
     fetchProductById,
 } from '../store/features/productsSlice';
-import Breadcrumb from '../ui/Breadcrumb';
-import DiscountBadge from '../ui/DiscountBadge';
-import ProductAmountCounter from '../ui/ProductAmountCounter';
-import Button from '../components/Button';
+import Breadcrumb from '../components/ui/Breadcrumb';
+import DiscountBadge from '../components/ui/DiscountBadge';
+import ProductAmountCounter from '../components/ui/ProductAmountCounter';
+import Button from '../components/ui/Button';
 
 export default function ProductInfoPage() {
     const [isDescriptionCollapsed, setIsDescriptionCollapsed] =

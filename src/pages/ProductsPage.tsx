@@ -1,9 +1,9 @@
 import Container from '../components/Container';
 import { RootState, useAppSelector } from '../store';
-import Breadcrumb from '../ui/Breadcrumb';
-import Title from '../ui/Title';
+import Breadcrumb from '../components/ui/Breadcrumb';
+import Title from '../components/ui/Title';
 import ProductsList from '../components/ProductsList';
-import ProductFilter from '../ui/ProductFilter';
+import ProductFilter from '../components/ui/ProductFilter';
 
 interface ProductsPageProps {
     type: 'category' | 'products' | 'sales';
