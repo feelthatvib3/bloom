@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import Container from '../components/Container';
 import { useEffect, useState } from 'react';
+import Container from '../components/Container';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
 import {
     clearCurrentProduct,
@@ -9,6 +9,7 @@ import {
 import Breadcrumb from '../ui/Breadcrumb';
 import DiscountBadge from '../ui/DiscountBadge';
 import ProductAmountCounter from '../ui/ProductAmountCounter';
+import Button from '../components/Button';
 
 export default function ProductInfoPage() {
     const [isDescriptionCollapsed, setIsDescriptionCollapsed] =
@@ -88,11 +89,11 @@ export default function ProductInfoPage() {
                                 )}
                             </div>
                             {/* counter + button */}
-                            <div className="flex flex-col gap-y-3 md:gap-y-5 xl:flex-row xl:gap-x-1 2xl:gap-x-5">
+                            <div className="flex flex-col gap-y-3 md:gap-y-5 xl:flex-row xl:gap-x-1 2xl:gap-x-4">
                                 <ProductAmountCounter />
-                                <button className="flex w-full items-center justify-center rounded-md bg-accent px-8 py-3 text-xl font-semibold text-white transition-colors hover:bg-black">
+                                <Button className="w-full shrink">
                                     Add to cart
-                                </button>
+                                </Button>
                             </div>
                             {/* decsription (hidden by default; visible after 'xl' breakpoint) */}
                             <div className="hidden lg:flex-col lg:gap-y-3 xl:flex">

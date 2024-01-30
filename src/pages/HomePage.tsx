@@ -1,16 +1,17 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Container from '../components/Container';
 import Button from '../components/Button';
 import Title from '../ui/Title';
 import { RootState, useAppDispatch, useAppSelector } from '../store/index';
-import { useEffect } from 'react';
 import { Category, fetchCategories } from '../store/features/categoriesSlice';
 import DiscountBanner from '../components/DiscountBanner';
 import ProductCard from '../ui/ProductCard';
-import NavigationButton from '../ui/NavigationButton';
 import CategoryCard from '../components/CategoryCard';
 import { fetchDiscountedProducts } from '../store/features/productsSlice';
 
 export default function HomePage() {
+    const navigate = useNavigate();
     const { categories } = useAppSelector(
         (state: RootState) => state.categories,
     );
@@ -26,12 +27,12 @@ export default function HomePage() {
     }, []);
     return (
         <main>
-            <section className="h-[600px] bg-hero-pattern bg-center">
+            <section className="h-[600px] bg-hero-pattern bg-cover bg-no-repeat">
                 <Container className="text-white">
                     <h1 className="max-w-[1050px] pb-6 pt-[50px] text-[52px] font-bold leading-[110%] md:text-6xl lg:pb-10 lg:pt-[60px] lg:text-[68px] xl:text-[90px] 2xl:pt-[80px] 2xl:text-[96px]">
                         Amazing Discounts on Garden Products!
                     </h1>
-                    <Button>Check out!</Button>
+                    <Button>Check out</Button>
                 </Container>
             </section>
             <section className="py-14 lg:py-[60px] 2xl:py-20">
@@ -45,11 +46,13 @@ export default function HomePage() {
                             <CategoryCard category={category} />
                         ))}
                     </ul>
-                    <NavigationButton
-                        text="All categories"
-                        href="/categories"
-                        className="mx-auto mt-6 max-w-fit py-3 md:hidden"
-                    />
+                    <Button
+                        intent="link"
+                        onClick={() => navigate('/categories')}
+                        className="mx-auto mt-6 md:hidden"
+                    >
+                        All categories
+                    </Button>
                 </Container>
             </section>
             <section className="pb-14 lg:pb-[60px] 2xl:pb-20">
@@ -68,11 +71,13 @@ export default function HomePage() {
                             <ProductCard key={product.id} product={product} />
                         ))}
                     </ul>
-                    <NavigationButton
-                        text="All sales"
-                        href="/sales"
-                        className="mx-auto mt-6 max-w-fit py-3 md:hidden"
-                    />
+                    <Button
+                        intent="link"
+                        onClick={() => navigate('/sales')}
+                        className="mx-auto mt-6 md:hidden"
+                    >
+                        All sales
+                    </Button>
                 </Container>
             </section>
         </main>

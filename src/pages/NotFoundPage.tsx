@@ -15,9 +15,7 @@ export default function NotFoundPage() {
                         Please go back to the homepage.
                     </p>
                 </div>
-                <Button href="/" className="max-w-fit">
-                    Go Home
-                </Button>
+                <Button>Go Home</Button>
             </Container>
         </main>
     );
