@@ -23,7 +23,7 @@ export default function ProductCard({
         product: Product,
     ) => {
         event.preventDefault();
-        dispatch(addToCart(product));
+        dispatch(addToCart({ product, count: 1 }));
     };
     return (
         <li className="group overflow-hidden rounded-md border border-divider">
