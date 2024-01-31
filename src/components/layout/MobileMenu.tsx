@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import { Link } from 'react-router-dom';
 import closeButton from '../../assets/close.svg';
 import { navigationLinks } from '../../data/navigationLinks';
 
@@ -30,8 +31,8 @@ export default function MobileMenu({
                         {navigationLinks.map(
                             ({ name, href }, index: number) => (
                                 <li key={index}>
-                                    <a
-                                        href={href}
+                                    <Link
+                                        to={href}
                                         className="text-2xl font-medium text-black transition-colors hover:text-accent"
                                         onClick={() =>
                                             setIsMobileMenuOpened(
@@ -40,7 +41,7 @@ export default function MobileMenu({
                                         }
                                     >
                                         {name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ),
                         )}
