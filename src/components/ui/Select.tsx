@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface SelectProps {
     options: Option[];
@@ -14,6 +15,8 @@ export default function Select({ options, onSelect }: SelectProps) {
     const [isOpened, setIsOpened] = useState<boolean>(false);
     const [selectedOption, setSelectedOption] = useState<Option>(options[0]);
 
+    const { pathname } = useLocation();
+
     const toggleDropdown = () => setIsOpened(!isOpened);
 
     const handleSelectOption = (option: Option) => {
@@ -21,6 +24,12 @@ export default function Select({ options, onSelect }: SelectProps) {
         onSelect(option);
         setIsOpened(false);
     };
+
+    useEffect(() => {
+        return () => {
+            setSelectedOption(options[0]);
+        };
+    }, [pathname]);
     return (
         <div className="relative w-[200px]">
             <div
