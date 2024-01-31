@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
-export default function ProductAmountCounter() {
-    const [productAmount, setProductAmount] = useState<number>(1);
+interface ProductAmountCounterProps {
+    productAmount: number;
+    setProductAmount: Dispatch<SetStateAction<number>>;
+}
 
+export default function ProductAmountCounter({
+    productAmount,
+    setProductAmount,
+}: ProductAmountCounterProps) {
     const handleIncreaseAmountButton = () =>
         setProductAmount(productAmount + 1);
 
@@ -16,8 +22,9 @@ export default function ProductAmountCounter() {
     return (
         <div className="flex">
             <button
+                disabled={productAmount === 1}
                 onClick={handleDecreaseAmountButton}
-                className="z-10 flex w-[47px] items-center justify-center rounded-md border border-divider bg-white transition-colors hover:bg-lightgray"
+                className="z-10 flex w-[47px] items-center justify-center rounded-md border border-divider bg-white transition-colors hover:bg-lightgray disabled:cursor-not-allowed disabled:bg-lightgray"
             >
                 <span className="h-[2px] w-4 rounded-full bg-darkgray"></span>
             </button>
