@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Product } from '../store/features/productsSlice';
 import DiscountBadge from './ui/DiscountBadge';
 import Button from './ui/Button';
+import { addToCart } from '../store/features/cartSlice';
+import { MouseEvent } from 'react';
+import { useAppDispatch } from '../store';
 
 interface ProductCardProps {
     product: Product;
@@ -13,6 +16,15 @@ export default function ProductCard({
     withAddToCartButton,
 }: ProductCardProps) {
     const { id, title, price, discont_price, image } = product;
+    const dispatch = useAppDispatch();
+
+    const addProductToCart = (
+        event: MouseEvent<HTMLButtonElement>,
+        product: Product,
+    ) => {
+        event.preventDefault();
+        dispatch(addToCart(product));
+    };
     return (
         <li className="group overflow-hidden rounded-md border border-divider">
             <Link to={`/products/${id}`}>
@@ -24,7 +36,12 @@ export default function ProductCard({
                         className="absolute left-0 top-0 z-0 h-full w-full object-cover"
                     />
                     {withAddToCartButton && (
-                        <Button className="rigth-4 absolute bottom-4 left-4 z-10 w-[calc(100%-32px)] translate-y-16 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                        <Button
+                            className="rigth-4 absolute bottom-4 left-4 z-10 w-[calc(100%-32px)] translate-y-16 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                            onClick={(event) =>
+                                addProductToCart(event, product)
+                            }
+                        >
                             Add to cart
                         </Button>
                     )}
