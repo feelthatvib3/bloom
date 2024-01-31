@@ -74,7 +74,7 @@ export const fetchProductById = createAsyncThunk(
     },
 );
 
-export const ProductsSlice = createSlice({
+export const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
@@ -111,6 +111,6 @@ export const ProductsSlice = createSlice({
     },
 });
 
-export const { clearCurrentProduct, clearProducts } = ProductsSlice.actions;
+export const { clearCurrentProduct, clearProducts } = productsSlice.actions;
 
-export default ProductsSlice.reducer;
+export default productsSlice.reducer;
