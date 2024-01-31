@@ -10,10 +10,12 @@ import Breadcrumb from '../components/ui/Breadcrumb';
 import DiscountBadge from '../components/ui/DiscountBadge';
 import ProductAmountCounter from '../components/ui/ProductAmountCounter';
 import Button from '../components/ui/Button';
+import { addToCart } from '../store/features/cartSlice';
 
 export default function ProductInfoPage() {
     const [isDescriptionCollapsed, setIsDescriptionCollapsed] =
         useState<boolean>(true);
+    const [productAmount, setProductAmount] = useState<number>(1);
 
     const { currentProduct } = useAppSelector(
         (state: RootState) => state.products,
@@ -24,6 +26,10 @@ export default function ProductInfoPage() {
 
     const handleDescriptionButtonClick = () =>
         setIsDescriptionCollapsed(!isDescriptionCollapsed);
+
+    const addProductToCart = () => {
+        dispatch(addToCart({ product: currentProduct, count: productAmount }));
+    };
 
     useEffect(() => {
         if (productId) {
@@ -90,8 +96,14 @@ export default function ProductInfoPage() {
                             </div>
                             {/* counter + button */}
                             <div className="flex flex-col gap-y-3 md:gap-y-5 xl:flex-row xl:gap-x-1 2xl:gap-x-4">
-                                <ProductAmountCounter />
-                                <Button className="w-full shrink">
+                                <ProductAmountCounter
+                                    productAmount={productAmount}
+                                    setProductAmount={setProductAmount}
+                                />
+                                <Button
+                                    className="w-full shrink"
+                                    onClick={addProductToCart}
+                                >
                                     Add to cart
                                 </Button>
                             </div>
