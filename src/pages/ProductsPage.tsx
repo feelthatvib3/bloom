@@ -2,7 +2,7 @@ import Container from '../components/layout/Container';
 import { RootState, useAppSelector } from '../store';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import Title from '../components/ui/Title';
-import ProductsList from '../components/ProductsList';
+import ProductsList from '../components/layout/ProductsList';
 import ProductFilter from '../components/ui/ProductFilter';
 
 interface ProductsPageProps {
