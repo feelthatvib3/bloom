@@ -1,19 +1,17 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { Product } from './productsSlice';
 
-interface CartProducts extends Product {
+export interface CartProduct extends Product {
     amountAdded: number;
 }
 
 interface CartState {
-    products: CartProducts[];
-    uniqueProducts: number;
+    products: CartProduct[];
     productsAdded: number;
 }
 
 const initialState: CartState = {
     products: [],
-    uniqueProducts: 0,
     productsAdded: 0,
 };
 
@@ -23,21 +21,19 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             const { product, count } = action.payload;
-            if (
-                state.products.find(
-                    (product) => product.id === action.payload.id,
-                )
-            ) {
-                state.products = state.products.map((product) => {
-                    if (product.id === action.payload.id) {
-                        return {
-                            ...product,
-                            amountAdded: count,
-                        };
-                    }
+            const existingProduct = state.products.find(
+                (existingProduct) => product.id === existingProduct.id,
+            );
 
-                    return product;
-                });
+            if (existingProduct) {
+                state.products = state.products.map((product) =>
+                    product.id === existingProduct.id
+                        ? {
+                              ...product,
+                              amountAdded: product.amountAdded + count,
+                          }
+                        : product,
+                );
             } else {
                 state.products.push({ ...product, amountAdded: count });
             }
@@ -48,8 +44,57 @@ export const cartSlice = createSlice({
                 0,
             );
         },
+        removeProductFromCart: (state, action) => {
+            state.products = state.products.filter(
+                (product) => product.id !== action.payload,
+            );
+            state.productsAdded = state.products.reduce(
+                (accumulator, currentValue) =>
+                    accumulator + currentValue.amountAdded,
+                0,
+            );
+        },
+        increaseProductCount: (state, action) => {
+            const productId = action.payload;
+            state.products = state.products.map((existingProduct) => {
+                if (existingProduct.id === productId) {
+                    return {
+                        ...existingProduct,
+                        amountAdded: existingProduct.amountAdded + 1,
+                    };
+                } else {
+                    return existingProduct;
+                }
+            });
+        },
+        decreaseProductCount: (state, action) => {
+            const productId = action.payload;
+            state.products = state.products.map((existingProduct) => {
+                if (existingProduct.id === productId) {
+                    return {
+                        ...existingProduct,
+                        amountAdded: existingProduct.amountAdded - 1,
+                    };
+                } else {
+                    return existingProduct;
+                }
+            });
+        },
+        updateProductsAmount: (state) => {
+            state.productsAdded = state.products.reduce(
+                (accumulator, currentValue) =>
+                    accumulator + currentValue.amountAdded,
+                0,
+            );
+        },
     },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const {
+    addToCart,
+    removeProductFromCart,
+    increaseProductCount,
+    decreaseProductCount,
+    updateProductsAmount,
+} = cartSlice.actions;
 export default cartSlice.reducer;
