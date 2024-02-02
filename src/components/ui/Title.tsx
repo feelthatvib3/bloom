@@ -13,7 +13,7 @@ export default function Title({ text, link }: TitleProps) {
     const navigate = useNavigate();
     return link ? (
         <div className="md:flex md:items-center md:gap-x-4 lg:gap-x-5 xl:gap-x-8">
-            <h2 className="text-[40px] font-bold leading-[44px] text-black md:text-5xl md:leading-[53px] lg:text-[64px] lg:leading-[61px] xl:leading-[70px]">
+            <h2 className="text-[40px] font-bold leading-[44px] text-black md:text-5xl md:leading-[53px] lg:shrink-0 lg:text-[64px] lg:leading-[61px] xl:leading-[70px]">
                 {text}
             </h2>
             <div className="hidden w-full md:flex md:items-center">
