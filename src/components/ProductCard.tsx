@@ -26,7 +26,7 @@ export default function ProductCard({
         event.preventDefault();
         dispatch(addToCart({ product, count: 1 }));
         setIsProductAdded(true);
-        const timeoutId = setTimeout(() => {
+        setTimeout(() => {
             setIsProductAdded(false);
         }, 2 * 1000);
     };
@@ -43,7 +43,7 @@ export default function ProductCard({
                     {withAddToCartButton && (
                         <Button
                             disabled={isProductAdded}
-                            className={`rigth-4 absolute bottom-4 left-4 z-10 w-[calc(100%-32px)] translate-y-16 border border-accent opacity-0 hover:border-black disabled:cursor-not-allowed group-hover:translate-y-0 group-hover:opacity-100 ${isProductAdded && 'border-black bg-white !text-black hover:bg-white'}`}
+                            className={`rigth-4 absolute bottom-4 left-4 z-10 w-[calc(100%-32px)] translate-y-16 border border-accent !px-4 opacity-0 hover:border-black disabled:cursor-not-allowed group-hover:translate-y-0 group-hover:opacity-100 ${isProductAdded && 'border-black bg-white !text-black hover:bg-white'}`}
                             onClick={(event) =>
                                 addProductToCart(event, product)
                             }
