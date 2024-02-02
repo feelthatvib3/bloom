@@ -68,7 +68,7 @@ export default function HomePage() {
                     <Button
                         intent="link"
                         onClick={() => navigate('/categories')}
-                        className="mx-auto mt-6 md:hidden"
+                        className="mx-auto mt-6"
                     >
                         All categories
                     </Button>
@@ -93,7 +93,7 @@ export default function HomePage() {
                     <Button
                         intent="link"
                         onClick={() => navigate('/sales')}
-                        className="mx-auto mt-6 md:hidden"
+                        className="mx-auto mt-6"
                     >
                         All sales
                     </Button>

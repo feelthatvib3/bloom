@@ -44,6 +44,7 @@ const buttonStyles = cva(
                     'active:bg-white',
                 ],
                 link: [
+                    'md:hidden',
                     'bg-white',
                     'text-darkgray',
                     'text-sm',
