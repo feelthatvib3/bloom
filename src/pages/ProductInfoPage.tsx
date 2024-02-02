@@ -95,7 +95,7 @@ export default function ProductInfoPage() {
                                 )}
                             </div>
                             {/* counter + button */}
-                            <div className="flex flex-col gap-y-3 md:gap-y-5 xl:flex-row xl:gap-x-1 2xl:gap-x-4">
+                            <div className="flex flex-col items-center gap-y-3 md:items-start md:gap-y-5 xl:flex-row xl:gap-x-1 2xl:gap-x-4">
                                 <ProductAmountCounter
                                     productAmount={productAmount}
                                     setProductAmount={setProductAmount}
