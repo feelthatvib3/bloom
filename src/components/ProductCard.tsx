@@ -3,7 +3,7 @@ import { Product } from '../store/features/productsSlice';
 import DiscountBadge from './ui/DiscountBadge';
 import Button from './ui/Button';
 import { addToCart } from '../store/features/cartSlice';
-import { MouseEvent } from 'react';
+import { MouseEvent, useState } from 'react';
 import { useAppDispatch } from '../store';
 
 interface ProductCardProps {
@@ -15,6 +15,7 @@ export default function ProductCard({
     product,
     withAddToCartButton,
 }: ProductCardProps) {
+    const [isProductAdded, setIsProductAdded] = useState<boolean>(false);
     const { id, title, price, discont_price, image } = product;
     const dispatch = useAppDispatch();
 
@@ -24,6 +25,10 @@ export default function ProductCard({
     ) => {
         event.preventDefault();
         dispatch(addToCart({ product, count: 1 }));
+        setIsProductAdded(true);
+        const timeoutId = setTimeout(() => {
+            setIsProductAdded(false);
+        }, 2 * 1000);
     };
     return (
         <li className="group overflow-hidden rounded-md border border-divider">
@@ -37,12 +42,13 @@ export default function ProductCard({
                     />
                     {withAddToCartButton && (
                         <Button
-                            className="rigth-4 absolute bottom-4 left-4 z-10 w-[calc(100%-32px)] translate-y-16 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                            disabled={isProductAdded}
+                            className={`rigth-4 absolute bottom-4 left-4 z-10 w-[calc(100%-32px)] translate-y-16 border border-accent opacity-0 hover:border-black disabled:cursor-not-allowed group-hover:translate-y-0 group-hover:opacity-100 ${isProductAdded && 'border-black bg-white !text-black hover:bg-white'}`}
                             onClick={(event) =>
                                 addProductToCart(event, product)
                             }
                         >
-                            Add to cart
+                            {isProductAdded ? 'Added' : 'Add to cart'}
                         </Button>
                     )}
                     {discont_price && (
