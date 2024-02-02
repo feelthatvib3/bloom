@@ -1,20 +1,39 @@
 import { Dispatch, SetStateAction } from 'react';
+import { useAppDispatch } from '../../store';
+import {
+    decreaseProductCount,
+    increaseProductCount,
+    updateProductsAmount,
+} from '../../store/features/cartSlice';
 
 interface ProductAmountCounterProps {
     productAmount: number;
     setProductAmount: Dispatch<SetStateAction<number>>;
+    productId?: number;
 }
 
 export default function ProductAmountCounter({
+    productId,
     productAmount,
     setProductAmount,
 }: ProductAmountCounterProps) {
-    const handleIncreaseAmountButton = () =>
-        setProductAmount(productAmount + 1);
+    const dispatch = useAppDispatch();
+
+    const handleIncreaseAmountButton = () => {
+        if (productId) {
+            dispatch(increaseProductCount(productId));
+            dispatch(updateProductsAmount());
+            setProductAmount(productAmount + 1);
+        } else {
+            setProductAmount(productAmount + 1);
+        }
+    };
 
     const handleDecreaseAmountButton = () => {
-        if (productAmount === 1) {
-            return;
+        if (productId) {
+            dispatch(decreaseProductCount(productId));
+            dispatch(updateProductsAmount());
+            setProductAmount(productAmount - 1);
         } else {
             setProductAmount(productAmount - 1);
         }
