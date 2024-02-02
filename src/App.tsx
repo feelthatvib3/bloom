@@ -6,6 +6,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import CategoriesPage from './pages/CategoriesPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductInfoPage from './pages/ProductInfoPage';
+import CartPage from './pages/CartPage';
 
 export default function App() {
     return (
@@ -31,6 +32,7 @@ export default function App() {
                         path="/products/:productId"
                         element={<ProductInfoPage />}
                     />
+                    <Route path="/cart" element={<CartPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>
