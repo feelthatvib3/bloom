@@ -83,7 +83,7 @@ interface ButtonProps
     extends ButtonHTMLAttributes<HTMLButtonElement>,
         ButtonStylesProps {
     intent?: ButtonStylesProps['intent'];
-    children?: ReactNode;
+    children: ReactNode;
     className?: string;
 }
 
