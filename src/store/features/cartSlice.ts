@@ -8,11 +8,13 @@ export interface CartProduct extends Product {
 interface CartState {
     products: CartProduct[];
     productsAdded: number;
+    productsTotalPrice: number;
 }
 
 const initialState: CartState = {
     products: [],
     productsAdded: 0,
+    productsTotalPrice: 0,
 };
 
 export const cartSlice = createSlice({
@@ -43,6 +45,11 @@ export const cartSlice = createSlice({
                     accumulator + currentValue.amountAdded,
                 0,
             );
+            state.productsTotalPrice = state.products.reduce(
+                (total, product) =>
+                    (total += product.price * product.amountAdded),
+                0,
+            );
         },
         removeProductFromCart: (state, action) => {
             state.products = state.products.filter(
@@ -51,6 +58,11 @@ export const cartSlice = createSlice({
             state.productsAdded = state.products.reduce(
                 (accumulator, currentValue) =>
                     accumulator + currentValue.amountAdded,
+                0,
+            );
+            state.productsTotalPrice = state.products.reduce(
+                (total, product) =>
+                    (total += product.price * product.amountAdded),
                 0,
             );
         },
@@ -66,6 +78,11 @@ export const cartSlice = createSlice({
                     return existingProduct;
                 }
             });
+            state.productsTotalPrice = state.products.reduce(
+                (total, product) =>
+                    (total += product.price * product.amountAdded),
+                0,
+            );
         },
         decreaseProductCount: (state, action) => {
             const productId = action.payload;
@@ -79,6 +96,11 @@ export const cartSlice = createSlice({
                     return existingProduct;
                 }
             });
+            state.productsTotalPrice = state.products.reduce(
+                (total, product) =>
+                    (total += product.price * product.amountAdded),
+                0,
+            );
         },
         updateProductsAmount: (state) => {
             state.productsAdded = state.products.reduce(
@@ -86,6 +108,11 @@ export const cartSlice = createSlice({
                     accumulator + currentValue.amountAdded,
                 0,
             );
+        },
+        clearCart: (state) => {
+            state.products = [];
+            state.productsAdded = 0;
+            state.productsTotalPrice = 0;
         },
     },
 });
@@ -96,5 +123,6 @@ export const {
     increaseProductCount,
     decreaseProductCount,
     updateProductsAmount,
+    clearCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;

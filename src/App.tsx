@@ -12,7 +12,7 @@ export default function App() {
     return (
         <>
             <Header />
-            <div className="pt-[70px] lg:pt-[110px] xl:pt-[126px]">
+            <div className="pt-[70px] text-black lg:pt-[110px] xl:pt-[126px]">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/categories" element={<CategoriesPage />} />
