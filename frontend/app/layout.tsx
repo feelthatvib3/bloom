@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
-import { Montserrat } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
 
 import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
 
-const montserrat = Montserrat({ subsets: ['latin'] });
+const spaceGrotest = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'React Garden',
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${montserrat.className} bg-lime-100`}>
+			<body className={`${spaceGrotest.className} bg-lime-100`}>
 				<Navbar />
 				{children}
 			</body>

@@ -1,16 +1,13 @@
 import { FC } from 'react';
 
 import Container from '@/components/Container';
+import Hero from '@/components/hero/Hero';
 
 const Home: FC = () => {
 	return (
-		<main className="pt-14">
-			<Container>
-				hello worldhello worldhello worldhello worldhello worldhello worldhello
-				worldhello worldhello worldhello worldhello worldhello worldhello
-				worldhello worldhello worldhello worldhello worldhello worldhello
-				worldhello worldhello worldhello worldhello worldhello worldhello world
-			</Container>
+		<main>
+			<Hero />
+			<Container>asdsad</Container>
 		</main>
 	);
 };
