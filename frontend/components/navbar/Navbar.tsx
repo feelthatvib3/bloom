@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import Link from 'next/link';
 
-import Logo from '@/app/components/Logo';
-import Menu from '@/app/components/navbar/Menu';
+import Logo from '@/components/Logo';
+import Menu from '@/components/navbar/Menu';
 
 const Navbar: FC = () => {
 	return (

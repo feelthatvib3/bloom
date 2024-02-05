@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Container from '@/app/components/Container';
+import Container from '@/components/Container';
 
 const Home: FC = () => {
 	return (
