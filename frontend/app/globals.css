@@ -86,6 +86,10 @@
 	h6 {
 		font-family: 'Yeseva One', cursive;
 	}
+
+	*::selection {
+		@apply bg-lime-300/75;
+	}
 }
 
 /* width and color for the track */

@@ -2,7 +2,6 @@
 
 import Container from '@/components/Container';
 import Button from '@/components/Button';
-import Menu from '../navbar/Menu';
 
 import { type CarouselApi } from '@/components/ui/carousel';
 import {
@@ -16,7 +15,7 @@ import { useEffect, useState } from 'react';
 import CarouselSlidesCounter from './CarouselSlidesCounter';
 
 import {
-	type HeroCarouselItem,
+	type IHeroCarouselItem,
 	heroCarouselItems,
 } from '@/data/heroCarouselItems';
 import Image from 'next/image';
@@ -39,30 +38,57 @@ const Hero: React.FC = () => {
 		});
 	}, [api]);
 	return (
-		<header className="relative flex h-screen max-w-[1920px] pb-[9999px] pt-[calc(2rem+52px)]">
-			<div className="absolute left-0 top-0 -z-10 h-[250px] w-full bg-lime-950 xl:h-full xl:w-2/5"></div>
-			<Container>
-				<Carousel setApi={setApi}>
-					<CarouselContent className="p-0">
-						{heroCarouselItems.map((item: HeroCarouselItem) => (
-							<CarouselItem key={item.id}>
-								<img
-									src={item.imageSrc}
-									alt={item.imageDescription}
-									className="h-full w-full object-cover"
-								/>
-							</CarouselItem>
-						))}
-					</CarouselContent>
-					<div className="absolute bottom-0 left-0 flex">
-						<CarouselPrevious className="static translate-y-0 rounded-none border-none bg-lime-100" />
-						<CarouselNext className="static translate-y-0 rounded-none border-none bg-lime-100" />
+		<header className="relative flex h-screen items-center justify-center pt-[60px]">
+			<div className="absolute left-0 top-0 -z-10 h-[200px] w-full bg-lime-950 lg:h-full lg:w-2/5"></div>
+			<Container className="flex !max-w-3xl flex-col items-center justify-center gap-y-2 lg:!max-w-screen-2xl lg:flex-row lg:gap-x-8">
+				{/* carousel + carousel slides counter */}
+				<div className="shrink-0 lg:w-1/2">
+					<Carousel
+						setApi={setApi}
+						className="h-[320px] md:h-[640px] xl:h-[800px]"
+					>
+						<CarouselContent className="h-full p-0">
+							{heroCarouselItems.map(
+								({ id, imageSrc, imageDescription }: IHeroCarouselItem) => (
+									<CarouselItem key={id} className="h-full">
+										<img
+											src={imageSrc}
+											alt={imageDescription}
+											className="h-full w-full object-cover"
+										/>
+									</CarouselItem>
+								),
+							)}
+						</CarouselContent>
+						<div className="absolute bottom-0 left-0 flex">
+							<CarouselPrevious className="static h-10 w-10 translate-y-0 rounded-none border-none bg-lime-100 hover:bg-lime-200 xl:h-14 xl:w-14" />
+							<CarouselNext className="static h-10 w-10 translate-y-0 rounded-none border-none bg-lime-100 hover:bg-lime-200 xl:h-14 xl:w-14" />
+						</div>
+					</Carousel>
+					<div className="mt-2">
+						<CarouselSlidesCounter
+							currentSlideIndex={current}
+							totalSlides={count}
+						/>
 					</div>
-				</Carousel>
-				<div className="mt-2">
-					<CarouselSlidesCounter
-						currentSlideIndex={current}
-						totalSlides={count}
+				</div>
+				{/* content */}
+				<div className="flex flex-col gap-y-3 lg:w-1/2 xl:gap-y-6">
+					<h1 className="text-4xl text-lime-950 lg:text-7xl xl:text-8xl">
+						Explore Garden Treasures
+					</h1>
+					<p className="xl:text-lg">
+						Immerse yourself in a world of lush possibilities with our premium
+						garden goods and tools.{' '}
+						<span className="hidden md:inline">
+							Elevate your green haven with handpicked essentials for every
+							gardening enthusiast.
+						</span>
+					</p>
+					<Button
+						label="Explore now"
+						onClick={() => console.log(1)}
+						className="px-10 lg:!w-fit"
 					/>
 				</div>
 			</Container>
