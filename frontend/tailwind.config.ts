@@ -70,6 +70,9 @@ const config = {
 			backgroundImage: {
 				'hero-background': "url('/images/hero-background.jpg')",
 			},
+			fontFamily: {
+				heading: ['Yeseva One, cursive'],
+			},
 		},
 	},
 	plugins: [require('tailwindcss-animate')],

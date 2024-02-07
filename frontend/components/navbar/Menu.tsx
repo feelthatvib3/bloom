@@ -13,13 +13,13 @@ const Menu: FC = () => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	return (
 		<DropdownMenu open={isOpened} onOpenChange={setIsOpened}>
-			<DropdownMenuTrigger className="flex h-8 w-8 flex-col items-center justify-center gap-y-[6px] rounded-full border border-lime-900/10 bg-lime-900/10 outline-none">
+			<DropdownMenuTrigger className="flex h-8 w-8 flex-col items-center justify-center gap-y-[6px] bg-lime-200 outline-none">
 				<span
 					className={`
 						absolute
 						h-[1.5px]
 						w-[14px]
-						bg-lime-900
+						bg-lime-950
 						transition-transform
 						${isOpened ? 'rotate-45' : 'rotate-0'}
 						${isOpened ? 'translate-y-0' : '-translate-y-[3.5px]'}
@@ -30,8 +30,7 @@ const Menu: FC = () => {
 						absolute
 						h-[1.5px]
 						w-[14px]
-
-						bg-lime-900
+						bg-lime-950
 						transition-transform
 						${isOpened ? 'translate-y-0' : 'translate-y-[3.5px]'}
 						${isOpened ? '-rotate-45' : 'rotate-0'}

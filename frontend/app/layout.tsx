@@ -8,7 +8,7 @@ import Navbar from '@/components/navbar/Navbar';
 const spaceGrotest = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'React Garden',
+	title: 'Bloom',
 	description: 'An e-commerce website for garden goods.',
 };
 
