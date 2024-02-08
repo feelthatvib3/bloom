@@ -6,7 +6,9 @@ interface TitleProps {
 }
 
 const Title: FC<TitleProps> = ({ text, className = '' }) => {
-	return <h2 className={`text-4xl ${className}`}>{text}</h2>;
+	return (
+		<h2 className={`text-4xl md:text-5xl lg:text-6xl ${className}`}>{text}</h2>
+	);
 };
 
 export default Title;
