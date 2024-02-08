@@ -6,7 +6,7 @@ interface MenuButtonProps {
 
 const MenuButton: FC<MenuButtonProps> = ({ intent }) => {
 	return (
-		<button className="relative flex h-8 w-8 flex-col items-center justify-center bg-lime-200 outline-none">
+		<button className="relative flex h-8 w-8 flex-col items-center justify-center bg-lime-200">
 			{Array(2)
 				.fill(null)
 				.map((_, index) => (
