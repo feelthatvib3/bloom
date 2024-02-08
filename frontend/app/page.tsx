@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
-import Container from '@/components/Container';
 import Hero from '@/components/hero/Hero';
+import NewDiscounted from '@/components/newDiscounted/NewDiscounted';
 
 const Home: FC = () => {
 	return (
 		<main>
 			<Hero />
-			<Container>asdsad</Container>
+			<NewDiscounted />
 		</main>
 	);
 };
