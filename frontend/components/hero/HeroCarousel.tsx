@@ -10,6 +10,7 @@ import {
 	CarouselPrevious,
 } from '@/components/ui/carousel';
 import { type CarouselApi } from '@/components/ui/carousel';
+
 import CarouselSlidesCounter from '@/components/hero/CarouselSlidesCounter';
 
 import {
