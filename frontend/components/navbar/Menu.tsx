@@ -16,8 +16,8 @@ import {
 import MenuItem from '@/components/navbar/MenuItem';
 
 import { type IMenuItem, menuItems } from '@/data/menuItems';
-import CartButton from './CartButton';
-import MenuButton from './MenuButton';
+import CartButton from '@/components/navbar/CartButton';
+import MenuButton from '@/components/navbar/MenuButton';
 
 interface MenuProps {
 	isScrolled: boolean;
