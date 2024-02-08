@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
 						<CarouselContent className="h-full p-0">
 							{heroCarouselItems.map(
 								({ id, imageSrc, imageDescription }: IHeroCarouselItem) => (
-									<CarouselItem key={id} className="h-full">
+									<CarouselItem key={id} className="">
 										<img
 											src={imageSrc}
 											alt={imageDescription}
@@ -73,11 +73,11 @@ const Hero: React.FC = () => {
 					</div>
 				</div>
 				{/* content */}
-				<div className="flex flex-col gap-y-3 lg:w-1/2 xl:gap-y-6">
-					<h1 className="text-4xl text-lime-950 lg:text-7xl xl:text-8xl">
+				<div className="flex flex-col gap-y-3 lg:w-1/2 lg:gap-y-5">
+					<h1 className="text-4xl text-lime-950 lg:text-7xl xl:text-8xl 2xl:text-9xl">
 						Explore Garden Treasures
 					</h1>
-					<p className="xl:text-lg">
+					<p className="lg:max-w-[560px] xl:text-lg">
 						Immerse yourself in a world of lush possibilities with our premium
 						garden goods and tools.{' '}
 						<span className="hidden md:inline">
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
 					<Button
 						label="Explore now"
 						onClick={() => console.log(1)}
-						className="px-10 lg:!w-fit"
+						className="px-10 lg:mt-2 lg:!w-fit"
 					/>
 				</div>
 			</Container>
