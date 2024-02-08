@@ -20,4 +20,9 @@ export const menuItems: IMenuItem[] = [
 		label: 'Sale',
 		href: '/sale',
 	},
+	{
+		id: 3,
+		label: 'Bookmarks',
+		href: '/bookmarks',
+	},
 ];
