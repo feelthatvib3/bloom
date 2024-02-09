@@ -2,11 +2,13 @@
 
 import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import Menu from '@/components/navbar/Menu';
 import Container from '@/components/Container';
 
 const Navbar: FC = () => {
+	const currentPathname = usePathname();
 	const [isScrolled, setIsScrolled] = useState<boolean>(false);
 	useEffect(() => {
 		const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -23,7 +25,7 @@ const Navbar: FC = () => {
 				<div className="flex items-center justify-between py-3">
 					<Link
 						href="/"
-						className="font-heading text-3xl uppercase text-lime-200"
+						className={`${currentPathname !== '/' && !isScrolled ? 'text-lime-950' : 'text-lime-100'} font-heading text-3xl uppercase`}
 					>
 						Bloom
 					</Link>
