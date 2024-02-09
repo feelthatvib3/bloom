@@ -15,7 +15,7 @@ import {
 
 import MenuItem from '@/components/navbar/MenuItem';
 
-import { type IMenuItem, menuItems } from '@/data/menuItems';
+import { type IMenuItem, menuItems } from '@/data/menu-items';
 import CartButton from '@/components/navbar/CartButton';
 import MenuButton from '@/components/navbar/MenuButton';
 
