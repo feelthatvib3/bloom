@@ -5,7 +5,9 @@ import { Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
 
-const spaceGrotest = Space_Grotesk({ subsets: ['latin'] });
+import StoreProvider from '@/app/StoreProvider';
+
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Bloom',
@@ -19,9 +21,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${spaceGrotest.className} bg-lime-100`}>
-				<Navbar />
-				{children}
+			<body className={`${spaceGrotesk.className} bg-lime-100`}>
+				<StoreProvider>
+					<Navbar />
+					{children}
+				</StoreProvider>
 			</body>
 		</html>
 	);
