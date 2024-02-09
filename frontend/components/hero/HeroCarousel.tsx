@@ -16,7 +16,7 @@ import CarouselSlidesCounter from '@/components/hero/CarouselSlidesCounter';
 import {
 	type IHeroCarouselItem,
 	heroCarouselItems,
-} from '@/data/heroCarouselItems';
+} from '@/data/hero-carousel-tems';
 
 const HeroCarousel: FC = () => {
 	const [api, setApi] = useState<CarouselApi>();
@@ -37,7 +37,10 @@ const HeroCarousel: FC = () => {
 	}, [api]);
 	return (
 		<>
-			<Carousel setApi={setApi} className="h-[320px] md:h-[640px] xl:h-[800px]">
+			<Carousel
+				setApi={setApi}
+				className="h-[320px] cursor-grab active:cursor-grabbing md:h-[640px] xl:h-[800px]"
+			>
 				<CarouselContent className="h-full p-0">
 					{heroCarouselItems.map(
 						({ id, imageSrc, imageDescription }: IHeroCarouselItem) => (
