@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux';
-import categoriesSlice from '@/store/slices/categoriesSlice';
+import categoriesSlice from '@/store/slices/categories-slice';
 
 export const ROOT_URL: string = 'http://localhost:5555/';
 

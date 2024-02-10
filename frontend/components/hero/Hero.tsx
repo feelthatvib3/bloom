@@ -1,11 +1,18 @@
 'use client';
 
+import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
+
 import Button from '@/components/Button';
 import Container from '@/components/Container';
 import HeroCarousel from '@/components/hero/HeroCarousel';
-import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 const Hero: React.FC = () => {
+	const scrollToCategoriesSection = () => {
+		const categoriesSection = document.querySelector('#categories');
+		categoriesSection &&
+			categoriesSection.scrollIntoView({ behavior: 'smooth' });
+	};
+
 	return (
 		<header className="relative flex h-screen items-center justify-center pt-[60px]">
 			<div className="absolute left-0 top-0 -z-10 h-[200px] w-full bg-lime-950 lg:h-full lg:w-2/5"></div>
@@ -29,7 +36,7 @@ const Hero: React.FC = () => {
 					</p>
 					<Button
 						label="Explore now"
-						onClick={() => console.log(1)}
+						onClick={scrollToCategoriesSection}
 						className="lg:mt-2 lg:!w-fit"
 						icon={<ArrowUpRightIcon className="h-5 w-5" />}
 					/>
