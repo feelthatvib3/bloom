@@ -3,6 +3,7 @@
 import Button from '@/components/Button';
 import Container from '@/components/Container';
 import HeroCarousel from '@/components/hero/HeroCarousel';
+import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 const Hero: React.FC = () => {
 	return (
@@ -29,7 +30,8 @@ const Hero: React.FC = () => {
 					<Button
 						label="Explore now"
 						onClick={() => console.log(1)}
-						className="px-10 lg:mt-2 lg:!w-fit"
+						className="lg:mt-2 lg:!w-fit"
+						icon={<ArrowUpRightIcon className="h-5 w-5" />}
 					/>
 				</div>
 			</Container>
