@@ -26,7 +26,7 @@ const CategoryCarousel: FC = () => {
 					>
 						<img
 							src={ROOT_URL + image}
-							alt={title}
+							alt={`${title} category`}
 							className="h-full w-full object-cover"
 							loading="lazy"
 						/>
