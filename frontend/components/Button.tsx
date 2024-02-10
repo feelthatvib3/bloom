@@ -1,25 +1,26 @@
 'use client';
 
-interface ButtonProps {
+import { ButtonHTMLAttributes, ReactNode } from 'react';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	label: string;
-	onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-	disabled?: boolean;
 	className?: string;
+	icon?: ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
 	label,
-	onClick,
-	disabled,
 	className = '',
+	icon,
+	...props
 }) => {
 	return (
 		<button
-			disabled={disabled}
-			onClick={onClick}
-			className={`flex w-full items-center justify-center border border-lime-950 bg-lime-950 p-3 text-lg font-semibold text-lime-100 transition-colors hover:bg-transparent hover:text-lime-950 ${className}`}
+			className={`${icon && 'gap-x-4'} flex w-full items-center border border-lime-950 bg-lime-950 px-4 py-2 text-lg font-semibold text-lime-100 transition-colors hover:bg-transparent hover:text-lime-950 ${className}`}
+			{...props}
 		>
-			{label}
+			<span>{label}</span>
+			{icon && icon}
 		</button>
 	);
 };
