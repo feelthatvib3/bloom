@@ -4,8 +4,12 @@ import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import Menu from '@/components/navbar/Menu';
 import Container from '@/components/Container';
+import MenuItem from '@/components/navbar/MenuItem';
+import MenuDrawer from '@/components/navbar/MenuDrawer';
+import CartButton from '@/components/navbar/CartButton';
+
+import { IMenuItem, menuItems } from '@/data/menu-items';
 
 const Navbar: FC = () => {
 	const currentPathname = usePathname();
@@ -19,7 +23,7 @@ const Navbar: FC = () => {
 	}, []);
 	return (
 		<nav
-			className={`fixed z-50 w-full duration-300 ${isScrolled ? 'bg-lime-950' : 'bg-transparent'} transition-colors`}
+			className={`${isScrolled ? 'bg-lime-950' : 'bg-transparent'} fixed z-50 w-full transition-colors duration-300`}
 		>
 			<Container>
 				<div className="flex items-center justify-between py-3">
@@ -29,7 +33,24 @@ const Navbar: FC = () => {
 					>
 						Bloom
 					</Link>
-					<Menu isScrolled={isScrolled} />
+					<div>
+						<div className="pt-[6px] lg:hidden">
+							<MenuDrawer isScrolled={isScrolled} />
+						</div>
+						<div className="hidden lg:flex lg:gap-x-6">
+							<ul className="flex items-center gap-x-6">
+								{menuItems.map(({ id, label, href }: IMenuItem) => (
+									<MenuItem
+										key={id}
+										label={label}
+										href={href}
+										isScrolled={isScrolled}
+									/>
+								))}
+							</ul>
+							<CartButton isScrolled={isScrolled} />
+						</div>
+					</div>
 				</div>
 			</Container>
 		</nav>
