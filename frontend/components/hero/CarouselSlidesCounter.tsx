@@ -1,14 +1,12 @@
-import { FC } from 'react';
-
 interface CarouselSlidesCounterProps {
 	currentSlideIndex: number;
 	totalSlides: number;
 }
 
-const CarouselSlidesCounter: FC<CarouselSlidesCounterProps> = ({
+export default function CarouselSlidesCounter({
 	currentSlideIndex,
 	totalSlides,
-}) => {
+}: CarouselSlidesCounterProps) {
 	return (
 		<div className="flex items-center gap-x-3">
 			<span className="w-6 text-start lg:text-lg lg:text-lime-100">
@@ -22,6 +20,4 @@ const CarouselSlidesCounter: FC<CarouselSlidesCounterProps> = ({
 			</span>
 		</div>
 	);
-};
-
-export default CarouselSlidesCounter;
+}

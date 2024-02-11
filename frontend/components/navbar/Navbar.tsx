@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -11,7 +11,7 @@ import CartButton from '@/components/navbar/CartButton';
 
 import { IMenuItem, menuItems } from '@/data/menu-items';
 
-const Navbar: FC = () => {
+export default function Navbar() {
 	const currentPathname = usePathname();
 	const [isScrolled, setIsScrolled] = useState<boolean>(false);
 	useEffect(() => {
@@ -55,6 +55,4 @@ const Navbar: FC = () => {
 			</Container>
 		</nav>
 	);
-};
-
-export default Navbar;
+}

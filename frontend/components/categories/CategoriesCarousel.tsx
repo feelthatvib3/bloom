@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 import {
@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
 import { Category, fetchCategories } from '@/store/slices/categories-slice';
 import { ROOT_URL, RootState } from '@/store/store';
 
-const CategoryCarousel: FC = () => {
+export default function CategoryCarousel() {
 	const { categories } = useAppSelector((state: RootState) => state.categories);
 	const dispatch = useAppDispatch();
 	useEffect(() => {
@@ -41,6 +41,4 @@ const CategoryCarousel: FC = () => {
 			</CarouselContent>
 		</Carousel>
 	);
-};
-
-export default CategoryCarousel;
+}

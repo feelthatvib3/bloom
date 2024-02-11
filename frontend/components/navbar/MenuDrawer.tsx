@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 
 import {
 	Sheet,
@@ -20,7 +20,7 @@ interface MenuDrawerProps {
 	isScrolled: boolean;
 }
 
-const MenuDrawer: FC<MenuDrawerProps> = ({ isScrolled }) => {
+export default function MenuDrawer({ isScrolled }: MenuDrawerProps) {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	return (
 		<Sheet open={isOpened} onOpenChange={setIsOpened}>
@@ -54,6 +54,4 @@ const MenuDrawer: FC<MenuDrawerProps> = ({ isScrolled }) => {
 			</SheetContent>
 		</Sheet>
 	);
-};
-
-export default MenuDrawer;
+}

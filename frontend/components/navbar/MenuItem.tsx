@@ -1,4 +1,4 @@
-import { FC, LiHTMLAttributes } from 'react';
+import { LiHTMLAttributes } from 'react';
 import Link from 'next/link';
 
 interface MenuItemProps extends LiHTMLAttributes<HTMLElement> {
@@ -7,7 +7,12 @@ interface MenuItemProps extends LiHTMLAttributes<HTMLElement> {
 	isScrolled?: boolean;
 }
 
-const MenuItem: FC<MenuItemProps> = ({ label, href, isScrolled, ...props }) => {
+export default function MenuItem({
+	label,
+	href,
+	isScrolled,
+	...props
+}: MenuItemProps) {
 	return (
 		<li
 			{...props}
@@ -21,6 +26,4 @@ const MenuItem: FC<MenuItemProps> = ({ label, href, isScrolled, ...props }) => {
 			</Link>
 		</li>
 	);
-};
-
-export default MenuItem;
+}

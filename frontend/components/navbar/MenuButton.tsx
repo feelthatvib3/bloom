@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { usePathname } from 'next/navigation';
 
 interface MenuButtonProps {
@@ -6,7 +5,7 @@ interface MenuButtonProps {
 	isScrolled?: boolean;
 }
 
-const MenuButton: FC<MenuButtonProps> = ({ intent, isScrolled }) => {
+export default function MenuButton({ intent, isScrolled }: MenuButtonProps) {
 	const currentPathname = usePathname();
 	return (
 		<button
@@ -22,6 +21,4 @@ const MenuButton: FC<MenuButtonProps> = ({ intent, isScrolled }) => {
 				))}
 		</button>
 	);
-};
-
-export default MenuButton;
+}

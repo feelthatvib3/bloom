@@ -1,6 +1,5 @@
 'use client';
 
-import { FC } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
@@ -9,7 +8,7 @@ import Button from '@/components/Button';
 import Container from '@/components/Container';
 import CategoryCarousel from '@/components/categories/CategoriesCarousel';
 
-const Categories: FC = () => {
+export default function Categories() {
 	const router = useRouter();
 	return (
 		<section id="categories" className="py-8 lg:py-14">
@@ -39,6 +38,4 @@ const Categories: FC = () => {
 			</Container>
 		</section>
 	);
-};
-
-export default Categories;
+}

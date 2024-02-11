@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
 	Carousel,
@@ -18,7 +18,7 @@ import {
 	heroCarouselItems,
 } from '@/data/hero-carousel-tems';
 
-const HeroCarousel: FC = () => {
+export default function HeroCarousel() {
 	const [api, setApi] = useState<CarouselApi>();
 	const [current, setCurrent] = useState<number>(0);
 	const [count, setCount] = useState<number>(0);
@@ -67,6 +67,4 @@ const HeroCarousel: FC = () => {
 			</div>
 		</>
 	);
-};
-
-export default HeroCarousel;
+}

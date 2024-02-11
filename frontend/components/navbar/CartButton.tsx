@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Link from 'next/link';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
@@ -6,7 +5,7 @@ interface CartButtonProps {
 	isScrolled?: boolean;
 }
 
-const CartButton: FC<CartButtonProps> = ({ isScrolled }) => {
+export default function CartButton({ isScrolled }: CartButtonProps) {
 	return (
 		<Link
 			href="/cart"
@@ -16,6 +15,4 @@ const CartButton: FC<CartButtonProps> = ({ isScrolled }) => {
 			<span className="uppercase lg:hidden">Shopping cart</span>
 		</Link>
 	);
-};
-
-export default CartButton;
+}

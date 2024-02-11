@@ -1,17 +1,14 @@
 'use client';
 
-import { FC } from 'react';
 import { useParams } from 'next/navigation';
 
 import Container from '@/components/Container';
 
-const CategoryProducts: FC = () => {
+export default function CategoryProducts() {
 	const { categorySlug } = useParams();
 	return (
-		<main className="pt-[calc(1rem+74px)]">
+		<main className="pb-[9999px] pt-[calc(1rem+74px)]">
 			<Container>{categorySlug}</Container>
 		</main>
 	);
-};
-
-export default CategoryProducts;
+}

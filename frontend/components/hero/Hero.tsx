@@ -6,7 +6,7 @@ import Button from '@/components/Button';
 import Container from '@/components/Container';
 import HeroCarousel from '@/components/hero/HeroCarousel';
 
-const Hero: React.FC = () => {
+export default function Hero() {
 	const scrollToCategoriesSection = () => {
 		const categoriesSection = document.querySelector('#categories');
 		categoriesSection &&
@@ -44,6 +44,4 @@ const Hero: React.FC = () => {
 			</Container>
 		</header>
 	);
-};
-
-export default Hero;
+}

@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import Image from 'next/image';
 
-const Logo: FC = () => {
+export default function Logo() {
 	return (
 		<Image
 			src="/logo.svg"
@@ -11,6 +10,4 @@ const Logo: FC = () => {
 			className="h-8 w-8"
 		/>
 	);
-};
-
-export default Logo;
+}
