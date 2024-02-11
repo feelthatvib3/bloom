@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 import Title from '@/components/Title';
+import Button from '@/components/Button';
 import Container from '@/components/Container';
 import CategoryCarousel from '@/components/categories/CategoriesCarousel';
-import Button from '@/components/Button';
 
 const Categories: FC = () => {
 	const router = useRouter();
@@ -24,10 +24,10 @@ const Categories: FC = () => {
 						label="See all categories"
 						icon={<ArrowUpRightIcon className="h-5 w-5" />}
 						onClick={() => router.push('/categories')}
-						className="hidden w-fit lg:flex"
+						className="hidden !w-fit lg:flex"
 					/>
 				</div>
-				<div className="shrink-0 cursor-grab active:cursor-grabbing lg:w-3/5">
+				<div className="shrink-0 lg:w-3/5">
 					<CategoryCarousel />
 				</div>
 				<Button
