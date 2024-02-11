@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${spaceGrotesk.className} bg-lime-100`}>
+			<body className={`${spaceGrotesk.className} bg-lime-100 text-lime-950`}>
 				<StoreProvider>
 					<Navbar />
 					{children}
