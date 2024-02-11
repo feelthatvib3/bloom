@@ -27,7 +27,7 @@ const MenuDrawer: FC<MenuDrawerProps> = ({ isScrolled }) => {
 			<SheetTrigger>
 				<MenuButton intent="open" isScrolled={isScrolled} />
 			</SheetTrigger>
-			<SheetContent className="border-none bg-lime-950">
+			<SheetContent className="border-none bg-lime-950/70 backdrop-blur-md">
 				<SheetHeader className="flex items-center justify-between">
 					<SheetTitle className="font-heading text-3xl uppercase text-lime-100">
 						Bloom
@@ -39,7 +39,12 @@ const MenuDrawer: FC<MenuDrawerProps> = ({ isScrolled }) => {
 				<SheetDescription className="mt-6">
 					<ul className="mt-2 flex flex-col gap-y-2">
 						{menuItems.map(({ id, label, href }: IMenuItem) => (
-							<MenuItem key={id} label={label} href={href} />
+							<MenuItem
+								key={id}
+								label={label}
+								href={href}
+								onClick={() => setIsOpened(!isOpened)}
+							/>
 						))}
 					</ul>
 					<div className="absolute bottom-6 left-6 w-[calc(100%-3rem)]">
