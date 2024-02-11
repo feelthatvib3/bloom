@@ -16,12 +16,16 @@ import CartButton from '@/components/navbar/CartButton';
 
 import { type IMenuItem, menuItems } from '@/data/menu-items';
 
-const MenuDrawer: FC = () => {
+interface MenuDrawerProps {
+	isScrolled: boolean;
+}
+
+const MenuDrawer: FC<MenuDrawerProps> = ({ isScrolled }) => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	return (
 		<Sheet open={isOpened} onOpenChange={setIsOpened}>
 			<SheetTrigger>
-				<MenuButton intent="open" />
+				<MenuButton intent="open" isScrolled={isScrolled} />
 			</SheetTrigger>
 			<SheetContent className="border-none bg-lime-950">
 				<SheetHeader className="flex items-center justify-between">
