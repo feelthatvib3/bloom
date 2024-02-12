@@ -14,7 +14,7 @@ export default function Categories() {
 		<section id="categories" className="py-8 lg:py-14">
 			<Container className="flex max-w-3xl flex-col gap-y-3 md:items-center md:gap-x-4 lg:max-w-screen-xl lg:flex-row lg:gap-x-8 xl:gap-x-14">
 				<div className="lg:2/5 flex flex-col gap-y-3 lg:gap-y-5">
-					<Title text="Variety of Products" className="text-lime-950" />
+					<Title className="text-lime-950">Variety of Products</Title>
 					<p className="xl:text-lg">
 						Explore our comprehensive selection of garden and tools categories,
 						thoughtfully curated to enhance your gardening experience.
