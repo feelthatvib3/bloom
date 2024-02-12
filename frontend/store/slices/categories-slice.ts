@@ -5,15 +5,18 @@ export interface Category {
 	id: number;
 	title: string;
 	slug: string;
+	description: string;
 	image: string;
 }
 
 interface CategoriesState {
 	categories: Category[];
+	isLoading: boolean;
 }
 
 const initialState: CategoriesState = {
 	categories: [],
+	isLoading: true,
 };
 
 export const fetchCategories = createAsyncThunk(
@@ -32,6 +35,13 @@ export const categoriesSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(fetchCategories.fulfilled, (state, action) => {
 			state.categories = action.payload;
+			state.isLoading = false;
+		});
+		builder.addCase(fetchCategories.pending, (state, action) => {
+			state.isLoading = true;
+		});
+		builder.addCase(fetchCategories.rejected, (state, action) => {
+			state.isLoading = false;
 		});
 	},
 });

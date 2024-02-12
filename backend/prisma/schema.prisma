@@ -11,11 +11,12 @@ datasource db {
 }
 
 model Category {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  title    String    @unique
-  slug     String    @unique
-  image    String
-  products Product[]
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String    @unique
+  slug        String    @unique
+  description String
+  image       String
+  products    Product[]
 }
 
 model Product {
