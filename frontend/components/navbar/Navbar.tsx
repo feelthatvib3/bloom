@@ -34,8 +34,11 @@ export default function Navbar() {
 						Bloom
 					</Link>
 					<div>
-						<div className="pt-[6px] lg:hidden">
-							<MenuDrawer isScrolled={isScrolled} />
+						<div className="lg:hidden">
+							<MenuDrawer
+								currentPathname={currentPathname}
+								isScrolled={isScrolled}
+							/>
 						</div>
 						<div className="hidden lg:flex lg:gap-x-6">
 							<ul className="flex items-center gap-x-6">
