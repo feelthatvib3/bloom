@@ -87,33 +87,59 @@
 		font-family: 'Yeseva One', cursive;
 	}
 
+	.categories-list-item:nth-child(3) {
+		height: 350px;
+	}
+
+	@media (min-width: 768px) {
+		.categories-list-item:nth-child(1) {
+			grid-column: span 2 / span 2;
+		}
+
+		.categories-list-item:nth-child(2) {
+			grid-column: span 3 / span 3;
+		}
+
+		.categories-list-item:nth-child(3) {
+			grid-column: span 5 / span 5;
+		}
+
+		.categories-list-item:nth-child(4) {
+			grid-column: span 3 / span 3;
+		}
+
+		.categories-list-item:nth-child(5) {
+			grid-column: span 2 / span 2;
+		}
+	}
+
 	*::selection {
 		@apply bg-lime-300/75;
 	}
-}
 
-/* width and color for the track */
-::-webkit-scrollbar {
-	width: 5px;
-	border-radius: 10px;
-}
+	/* width and color for the track */
+	::-webkit-scrollbar {
+		width: 5px;
+		border-radius: 10px;
+	}
 
-/* handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background-color: rgb(54, 83, 20);
-}
+	/* handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background-color: rgb(54, 83, 20);
+	}
 
-/* handle on active state */
-::-webkit-scrollbar-thumb:active {
-	background-color: rgb(63, 98, 18);
-}
+	/* handle on active state */
+	::-webkit-scrollbar-thumb:active {
+		background-color: rgb(63, 98, 18);
+	}
 
-/* handle */
-::-webkit-scrollbar-thumb {
-	background-color: rgb(26, 46, 5);
-}
+	/* handle */
+	::-webkit-scrollbar-thumb {
+		background-color: rgb(26, 46, 5);
+	}
 
-/* track */
-::-webkit-scrollbar-track {
-	background-color: rgb(236, 252, 203);
+	/* track */
+	::-webkit-scrollbar-track {
+		background-color: rgb(236, 252, 203);
+	}
 }
