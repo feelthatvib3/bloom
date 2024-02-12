@@ -20,7 +20,7 @@ export default function CategoriesPage() {
 		dispatch(fetchCategories());
 	}, [dispatch]);
 	return (
-		<main className="py-[calc(2rem+69px)]">
+		<main className="py-[calc(1rem+69px)] lg:py-[calc(2rem+69px)]">
 			<Container>
 				<Title text="Your garden essentials" className="mb-4 lg:mb-6 xl:mb-8" />
 				<ul className="grid grid-cols-1 gap-2 md:grid-cols-5">
