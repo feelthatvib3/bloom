@@ -1,23 +1,39 @@
+'use client';
+
+import { useEffect } from 'react';
+
+import Title from '@/components/Title';
 import Container from '@/components/Container';
-import { ArrowDownIcon } from '@heroicons/react/24/solid';
+import { Skeleton } from '@/components/ui/skeleton';
+import CategoriesListItem from '@/components/categories/CategoriesListItem';
+
+import { RootState } from '@/store/store';
+import { Category, fetchCategories } from '@/store/slices/categories-slice';
+import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
 
 export default function CategoriesPage() {
+	const dispatch = useAppDispatch();
+	const { categories, isLoading } = useAppSelector(
+		(state: RootState) => state.categories,
+	);
+	useEffect(() => {
+		dispatch(fetchCategories());
+	}, [dispatch]);
 	return (
-		<main className="py-[calc(1rem+69px)]">
+		<main className="py-[calc(2rem+69px)]">
 			<Container>
-				<div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-					<div className="group flex items-center justify-between bg-lime-200 p-2 sm:col-span-2">
-						<span className="text-lg font-medium sm:text-2xl">
-							Garden essentials in one place
-						</span>
-						<ArrowDownIcon className="h-5 w-5 rotate-45 transition-transform group-hover:rotate-0 sm:h-7 sm:w-7" />
-					</div>
-					<div className="h-[200px] bg-lime-200 p-2"></div>
-					<div className="h-[200px] bg-lime-200 p-2"></div>
-					<div className="h-[200px] bg-lime-200 p-2 sm:col-span-2"></div>
-					<div className="h-[200px] bg-lime-200 p-2"></div>
-					<div className="h-[200px] bg-lime-200 p-2"></div>
-				</div>
+				<Title text="Your garden essentials" className="mb-4 lg:mb-6 xl:mb-8" />
+				<ul className="grid grid-cols-1 gap-2 md:grid-cols-5">
+					{isLoading
+						? Array(5)
+								.fill(null)
+								.map(() => (
+									<Skeleton className="categories-list-item h-[250px]" />
+								))
+						: categories.map((category: Category) => (
+								<CategoriesListItem category={category} />
+							))}
+				</ul>
 			</Container>
 		</main>
 	);
