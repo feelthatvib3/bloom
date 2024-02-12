@@ -27,11 +27,14 @@ export default function CategoriesPage() {
 					{isLoading
 						? Array(5)
 								.fill(null)
-								.map(() => (
-									<Skeleton className="categories-list-item h-[250px]" />
+								.map((_, index) => (
+									<Skeleton
+										key={index}
+										className="categories-list-item h-[250px]"
+									/>
 								))
 						: categories.map((category: Category) => (
-								<CategoriesListItem category={category} />
+								<CategoriesListItem key={category.id} category={category} />
 							))}
 				</ul>
 			</Container>
