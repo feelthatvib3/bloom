@@ -3,7 +3,6 @@ import { useState } from 'react';
 import {
 	Sheet,
 	SheetContent,
-	SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
@@ -11,7 +10,6 @@ import {
 } from '@/components/ui/sheet';
 
 import MenuItem from '@/components/navbar/MenuItem';
-import MenuButton from '@/components/navbar/MenuButton';
 import CartButton from '@/components/navbar/CartButton';
 
 import { type IMenuItem, menuItems } from '@/data/menu-items';
@@ -45,25 +43,30 @@ export default function MenuDrawer({
 					<SheetTitle className="font-heading text-3xl uppercase text-lime-100">
 						Bloom
 					</SheetTitle>
-					<SheetClose>
-						<MenuButton intent="close" />
+					<SheetClose className="relative flex h-8 w-8 flex-col items-center justify-center bg-lime-100">
+						{Array(2)
+							.fill(null)
+							.map((_, index) => (
+								<span
+									key={index}
+									className="absolute h-[1.5px] w-[14px] translate-y-0 -rotate-45 bg-lime-950 even:rotate-45"
+								></span>
+							))}
 					</SheetClose>
 				</SheetHeader>
-				<SheetDescription className="mt-6">
-					<ul className="mt-2 flex flex-col gap-y-2">
-						{menuItems.map(({ id, label, href }: IMenuItem) => (
-							<MenuItem
-								key={id}
-								label={label}
-								href={href}
-								onClick={() => setIsOpened(!isOpened)}
-							/>
-						))}
-					</ul>
-					<div className="absolute bottom-6 left-6 w-[calc(100%-3rem)]">
-						<CartButton />
-					</div>
-				</SheetDescription>
+				<ul className="mt-8 flex flex-col gap-y-2">
+					{menuItems.map(({ id, label, href }: IMenuItem) => (
+						<MenuItem
+							key={id}
+							label={label}
+							href={href}
+							onClick={() => setIsOpened(!isOpened)}
+						/>
+					))}
+				</ul>
+				<div className="absolute bottom-6 left-6 w-[calc(100%-3rem)]">
+					<CartButton />
+				</div>
 			</SheetContent>
 		</Sheet>
 	);
