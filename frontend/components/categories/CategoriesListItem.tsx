@@ -29,7 +29,7 @@ export default function CategoriesListItem({
 
 				{/* content */}
 				<div className="flex flex-col gap-y-4">
-					<h3 className="text-3xl text-lime-200 transition-colors group-hover:text-lime-950 md:text-4xl lg:text-5xl">
+					<h3 className="text-3xl text-lime-200 transition-colors group-hover:text-lime-950 md:text-4xl">
 						{title}
 					</h3>
 					<p className="max-w-5xl text-lg font-medium text-lime-200 transition-colors group-hover:text-lime-950">
