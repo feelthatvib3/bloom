@@ -87,10 +87,6 @@
 		font-family: 'Yeseva One', cursive;
 	}
 
-	.categories-list-item:nth-child(3) {
-		height: 350px;
-	}
-
 	@media (min-width: 768px) {
 		.categories-list-item:nth-child(1) {
 			grid-column: span 2 / span 2;
@@ -102,6 +98,7 @@
 
 		.categories-list-item:nth-child(3) {
 			grid-column: span 5 / span 5;
+			height: 300px;
 		}
 
 		.categories-list-item:nth-child(4) {
