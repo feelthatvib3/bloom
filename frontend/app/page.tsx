@@ -1,11 +1,11 @@
 import Hero from '@/components/hero/Hero';
-import Categories from '@/components/categories/Categories';
+import Features from '@/components/features/Features';
 
 export default function Home() {
 	return (
 		<main>
 			<Hero />
-			<Categories />
+			<Features />
 		</main>
 	);
 }
