@@ -1,10 +1,10 @@
-export interface IHeroCarouselItem {
+export interface HeroCarouselItem {
 	id: number;
 	imageSrc: string;
 	imageDescription: string;
 }
 
-export const heroCarouselItems: IHeroCarouselItem[] = [
+export const heroCarouselItems: HeroCarouselItem[] = [
 	{
 		id: 0,
 		imageSrc: '/images/carousel-item-0.jpg',
