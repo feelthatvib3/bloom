@@ -14,7 +14,7 @@ import { type CarouselApi } from '@/components/ui/carousel';
 import CarouselSlidesCounter from '@/components/hero/CarouselSlidesCounter';
 
 import {
-	type IHeroCarouselItem,
+	type HeroCarouselItem,
 	heroCarouselItems,
 } from '@/public/data/hero-carousel-tems';
 
@@ -43,7 +43,7 @@ export default function HeroCarousel() {
 			>
 				<CarouselContent className="h-full p-0">
 					{heroCarouselItems.map(
-						({ id, imageSrc, imageDescription }: IHeroCarouselItem) => (
+						({ id, imageSrc, imageDescription }: HeroCarouselItem) => (
 							<CarouselItem key={id}>
 								<img
 									src={imageSrc}

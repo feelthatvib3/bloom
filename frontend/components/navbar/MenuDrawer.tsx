@@ -12,7 +12,10 @@ import {
 import MenuItem from '@/components/navbar/MenuItem';
 import CartButton from '@/components/navbar/CartButton';
 
-import { type IMenuItem, menuItems } from '@/data/menu-items';
+import {
+	type MenuItem as MenuItemItem,
+	menuItems,
+} from '@/public/data/menu-items';
 
 interface MenuDrawerProps {
 	isScrolled: boolean;
@@ -55,7 +58,7 @@ export default function MenuDrawer({
 					</SheetClose>
 				</SheetHeader>
 				<ul className="mt-8 flex flex-col gap-y-2">
-					{menuItems.map(({ id, label, href }: IMenuItem) => (
+					{menuItems.map(({ id, label, href }: MenuItemItem) => (
 						<MenuItem
 							key={id}
 							label={label}

@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
@@ -9,7 +9,10 @@ import MenuItem from '@/components/navbar/MenuItem';
 import MenuDrawer from '@/components/navbar/MenuDrawer';
 import CartButton from '@/components/navbar/CartButton';
 
-import { IMenuItem, menuItems } from '@/data/menu-items';
+import {
+	type MenuItem as MenuItemType,
+	menuItems,
+} from '@/public/data/menu-items';
 
 export default function Navbar() {
 	const currentPathname = usePathname();
@@ -42,7 +45,7 @@ export default function Navbar() {
 						</div>
 						<div className="hidden lg:flex lg:gap-x-6">
 							<ul className="flex items-center gap-x-6">
-								{menuItems.map(({ id, label, href }: IMenuItem) => (
+								{menuItems.map(({ id, label, href }: MenuItemType) => (
 									<MenuItem
 										key={id}
 										label={label}
