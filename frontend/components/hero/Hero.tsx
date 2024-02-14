@@ -16,7 +16,7 @@ export default function Hero() {
 	return (
 		<header className="relative flex h-screen items-center justify-center pt-[60px]">
 			<div className="absolute left-0 top-0 -z-10 h-[200px] w-full bg-lime-950 lg:h-full lg:w-2/5"></div>
-			<Container className="flex !max-w-3xl flex-col items-center justify-center gap-y-2 lg:!max-w-screen-2xl lg:flex-row lg:gap-x-8">
+			<Container className="flex flex-col items-center justify-center gap-y-2 lg:max-w-screen-2xl lg:flex-row lg:gap-x-8">
 				{/* carousel */}
 				<div className="shrink-0 lg:w-1/2">
 					<HeroCarousel />
