@@ -8,7 +8,7 @@ import HeroCarousel from '@/components/hero/HeroCarousel';
 
 export default function Hero() {
 	const scrollToCategoriesSection = () => {
-		const categoriesSection = document.querySelector('#categories');
+		const categoriesSection = document.querySelector('#features');
 		categoriesSection &&
 			categoriesSection.scrollIntoView({ behavior: 'smooth' });
 	};
@@ -21,6 +21,7 @@ export default function Hero() {
 				<div className="shrink-0 lg:w-1/2">
 					<HeroCarousel />
 				</div>
+
 				{/* content */}
 				<div className="flex flex-col gap-y-3 lg:w-1/2 lg:gap-y-5">
 					<h1 className="text-4xl text-lime-950 lg:text-7xl xl:text-8xl 2xl:text-9xl">
