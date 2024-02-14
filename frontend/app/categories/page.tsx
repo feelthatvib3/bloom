@@ -16,6 +16,7 @@ export default function CategoriesPage() {
 	const { categories, isLoading } = useAppSelector(
 		(state: RootState) => state.categories,
 	);
+	const skeletonItems = Array(5).fill(null);
 	useEffect(() => {
 		dispatch(fetchCategories());
 	}, [dispatch]);
@@ -25,14 +26,12 @@ export default function CategoriesPage() {
 				<Title className="mb-4 lg:mb-6 xl:mb-8">Your garden essentials</Title>
 				<ul className="grid grid-cols-1 gap-2 md:grid-cols-5">
 					{isLoading
-						? Array(5)
-								.fill(null)
-								.map((_, index) => (
-									<Skeleton
-										key={index}
-										className="categories-list-item h-[250px]"
-									/>
-								))
+						? skeletonItems.map((_, index) => (
+								<Skeleton
+									key={index}
+									className="categories-list-item h-[180px]"
+								/>
+							))
 						: categories.map((category: Category) => (
 								<CategoriesListItem key={category.id} category={category} />
 							))}
