@@ -16,7 +16,7 @@ import CarouselSlidesCounter from '@/components/hero/CarouselSlidesCounter';
 import {
 	type IHeroCarouselItem,
 	heroCarouselItems,
-} from '@/data/hero-carousel-tems';
+} from '@/public/data/hero-carousel-tems';
 
 export default function HeroCarousel() {
 	const [api, setApi] = useState<CarouselApi>();
