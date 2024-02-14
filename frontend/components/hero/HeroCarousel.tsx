@@ -44,7 +44,7 @@ export default function HeroCarousel() {
 				<CarouselContent className="h-full p-0">
 					{heroCarouselItems.map(
 						({ id, imageSrc, imageDescription }: IHeroCarouselItem) => (
-							<CarouselItem key={id} className="">
+							<CarouselItem key={id}>
 								<img
 									src={imageSrc}
 									alt={imageDescription}
