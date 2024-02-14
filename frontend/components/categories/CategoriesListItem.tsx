@@ -21,6 +21,7 @@ export default function CategoriesListItem({
 					alt={`${title} category`}
 					className="absolute left-0 top-0 -z-20 h-full w-full object-cover"
 				/>
+
 				{/* overlay */}
 				<div className="absolute left-0 top-0 -z-10 h-full w-full bg-lime-950/80 backdrop-blur-lg transition-colors group-hover:bg-lime-200/70"></div>
 
