@@ -3,7 +3,9 @@ import type { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
 
 import './globals.css';
+
 import Navbar from '@/components/navbar/Navbar';
+import Footer from '@/components/footer/Footer';
 
 import StoreProvider from '@/app/StoreProvider';
 
@@ -25,6 +27,7 @@ export default function RootLayout({
 				<StoreProvider>
 					<Navbar />
 					{children}
+					<Footer />
 				</StoreProvider>
 			</body>
 		</html>
