@@ -34,7 +34,7 @@ export default function DiscountForm() {
 				{...register('email')}
 				type="text"
 				placeholder="email@example.com"
-				className={`w-full border bg-transparent p-2 text-lg outline-none placeholder:text-lime-200 ${errors.email ? 'border-red-500 text-red-500 placeholder:text-red-500' : 'border-lime-200'}`}
+				className={`w-full border bg-transparent px-4 py-2 text-lg outline-none placeholder:text-lime-200 ${errors.email ? 'border-red-500 text-red-500 placeholder:text-red-500' : 'border-lime-200'}`}
 			/>
 			{errors.email && (
 				<span className="text-red-500">{errors.email.message}</span>
