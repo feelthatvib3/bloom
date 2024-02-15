@@ -1,19 +1,21 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
+
+import { Skeleton } from '@/components/ui/skeleton';
 
 import Title from '@/components/Title';
 import Container from '@/components/Container';
+import ProductCard from '@/components/productCard/ProductCard';
 
-import { capitalize } from '@/lib/utils';
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
 import { RootState } from '@/store/store';
 import {
 	Product,
 	fetchProductsByCategorySlug,
 } from '@/store/slices/products-slice';
-import { Skeleton } from '@/components/ui/skeleton';
+import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
+import { capitalize } from '@/lib/utils';
 
 export default function CategoryProducts() {
 	const dispatch = useAppDispatch();
@@ -30,17 +32,19 @@ export default function CategoryProducts() {
 	}, [dispatch]);
 	const title = !Array.isArray(categorySlug) && capitalize(categorySlug);
 	return (
-		<main className="py-[calc(1rem+69px)] lg:py-[calc(2rem+69px)]">
+		<main className="pb-4 pt-[calc(1rem+69px)] lg:pb-8 lg:pt-[calc(2rem+69px)]">
 			<Container>
 				<Title>{title}</Title>
-				<ul className="grid">
+				<ul className="mt-4 grid gap-y-4 sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-4">
 					{isLoading
 						? Array(5)
 								.fill(null)
 								.map((_, index) => (
 									<Skeleton key={index} className="h-[350px] w-[200px]" />
 								))
-						: products.map(({ name }: Product) => <li>{name}</li>)}
+						: products.map((product: Product) => (
+								<ProductCard key={product.id} product={product} />
+							))}
 				</ul>
 			</Container>
 		</main>
