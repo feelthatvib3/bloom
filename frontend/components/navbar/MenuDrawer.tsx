@@ -16,6 +16,7 @@ import {
 	type MenuItem as MenuItemItem,
 	menuItems,
 } from '@/public/data/menu-items';
+import Link from 'next/link';
 
 interface MenuDrawerProps {
 	isScrolled: boolean;
@@ -44,7 +45,7 @@ export default function MenuDrawer({
 			<SheetContent className="border-none bg-lime-950/70 backdrop-blur-md">
 				<SheetHeader className="flex items-center justify-between">
 					<SheetTitle className="font-heading text-3xl uppercase text-lime-100">
-						Bloom
+						<Link href="/">Bloom</Link>
 					</SheetTitle>
 					<SheetClose className="relative flex h-8 w-8 flex-col items-center justify-center bg-lime-100">
 						{Array(2)
