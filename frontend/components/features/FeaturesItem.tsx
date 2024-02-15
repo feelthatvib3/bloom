@@ -5,7 +5,7 @@ interface FeaturesItemProps {
 }
 
 export default function FeaturesItem({ feature }: FeaturesItemProps) {
-	const { title, description, icon: FeatureIcon } = feature;
+	const { title, description } = feature;
 	return (
 		<article className="group relative flex cursor-default flex-col justify-center p-6 text-center text-lime-200 lg:col-span-3 lg:justify-end lg:p-8 lg:text-start lg:first:col-span-4 lg:last:col-span-4">
 			{/* image */}
