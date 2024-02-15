@@ -6,7 +6,7 @@ import { type Feature, features } from '@/public/data/features';
 
 export default function Features() {
 	return (
-		<section id="features" className="py-4 md:py-8 lg:py-12">
+		<section id="features" className="py-6 md:py-10 lg:py-14">
 			<Container>
 				<Title className="mb-4 text-center">Your Garden, Our Commitment</Title>
 				<p className="mb-4 text-center text-lg font-medium md:mb-8">
@@ -15,7 +15,7 @@ export default function Features() {
 				</p>
 				<ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
 					{features.map((feature: Feature) => (
-						<FeaturesItem feature={feature} />
+						<FeaturesItem key={feature.id} feature={feature} />
 					))}
 				</ul>
 			</Container>
