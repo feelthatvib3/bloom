@@ -10,7 +10,10 @@ export default function Hero() {
 	const scrollToCategoriesSection = () => {
 		const categoriesSection = document.querySelector('#features');
 		categoriesSection &&
-			categoriesSection.scrollIntoView({ behavior: 'smooth' });
+			categoriesSection.scrollIntoView({
+				behavior: 'smooth',
+				inline: 'center',
+			});
 	};
 
 	return (
