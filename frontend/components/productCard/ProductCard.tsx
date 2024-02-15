@@ -73,7 +73,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 								Add to cart
 							</button>
 							<button className="group flex w-[15%] shrink-0 items-center justify-center bg-lime-200 p-2 text-lime-950 lg:w-[20%]">
-								<HeartIcon className="h-6 w-6 transition-all group-hover:fill-lime-950" />
+								<HeartIcon className="h-6 w-6 group-hover:fill-lime-950" />
 							</button>
 						</div>
 					</div>
