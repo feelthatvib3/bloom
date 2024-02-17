@@ -1,12 +1,15 @@
 'use client';
 
 import Image from 'next/image';
+import { MouseEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { HeartIcon } from '@heroicons/react/24/outline';
 
 import ProductPrice from '@/components/productCard/ProductPrice';
 
 import { ROOT_URL } from '@/store/store';
+import { useAppDispatch } from '@/lib/redux-hooks';
+import { addToCart } from '@/store/slices/cart-slice';
 import { Product } from '@/store/slices/products-slice';
 
 interface ProductCardProps {
@@ -14,21 +17,20 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-	const {
-		id,
-		categoryId,
-		categoryTitle,
-		name,
-		description,
-		price,
-		discount,
-		image,
-	} = product;
+	const { id, categoryTitle, name, price, discount, image } = product;
 	const router = useRouter();
+	const dispatch = useAppDispatch();
+	const handleAddToCart = (
+		e: MouseEvent<HTMLButtonElement>,
+		product: Product,
+	) => {
+		e.stopPropagation();
+		dispatch(addToCart({ addedProduct: product, count: 1 }));
+	};
 	return (
 		<li
 			onClick={() => router.push(categoryTitle.toLowerCase() + '/' + id)}
-			className="min-w-xs relative min-h-[450px] cursor-pointer p-4 text-lime-200 transition-transform hover:scale-[99%]"
+			className="min-w-xs relative min-h-[450px] cursor-pointer p-4 text-lime-200"
 		>
 			{/* category title badge */}
 			<span className="absolute right-4 top-4 bg-lime-200 p-1 font-medium text-lime-950">
@@ -65,9 +67,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 						<ProductPrice regularPrice={price} discountPercent={discount} />
 						<div className="mt-2 flex gap-x-2">
 							<button
-								onClick={(event) => {
-									event.stopPropagation();
-								}}
+								onClick={(e) => handleAddToCart(e, product)}
 								className="colors w-[85%] border border-lime-200 bg-lime-200 px-4 py-2 text-xl font-medium text-lime-950 transition hover:bg-transparent hover:text-lime-200 lg:w-[80%]"
 							>
 								Add to cart
