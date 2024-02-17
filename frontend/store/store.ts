@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import categoriesSlice from '@/store/slices/categories-slice';
 import productsSlice from '@/store/slices/products-slice';
+import cartSlice from '@/store/slices/cart-slice';
 
 export const ROOT_URL: string = 'http://localhost:5555/';
 
@@ -9,6 +10,7 @@ export const makeStore = () => {
 		reducer: {
 			categories: categoriesSlice,
 			products: productsSlice,
+			cart: cartSlice,
 		},
 	});
 };
