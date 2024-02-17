@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { ROOT_URL } from '@/store/store';
 
 export interface Category {
-	id: number;
+	id: string;
 	title: string;
 	slug: string;
 	description: string;

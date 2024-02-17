@@ -3,7 +3,7 @@ import { ROOT_URL } from '@/store/store';
 import { Category } from '@/store/slices/categories-slice';
 
 export interface Product {
-	id: number;
+	id: string;
 	categoryId: string;
 	categoryTitle: string;
 	name: string;
