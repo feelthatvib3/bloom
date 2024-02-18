@@ -10,28 +10,34 @@ import { useAppSelector } from '@/lib/redux-hooks';
 import { CartProduct } from '@/store/slices/cart-slice';
 
 export default function CartPage() {
-	const { products, totalItems, totalPrice } = useAppSelector(
-		(state: RootState) => state.cart,
-	);
-	return (
-		<main className="pb-4 pt-[calc(1rem+69px)] lg:pb-8 lg:pt-[calc(2rem+69px)]">
-			<Container>
-				<Title>Shopping cart</Title>
-				<div>
-					{products.length === 0 ? (
-						<div>No products added.</div>
-					) : (
-						<div className="mt-8 flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 lg:gap-y-2">
-							<ul className="grid gap-y-2 lg:w-3/5">
-								{products.map((product: CartProduct) => (
-									<CartListItem key={product.id} product={product} />
-								))}
-							</ul>
-							<OrderSummary />
-						</div>
-					)}
-				</div>
+	const { products } = useAppSelector((state: RootState) => state.cart);
+
+	if (products.length === 0) {
+		return (
+			<Container className="flex h-[75vh] items-center justify-center">
+				<p className="text-2xl">
+					How come you have your cart empty? Let's shop!
+				</p>
 			</Container>
-		</main>
+		);
+	}
+	return (
+		<Container className="pb-4 pt-[calc(1rem+69px)] lg:pb-8 lg:pt-[calc(2rem+69px)]">
+			<Title>Shopping cart</Title>
+			<div>
+				{products.length === 0 ? (
+					<div className="mt-4 text-lg font-medium">No products added.</div>
+				) : (
+					<div className="mt-8 flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 lg:gap-y-2">
+						<ul className="grid gap-y-2 lg:w-3/5">
+							{products.map((product: CartProduct) => (
+								<CartListItem key={product.id} product={product} />
+							))}
+						</ul>
+						<OrderSummary />
+					</div>
+				)}
+			</div>
+		</Container>
 	);
 }
