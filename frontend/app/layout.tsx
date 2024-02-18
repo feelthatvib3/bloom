@@ -6,6 +6,7 @@ import './globals.css';
 
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
+import { Toaster } from '@/components/ui/sonner';
 
 import StoreProvider from '@/app/StoreProvider';
 
@@ -26,8 +27,9 @@ export default function RootLayout({
 			<body className={`${spaceGrotesk.className} bg-lime-100 text-lime-950`}>
 				<StoreProvider>
 					<Navbar />
-					{children}
+					<main>{children}</main>
 					<Footer />
+					<Toaster />
 				</StoreProvider>
 			</body>
 		</html>
