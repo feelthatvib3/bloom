@@ -4,8 +4,11 @@ import Image from 'next/image';
 import { MouseEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { HeartIcon } from '@heroicons/react/24/outline';
+import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
 import ProductPrice from '@/components/productCard/ProductPrice';
+
+import { toast } from 'sonner';
 
 import { ROOT_URL } from '@/store/store';
 import { useAppDispatch } from '@/lib/redux-hooks';
@@ -26,6 +29,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 	) => {
 		e.stopPropagation();
 		dispatch(addToCart({ addedProduct: product, count: 1 }));
+		toast(`${product.name} has been added to your cart.`, {
+			icon: <ShoppingCartIcon className="h-5 w-5" />,
+		});
 	};
 	return (
 		<li
