@@ -22,7 +22,7 @@ export default function CartPage() {
 						<div>No products added.</div>
 					) : (
 						<div className="mt-8 flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 lg:gap-y-2">
-							<ul className="grid shrink-0 gap-y-2">
+							<ul className="grid gap-y-2 lg:w-3/5">
 								{products.map((product: CartProduct) => (
 									<CartListItem key={product.id} product={product} />
 								))}

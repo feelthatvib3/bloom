@@ -29,7 +29,7 @@ export default function CartListItem({ product }: CartListItemProps) {
 			).toFixed(2))
 		: (evaluatedPrice = (price * amountAdded).toFixed(2));
 	return (
-		<li className="flex max-h-[200px] items-center gap-x-2 divide-x divide-lime-950 border border-lime-950">
+		<li className="flex max-h-[200px] items-center gap-x-2 divide-x divide-lime-950 overflow-hidden border border-lime-950">
 			<div>
 				<Image
 					src={ROOT_URL + image}
