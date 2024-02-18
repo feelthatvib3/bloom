@@ -9,7 +9,7 @@ export default function OrderSummary() {
 	const tax = 3;
 	const total = totalPrice + tax;
 	return (
-		<div className="flex h-fit w-full flex-col gap-y-4 border border-lime-950 p-4">
+		<div className="flex h-fit flex-col gap-y-4 border border-lime-950 p-4 lg:w-2/5">
 			<p className="text-2xl font-semibold uppercase">Order summary</p>
 			<div className="text-lg">
 				<div className="flex justify-between gap-x-4">
