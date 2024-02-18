@@ -72,6 +72,7 @@ const config = {
 			},
 			fontFamily: {
 				heading: ['Yeseva One, cursive'],
+				body: ['Space Grotesk, sans-serif'],
 			},
 		},
 	},
