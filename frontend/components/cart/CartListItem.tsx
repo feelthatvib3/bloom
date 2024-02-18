@@ -29,14 +29,14 @@ export default function CartListItem({ product }: CartListItemProps) {
 			).toFixed(2))
 		: (evaluatedPrice = (price * amountAdded).toFixed(2));
 	return (
-		<li className="flex max-h-[200px] items-center gap-x-4 divide-x divide-lime-950 border border-lime-950">
+		<li className="flex max-h-[200px] items-center gap-x-2 divide-x divide-lime-950 border border-lime-950">
 			<div>
 				<Image
 					src={ROOT_URL + image}
 					alt={name}
 					width={300}
 					height={300}
-					className="h-full min-w-[164px] object-cover sm:w-full"
+					className="h-full min-w-[155px] object-cover sm:w-full"
 				/>
 			</div>
 			<div className="flex h-full w-full flex-col justify-between gap-y-4 p-2 sm:p-4">
@@ -55,7 +55,7 @@ export default function CartListItem({ product }: CartListItemProps) {
 
 				{/* move to bookmarks + price */}
 				<div className="flex items-end justify-between gap-x-4">
-					<p className="text-lg">{evaluatedPrice}</p>
+					<p className="text-lg">${evaluatedPrice}</p>
 				</div>
 			</div>
 		</li>
