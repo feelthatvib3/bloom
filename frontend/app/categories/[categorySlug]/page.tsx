@@ -34,7 +34,7 @@ export default function CategoryProducts() {
 	return (
 		<Container className="pb-4 pt-[calc(1rem+69px)] lg:pb-8 lg:pt-[calc(2rem+69px)]">
 			<Title>{title}</Title>
-			<ul className="mt-4 grid gap-y-4 sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-4">
+			<ul className="mt-8 grid gap-y-4 sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-4">
 				{isLoading
 					? Array(8)
 							.fill(null)
