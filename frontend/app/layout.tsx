@@ -27,9 +27,7 @@ export default function RootLayout({
 			<body className={`${spaceGrotesk.className} bg-lime-100 text-lime-950`}>
 				<StoreProvider>
 					<Navbar />
-					<main className="pb-4 pt-[calc(1rem+69px)] lg:pb-8 lg:pt-[calc(2rem+69px)]">
-						{children}
-					</main>
+					<main>{children}</main>
 					<Footer />
 					<Toaster />
 				</StoreProvider>
