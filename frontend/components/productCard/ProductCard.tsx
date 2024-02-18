@@ -1,18 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { MouseEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { HeartIcon } from '@heroicons/react/24/outline';
-import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
 import ProductPrice from '@/components/productCard/ProductPrice';
-
-import { toast } from 'sonner';
+import BookmarkButton from '@/components/productCard/BookmarkButton';
+import AddToCartButton from '@/components/productCard/AddToCartButton';
 
 import { ROOT_URL } from '@/store/store';
-import { useAppDispatch } from '@/lib/redux-hooks';
-import { addToCart } from '@/store/slices/cart-slice';
 import { Product } from '@/store/slices/products-slice';
 
 interface ProductCardProps {
@@ -22,17 +17,6 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
 	const { id, categoryTitle, name, price, discount, image } = product;
 	const router = useRouter();
-	const dispatch = useAppDispatch();
-	const handleAddToCart = (
-		e: MouseEvent<HTMLButtonElement>,
-		product: Product,
-	) => {
-		e.stopPropagation();
-		dispatch(addToCart({ addedProduct: product, count: 1 }));
-		toast(`${product.name} has been added to your cart.`, {
-			icon: <ShoppingCartIcon className="h-5 w-5" />,
-		});
-	};
 	return (
 		<li
 			onClick={() => router.push(categoryTitle.toLowerCase() + '/' + id)}
@@ -72,15 +56,8 @@ export default function ProductCard({ product }: ProductCardProps) {
 					<div className="mt-8">
 						<ProductPrice regularPrice={price} discountPercent={discount} />
 						<div className="mt-2 flex gap-x-2">
-							<button
-								onClick={(e) => handleAddToCart(e, product)}
-								className="colors w-[85%] border border-lime-200 bg-lime-200 px-4 py-2 text-xl font-medium text-lime-950 transition hover:bg-transparent hover:text-lime-200 lg:w-[80%]"
-							>
-								Add to cart
-							</button>
-							<button className="group flex w-[15%] shrink-0 items-center justify-center bg-lime-200 p-2 text-lime-950 lg:w-[20%]">
-								<HeartIcon className="h-6 w-6 group-hover:fill-lime-950" />
-							</button>
+							<AddToCartButton product={product} />
+							<BookmarkButton product={product} />
 						</div>
 					</div>
 				</div>
