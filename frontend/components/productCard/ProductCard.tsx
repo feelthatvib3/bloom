@@ -53,7 +53,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 				</div>
 				<div>
 					<p className="line-clamp-1 text-4xl font-medium">{name}</p>
-					<div className="mt-8">
+					<div className="mt-6">
 						<ProductPrice regularPrice={price} discountPercent={discount} />
 						<div className="mt-2 flex gap-x-2">
 							<AddToCartButton product={product} />
