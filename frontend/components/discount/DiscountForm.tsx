@@ -1,8 +1,16 @@
 'use client';
 
 import { z } from 'zod';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+	ExclamationTriangleIcon,
+	ShieldCheckIcon,
+} from '@heroicons/react/24/solid';
+
+import { toast } from 'sonner';
+
+import { ROOT_URL } from '@/store/store';
 
 const schema = z.object({
 	email: z.string().email(),
@@ -22,8 +30,27 @@ export default function DiscountForm() {
 
 	const onSubmit: SubmitHandler<FormFields> = async (data) => {
 		try {
+			const response: Response = await fetch(ROOT_URL + 'discount/new', {
+				method: 'POST',
+				body: JSON.stringify(data.email),
+			});
+			const responseData = await response.json();
+			const responseMessage = responseData.message;
+
+			if (!response.ok) {
+				throw new Error(responseMessage);
+			}
+
+			toast(responseMessage + '.', {
+				icon: <ShieldCheckIcon />,
+			});
+		} catch (error: any) {
+			toast(error.message + '.', {
+				icon: <ExclamationTriangleIcon />,
+			});
+		} finally {
 			reset();
-		} catch (error) {}
+		}
 	};
 	return (
 		<form
