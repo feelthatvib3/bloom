@@ -12,13 +12,13 @@ import FooterCategory from '@/components/footer/FooterCategory';
 export default function Footer() {
 	return (
 		<footer className="py-6 md:py-10 lg:py-14">
-			<Container className="flex flex-col justify-between lg:flex-row">
+			<Container className="flex flex-col justify-between gap-y-8 sm:items-center md:flex-row md:items-start lg:gap-y-0">
 				<Link href="/" className="font-heading text-3xl uppercase">
 					Bloom
 				</Link>
-				<div className="flex flex-col lg:flex-row lg:gap-x-10">
+				<div className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-16">
 					{footerItems.map((footerCategory: FooterCategoryType) => (
-						<FooterCategory category={footerCategory} />
+						<FooterCategory key={footerCategory.id} category={footerCategory} />
 					))}
 				</div>
 			</Container>
