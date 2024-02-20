@@ -28,5 +28,7 @@ model Product {
   image         String
   price         Float
   discount      Int?
+  createdAt     DateTime
+  updatedAt     DateTime
   category      Category? @relation(fields: [categoryId], references: [id])
 }
