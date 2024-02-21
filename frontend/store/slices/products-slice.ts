@@ -1,25 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ROOT_URL } from '@/store/store';
-import { Category } from '@/store/slices/categories-slice';
 
-export interface Product {
-	id: string;
-	categoryId: string;
-	categoryTitle: string;
-	name: string;
-	description: string;
-	image: string;
-	price: number;
-	discount: number | null;
-}
+import { type Product, type FilterOptions } from '@/store/types';
 
 interface ProductsState {
 	products: Product[];
 	isLoading: boolean;
 }
 
-interface CategoryProductsResponseData extends Category {
-	products: Product[];
+interface FetchProductsArgs {
+	endpoint: string;
+	filters?: FilterOptions;
 }
 
 const initialState: ProductsState = {
@@ -27,52 +17,47 @@ const initialState: ProductsState = {
 	isLoading: true,
 };
 
-export const fetchAllProducts = createAsyncThunk(
-	'products/fetchAll',
-	async (thunkAPI) => {
-		const response: Response = await fetch(ROOT_URL + 'products/all');
-		const data: Product[] = await response.json();
+export const fetchProducts = createAsyncThunk(
+	'products/fetch',
+	async ({ endpoint, filters }: FetchProductsArgs, thunkAPI) => {
+		const url = new URL(endpoint, 'http://localhost:5555');
+		if (filters) {
+			Object.entries(filters).forEach(([key, value]) => {
+				url.searchParams.set(key, String(value));
+			});
+		}
+
+		const response: Response = await fetch(url.toString());
+		if (response.status === 404) return [];
+
+		const data = await response.json();
 		return data;
 	},
 );
 
-export const fetchProductsByCategorySlug = createAsyncThunk(
-	'products/fetchCategory',
-	async (categorySlug: string, thunkAPI) => {
-		const response: Response = await fetch(
-			ROOT_URL + 'products/' + categorySlug,
-		);
-		const data: CategoryProductsResponseData = await response.json();
-		return data.products;
-	},
-);
-
 export const productsSlice = createSlice({
-	name: 'categories',
+	name: 'products',
 	initialState,
-	reducers: {},
+	reducers: {
+		startLoading: (state) => {
+			state.isLoading = true;
+		},
+	},
 	extraReducers: (builder) => {
-		builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
+		builder.addCase(fetchProducts.pending, (state, action) => {
+			state.isLoading = true;
+		});
+		builder.addCase(fetchProducts.fulfilled, (state, action) => {
 			state.products = action.payload;
 			state.isLoading = false;
 		});
-		builder.addCase(fetchAllProducts.pending, (state, action) => {
-			state.isLoading = true;
-		});
-		builder.addCase(fetchAllProducts.rejected, (state, action) => {
-			state.isLoading = false;
-		});
-		builder.addCase(fetchProductsByCategorySlug.fulfilled, (state, action) => {
-			state.products = action.payload;
-			state.isLoading = false;
-		});
-		builder.addCase(fetchProductsByCategorySlug.pending, (state, action) => {
-			state.isLoading = true;
-		});
-		builder.addCase(fetchProductsByCategorySlug.rejected, (state, action) => {
+		builder.addCase(fetchProducts.rejected, (state, action) => {
+			state.products = [];
 			state.isLoading = false;
 		});
 	},
 });
+
+export const { startLoading } = productsSlice.actions;
 
 export default productsSlice.reducer;
