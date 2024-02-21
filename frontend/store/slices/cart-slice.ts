@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Product } from '@/store/slices/products-slice';
+
+import { type Product } from '@/store/types';
 
 export interface CartProduct extends Product {
 	amountAdded: number;
