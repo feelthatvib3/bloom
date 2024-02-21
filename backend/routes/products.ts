@@ -1,13 +1,30 @@
 import express, { Router, Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
+
+import getFilteredProducts, {
+	type FilterOptions,
+} from '@utils/get-filtered-products';
 
 const router: Router = express.Router();
-const prisma: PrismaClient = new PrismaClient();
 
 router.get('/all', async (req: Request, res: Response) => {
 	try {
-		const products = await prisma.product.findMany();
-		res.json(products);
+		const { fromPrice, toPrice, isDiscounted, sortBy } =
+			req.query as FilterOptions;
+		const { categorySlug } = req.params;
+
+		const products = await getFilteredProducts({
+			fromPrice,
+			toPrice,
+			isDiscounted,
+			sortBy,
+			categorySlug,
+		});
+
+		if (products.length === 0) {
+			return res.status(404).json({ error: 'No products found' });
+		}
+
+		res.status(200).json(products);
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error: 'Internal server error' });
@@ -16,18 +33,23 @@ router.get('/all', async (req: Request, res: Response) => {
 
 router.get('/:categorySlug', async (req: Request, res: Response) => {
 	try {
+		const { fromPrice, toPrice, isDiscounted, sortBy } =
+			req.query as FilterOptions;
 		const { categorySlug } = req.params;
 
-		const categoryWithProducts = await prisma.category.findUnique({
-			where: { slug: categorySlug },
-			include: { products: true },
+		const products = await getFilteredProducts({
+			fromPrice,
+			toPrice,
+			isDiscounted,
+			sortBy,
+			categorySlug,
 		});
 
-		if (!categoryWithProducts) {
-			return res.status(404).json({ error: 'Category not found' });
+		if (products.length === 0) {
+			return res.status(404).json({ error: 'No products found' });
 		}
 
-		res.json(categoryWithProducts);
+		res.status(200).json(products);
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: 'Internal server error' });
