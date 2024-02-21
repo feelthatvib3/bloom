@@ -15,7 +15,7 @@ export default function CartPage() {
 	if (products.length === 0) {
 		return (
 			<Container className="flex h-[75vh] items-center justify-center">
-				<p className="text-2xl">
+				<p className="text-center text-2xl">
 					How come you have your cart empty? Let's shop!
 				</p>
 			</Container>
