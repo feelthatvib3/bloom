@@ -68,7 +68,10 @@ export default function MenuDrawer({
 						/>
 					))}
 				</ul>
-				<div className="absolute bottom-6 left-6 w-[calc(100%-3rem)]">
+				<div
+					onClick={() => setIsOpened(!isOpened)}
+					className="absolute bottom-6 left-6 w-[calc(100%-3rem)]"
+				>
 					<CartButton />
 				</div>
 			</SheetContent>
