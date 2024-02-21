@@ -14,7 +14,7 @@ export default function BookmarksPage() {
 	if (products.length === 0) {
 		return (
 			<Container className="flex h-[75vh] items-center justify-center">
-				<p className="text-2xl">
+				<p className="text-center text-2xl">
 					No bookmarks here. Don't like to save things for later?
 				</p>
 			</Container>
