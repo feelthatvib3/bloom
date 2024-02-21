@@ -1,13 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ROOT_URL } from '@/store/store';
 
-export interface Category {
-	id: string;
-	title: string;
-	slug: string;
-	description: string;
-	image: string;
-}
+import { ROOT_URL } from '@/store/store';
+import { Category } from '@/store/types';
 
 interface CategoriesState {
 	categories: Category[];
@@ -22,8 +16,8 @@ const initialState: CategoriesState = {
 export const fetchCategories = createAsyncThunk(
 	'categories/fetch',
 	async (thunkAPI) => {
-		const response: Response = await fetch(ROOT_URL + 'categories/all');
-		const data: Category[] = await response.json();
+		const response = await fetch(ROOT_URL + 'categories/all');
+		const data = await response.json();
 		return data;
 	},
 );
