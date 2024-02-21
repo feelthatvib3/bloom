@@ -15,7 +15,7 @@ export default function BookmarksPage() {
 		return (
 			<Container className="flex h-[75vh] items-center justify-center">
 				<p className="text-center text-2xl">
-					No bookmarks here. Don't like to save things for later?
+					No bookmarks here. Don't like saving things for later?
 				</p>
 			</Container>
 		);
