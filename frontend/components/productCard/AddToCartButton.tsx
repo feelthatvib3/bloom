@@ -5,9 +5,9 @@ import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
 import { toast } from 'sonner';
 
+import { type Product } from '@/store/types';
 import { useAppDispatch } from '@/lib/redux-hooks';
 import { addToCart } from '@/store/slices/cart-slice';
-import { Product } from '@/store/slices/products-slice';
 
 interface AddToCartButtonProps {
 	product: Product;
@@ -21,7 +21,7 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
 		e: MouseEvent<HTMLButtonElement>,
 		product: Product,
 	) => {
-		e.stopPropagation();
+		e.preventDefault();
 
 		dispatch(addToCart({ addedProduct: product, count: 1 }));
 		setIsAdded(true);

@@ -11,7 +11,7 @@ import {
 	removeFromBookmarks,
 } from '@/store/slices/bookmarks-slice';
 import { RootState } from '@/store/store';
-import { Product } from '@/store/slices/products-slice';
+import { type Product } from '@/store/types';
 import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
 
 interface BookmarkButtonProps {
@@ -33,7 +33,8 @@ export default function BookmarkButton({
 		e: MouseEvent<HTMLButtonElement>,
 		product: Product,
 	) => {
-		e.stopPropagation();
+		e.preventDefault();
+
 		if (isBookmarked) {
 			dispatch(removeFromBookmarks(product.id));
 			toast(`${product.name} has been removed from your bookmarks.`, {
