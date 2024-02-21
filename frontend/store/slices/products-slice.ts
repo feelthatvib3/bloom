@@ -27,7 +27,7 @@ export const fetchProducts = createAsyncThunk(
 			});
 		}
 
-		const response: Response = await fetch(url.toString());
+		const response = await fetch(url.toString());
 		if (response.status === 404) return [];
 
 		const data = await response.json();
