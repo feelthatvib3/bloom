@@ -24,19 +24,13 @@ export default function CartPage() {
 	return (
 		<Container className="pb-4 pt-[calc(1rem+69px)] lg:pb-8 lg:pt-[calc(2rem+69px)]">
 			<Title>Shopping cart</Title>
-			<div>
-				{products.length === 0 ? (
-					<div className="mt-4 text-lg font-medium">No products added.</div>
-				) : (
-					<div className="mt-8 flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 lg:gap-y-2">
-						<ul className="grid gap-y-2 lg:w-3/5">
-							{products.map((product: CartProduct) => (
-								<CartListItem key={product.id} product={product} />
-							))}
-						</ul>
-						<OrderSummary />
-					</div>
-				)}
+			<div className="mt-8 flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 lg:gap-y-2">
+				<ul className="grid gap-y-2 lg:w-3/5">
+					{products.map((product: CartProduct) => (
+						<CartListItem key={product.id} product={product} />
+					))}
+				</ul>
+				<OrderSummary />
 			</div>
 		</Container>
 	);
