@@ -59,5 +59,4 @@ export const productsSlice = createSlice({
 });
 
 export const { startLoading } = productsSlice.actions;
-
 export default productsSlice.reducer;
