@@ -3,8 +3,9 @@ import categoriesSlice from '@/store/slices/categories-slice';
 import productsSlice from '@/store/slices/products-slice';
 import cartSlice from '@/store/slices/cart-slice';
 import bookmarksSlice from '@/store/slices/bookmarks-slice';
+import productSlice from '@/store/slices/product-slice';
 
-export const ROOT_URL: string = 'http://localhost:5555/';
+export const ROOT_URL = 'http://localhost:5555/';
 
 export const makeStore = () => {
 	return configureStore({
@@ -13,6 +14,7 @@ export const makeStore = () => {
 			products: productsSlice,
 			cart: cartSlice,
 			bookmarks: bookmarksSlice,
+			product: productSlice,
 		},
 	});
 };
