@@ -42,10 +42,15 @@ export const cartSlice = createSlice({
 				(totalAmount, product) => totalAmount + product.amountAdded,
 				0,
 			);
-			state.totalPrice = state.products.reduce(
-				(total, product) => (total += product.price * product.amountAdded),
-				0,
-			);
+			state.totalPrice = state.products.reduce((total, product) => {
+				if (product.discount) {
+					total += product.price - product.price * (product.discount / 100);
+				} else {
+					total += product.price * product.amountAdded;
+				}
+
+				return total;
+			}, 0);
 		},
 		incrementItem: (state, action) => {
 			const productId = action.payload;
@@ -59,10 +64,15 @@ export const cartSlice = createSlice({
 				(totalAmount, product) => totalAmount + product.amountAdded,
 				0,
 			);
-			state.totalPrice = state.products.reduce(
-				(total, product) => (total += product.price * product.amountAdded),
-				0,
-			);
+			state.totalPrice = state.products.reduce((total, product) => {
+				if (product.discount) {
+					total += product.price - product.price * (product.discount / 100);
+				} else {
+					total += product.price * product.amountAdded;
+				}
+
+				return total;
+			}, 0);
 		},
 		decrementItem: (state, action) => {
 			const productId = action.payload;
@@ -76,10 +86,15 @@ export const cartSlice = createSlice({
 				(totalAmount, product) => totalAmount + product.amountAdded,
 				0,
 			);
-			state.totalPrice = state.products.reduce(
-				(total, product) => (total += product.price * product.amountAdded),
-				0,
-			);
+			state.totalPrice = state.products.reduce((total, product) => {
+				if (product.discount) {
+					total += product.price - product.price * (product.discount / 100);
+				} else {
+					total += product.price * product.amountAdded;
+				}
+
+				return total;
+			}, 0);
 		},
 		removeFromCart: (state, action) => {
 			const productId = action.payload;
@@ -91,10 +106,15 @@ export const cartSlice = createSlice({
 				(totalAmount, product) => totalAmount + product.amountAdded,
 				0,
 			);
-			state.totalPrice = state.products.reduce(
-				(total, product) => (total += product.price * product.amountAdded),
-				0,
-			);
+			state.totalPrice = state.products.reduce((total, product) => {
+				if (product.discount) {
+					total += product.price - product.price * (product.discount / 100);
+				} else {
+					total += product.price * product.amountAdded;
+				}
+
+				return total;
+			}, 0);
 		},
 	},
 });
