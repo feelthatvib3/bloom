@@ -60,13 +60,17 @@ export const cartSlice = createSlice({
 					? { ...product, amountAdded: product.amountAdded + 1 }
 					: product,
 			);
+
 			state.totalItems = state.products.reduce(
 				(totalAmount, product) => totalAmount + product.amountAdded,
 				0,
 			);
+
 			state.totalPrice = state.products.reduce((total, product) => {
 				if (product.discount) {
-					total += product.price - product.price * (product.discount / 100);
+					const discountPrice =
+						product.price - product.price * (product.discount / 100);
+					total += discountPrice * product.amountAdded;
 				} else {
 					total += product.price * product.amountAdded;
 				}
