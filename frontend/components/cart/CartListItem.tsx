@@ -1,13 +1,12 @@
 'ues client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import ProductAmountCounter from '@/components/ProductAmountCounter';
 import RemoveProductButton from '@/components/cart/RemoveProductButton';
 
 import { ROOT_URL } from '@/store/store';
-import { useAppDispatch } from '@/lib/redux-hooks';
 import { CartProduct } from '@/store/slices/cart-slice';
 
 interface CartListItemProps {
@@ -17,9 +16,6 @@ interface CartListItemProps {
 export default function CartListItem({ product }: CartListItemProps) {
 	const { id, name, price, amountAdded, discount, image } = product;
 	const [productAmount, setProductAmount] = useState<number>(amountAdded);
-	const dispatch = useAppDispatch();
-
-	useEffect(() => {}, [dispatch, productAmount]);
 
 	let evaluatedPrice = '';
 	discount
