@@ -120,9 +120,19 @@ export const cartSlice = createSlice({
 				return total;
 			}, 0);
 		},
+		clearCart: (state) => {
+			state.products = [];
+			state.totalItems = 0;
+			state.totalPrice = 0;
+		},
 	},
 });
 
-export const { addToCart, incrementItem, decrementItem, removeFromCart } =
-	cartSlice.actions;
+export const {
+	addToCart,
+	incrementItem,
+	decrementItem,
+	removeFromCart,
+	clearCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;
