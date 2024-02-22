@@ -1,11 +1,13 @@
 interface ProductPriceProps {
 	regularPrice: number;
 	discountPercent: number | null;
+	discountPercentShown?: boolean;
 }
 
 export default function ProductPrice({
 	regularPrice,
 	discountPercent,
+	discountPercentShown = true,
 }: ProductPriceProps) {
 	let discountPrice = '';
 	if (discountPercent) {
@@ -24,7 +26,7 @@ export default function ProductPrice({
 					<span className="text-xl line-through">${regularPrice}</span>
 				)}
 			</div>
-			{discountPercent && (
+			{discountPercentShown && discountPercent && (
 				<div className="flex w-[15%] items-center justify-center bg-lime-200 text-lg font-medium text-lime-950 lg:w-[20%]">
 					-{discountPercent}%
 				</div>
