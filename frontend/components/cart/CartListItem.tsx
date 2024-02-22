@@ -1,5 +1,6 @@
 'ues client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -38,7 +39,12 @@ export default function CartListItem({ product }: CartListItemProps) {
 			<div className="flex h-full w-full flex-col justify-between gap-y-4 p-2 sm:col-span-6 sm:p-4">
 				{/* title + remove from cart button */}
 				<div className="flex items-start justify-between gap-x-4">
-					<p className="line-clamp-2 text-2xl font-medium">{name}</p>
+					<Link
+						href={`/products/${id}`}
+						className="line-clamp-2 text-2xl font-medium"
+					>
+						{name}
+					</Link>
 					<RemoveProductButton productId={id} />
 				</div>
 
