@@ -12,7 +12,7 @@ interface FooterCategoryProps {
 export default function FooterCategory({ category }: FooterCategoryProps) {
 	const { title, items } = category;
 	return (
-		<div className="text-center sm:text-start">
+		<div className="text-start">
 			<p className="mb-2 text-2xl font-semibold uppercase">{title}</p>
 			<ul>
 				{items.map((footerCategoryItem: FooterCategoryItemType) => (
