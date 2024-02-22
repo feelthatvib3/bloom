@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 
+import productRouter from '@routes/product';
 import discountRouter from '@routes/discount';
 import productsRouter from '@routes/products';
 import categoriesRouter from '@routes/categories';
@@ -17,9 +18,10 @@ app.use(
 	}),
 );
 
-app.use('/categories', categoriesRouter);
+app.use('/product', productRouter);
 app.use('/products', productsRouter);
 app.use('/discount', discountRouter);
+app.use('/categories', categoriesRouter);
 
 app.listen(PORT, () => {
 	console.log(`The server has started on port ${PORT}!`);
