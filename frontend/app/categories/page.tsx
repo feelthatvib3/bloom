@@ -8,7 +8,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 import CategoriesListItem from '@/components/categories/CategoriesListItem';
 
 import { RootState } from '@/store/store';
-import { Category, fetchCategories } from '@/store/slices/categories-slice';
+import { type Category } from '@/store/types';
+import { fetchCategories } from '@/store/slices/categories-slice';
 import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
 
 export default function CategoriesPage() {

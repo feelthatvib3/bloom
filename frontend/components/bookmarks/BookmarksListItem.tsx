@@ -3,8 +3,8 @@ import Image from 'next/image';
 import ProductPrice from '@/components/productCard/ProductPrice';
 import BookmarkButton from '@/components/productCard/BookmarkButton';
 
-import { Product } from '@/store/slices/products-slice';
 import { ROOT_URL } from '@/store/store';
+import { type Product } from '@/store/types';
 
 interface BookmarksListItemProps {
 	product: Product;

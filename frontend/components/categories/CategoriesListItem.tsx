@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
-import { Category } from '@/store/slices/categories-slice';
 import { ROOT_URL } from '@/store/store';
+import { type Category } from '@/store/types';
 
 interface CategoriesListItemProps {
 	category: Category;
