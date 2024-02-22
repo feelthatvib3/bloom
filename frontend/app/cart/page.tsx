@@ -16,7 +16,7 @@ export default function CartPage() {
 		return (
 			<Container className="flex h-[75vh] items-center justify-center">
 				<p className="text-center text-2xl">
-					How come you have your cart empty? Let's shop!
+					How come you have your cart empty? Let&apos;s shop!
 				</p>
 			</Container>
 		);
