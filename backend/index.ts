@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 
+import orderRouter from '@routes/order';
 import productRouter from '@routes/product';
 import discountRouter from '@routes/discount';
 import productsRouter from '@routes/products';
@@ -18,6 +19,7 @@ app.use(
 	}),
 );
 
+app.use('/order', orderRouter);
 app.use('/product', productRouter);
 app.use('/products', productsRouter);
 app.use('/discount', discountRouter);
