@@ -25,8 +25,8 @@ export default function CartListItem({ product }: CartListItemProps) {
 			).toFixed(2))
 		: (evaluatedPrice = (price * amountAdded).toFixed(2));
 	return (
-		<li className="flex max-h-[200px] items-center gap-x-2 divide-x divide-lime-950 overflow-hidden border border-lime-950">
-			<div>
+		<li className="flex max-h-[200px] items-center gap-x-2 divide-x divide-lime-950 overflow-hidden border border-lime-950 sm:grid sm:grid-cols-8">
+			<div className="sm:col-span-2">
 				<Image
 					src={ROOT_URL + image}
 					alt={name}
@@ -35,7 +35,7 @@ export default function CartListItem({ product }: CartListItemProps) {
 					className="h-full min-w-[155px] object-cover sm:w-full"
 				/>
 			</div>
-			<div className="flex h-full w-full flex-col justify-between gap-y-4 p-2 sm:p-4">
+			<div className="flex h-full w-full flex-col justify-between gap-y-4 p-2 sm:col-span-6 sm:p-4">
 				{/* title + remove from cart button */}
 				<div className="flex items-start justify-between gap-x-4">
 					<p className="line-clamp-2 text-2xl font-medium">{name}</p>
