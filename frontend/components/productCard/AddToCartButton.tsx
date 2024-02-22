@@ -26,7 +26,7 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
 		dispatch(addToCart({ addedProduct: product, count: 1 }));
 		setIsAdded(true);
 		toast(`${product.name} has been added to your cart.`, {
-			icon: <ShoppingCartIcon className="h-5 w-5" />,
+			icon: <ShoppingCartIcon />,
 		});
 	};
 

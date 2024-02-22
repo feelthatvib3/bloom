@@ -31,7 +31,7 @@ export default function ProductPage() {
 		toast(
 			`You have added ${product?.name} to your cart in a quantity of ${productAmount}.`,
 			{
-				icon: <ShoppingCartIcon className="h-5 w-5" />,
+				icon: <ShoppingCartIcon />,
 			},
 		);
 	};

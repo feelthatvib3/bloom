@@ -38,12 +38,12 @@ export default function BookmarkButton({
 		if (isBookmarked) {
 			dispatch(removeFromBookmarks(product.id));
 			toast(`${product.name} has been removed from your bookmarks.`, {
-				icon: <BookmarkIconOutline className="h-5 w-5" />,
+				icon: <BookmarkIconOutline />,
 			});
 		} else {
 			dispatch(addToBookmarks(product));
 			toast(`${product.name} has been bookmarked.`, {
-				icon: <BookmarkIconSolid className="h-5 w-5" />,
+				icon: <BookmarkIconSolid />,
 			});
 		}
 	};
