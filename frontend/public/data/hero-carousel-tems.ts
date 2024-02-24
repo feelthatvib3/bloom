@@ -8,11 +8,11 @@ export const heroCarouselItems: HeroCarouselItem[] = [
 	{
 		id: 0,
 		imageSrc: '/images/carousel-item-0.jpg',
-		imageDescription: 'Green-leafed potted plants during daytime photo',
+		imageDescription: 'A person in front of green plants',
 	},
 	{
 		id: 1,
 		imageSrc: '/images/carousel-item-1.jpg',
-		imageDescription: 'Person holding plant',
+		imageDescription: 'Pink petaled flowers inside building',
 	},
 ];
