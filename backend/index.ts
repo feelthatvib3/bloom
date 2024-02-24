@@ -11,6 +11,7 @@ import categoriesRouter from '@routes/categories';
 const app: Express = express();
 const { PORT } = process.env;
 
+app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded());
 app.use(
