@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
 
@@ -10,8 +13,14 @@ import {
 import FooterCategory from '@/components/footer/FooterCategory';
 
 export default function Footer() {
+	const currentPathname = usePathname();
+
 	return (
-		<footer className="py-6 md:py-10 lg:py-14">
+		<footer
+			className={
+				currentPathname === '/' ? 'py-6 md:py-10 lg:py-14' : 'py-4 lg:py-8'
+			}
+		>
 			<Container className="flex flex-col justify-between gap-y-8 sm:items-center md:flex-row md:items-start lg:gap-y-0">
 				<Link href="/" className="font-heading text-3xl uppercase">
 					Bloom
