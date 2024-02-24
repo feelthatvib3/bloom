@@ -38,13 +38,13 @@ export default async function getFilteredProducts({
 		switch (sortBy) {
 			case 'newest': {
 				sorting = {
-					createdAt: 'asc',
+					createdAt: 'desc',
 				};
 				break;
 			}
 			case 'oldest': {
 				sorting = {
-					createdAt: 'desc',
+					createdAt: 'asc',
 				};
 				break;
 			}
