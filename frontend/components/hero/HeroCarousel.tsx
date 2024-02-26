@@ -39,7 +39,7 @@ export default function HeroCarousel() {
 		<>
 			<Carousel
 				setApi={setApi}
-				className="h-[320px] cursor-grab active:cursor-grabbing md:h-[640px] xl:h-[800px]"
+				className="h-[320px] cursor-grab active:cursor-grabbing sm:h-[550px] lg:h-[700px]"
 			>
 				<CarouselContent className="h-full p-0">
 					{heroCarouselItems.map(
