@@ -3,23 +3,23 @@
 import type { RootState } from '@/app/lib/definitions';
 
 import Image from 'next/image';
+import { toast } from 'sonner';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
 import { ROOT_URL } from '@/app/lib/constants';
 
-import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
 
-import Button from '@/components/Button';
-import Container from '@/components/Container';
+import Button from '@/app/ui/Button';
+import Container from '@/app/ui/Container';
 import ProductPrice from '@/components/productCard/ProductPrice';
 import ProductAmountCounter from '@/components/ProductAmountCounter';
 
 import { addToCart } from '@/store/slices/cart-slice';
 import { fetchProduct } from '@/store/thunks/product-thunks';
-import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
+import { useAppDispatch, useAppSelector } from '@/app/lib/redux-hooks';
 
 export default function ProductPage() {
 	const { productId } = useParams();

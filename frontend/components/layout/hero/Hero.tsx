@@ -2,8 +2,8 @@
 
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
-import Button from '@/components/Button';
-import Container from '@/components/Container';
+import Button from '@/app/ui/Button';
+import Container from '@/app/ui/Container';
 import HeroCarousel from '@/components/layout/hero/HeroCarousel';
 
 export default function Hero() {

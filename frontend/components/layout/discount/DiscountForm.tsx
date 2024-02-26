@@ -1,6 +1,7 @@
 'use client';
 
 import { z } from 'zod';
+import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import {
@@ -9,8 +10,7 @@ import {
 } from '@heroicons/react/24/solid';
 
 import { ROOT_URL } from '@/app/lib/constants';
-
-import { toast } from 'sonner';
+import Button from '@/app/ui/Button';
 
 const schema = z.object({
 	email: z.string().email(),
@@ -41,11 +41,12 @@ export default function DiscountForm() {
 				throw new Error(responseMessage);
 			}
 
-			toast(responseMessage + '.', {
+			toast(`${responseMessage}.`, {
 				icon: <ShieldCheckIcon />,
 			});
 		} catch (error: any) {
-			toast(error.message + '.', {
+			const errorMessage = error.message;
+			toast(`${errorMessage}.`, {
 				icon: <ExclamationTriangleIcon />,
 			});
 		} finally {
@@ -54,7 +55,7 @@ export default function DiscountForm() {
 	};
 	return (
 		<form
-			className="flex max-w-lg flex-col items-start gap-y-2 md:w-1/2"
+			className="flex w-full max-w-lg flex-col items-start gap-y-2 md:w-1/2"
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<input
@@ -66,13 +67,12 @@ export default function DiscountForm() {
 			{errors.email && (
 				<span className="text-red-500">{errors.email.message}</span>
 			)}
-			<button
-				disabled={isSubmitting}
+			<Button
 				type="submit"
-				className="w-full border border-lime-200 bg-lime-200 py-2 text-lg font-medium text-lime-950 transition-colors hover:bg-transparent hover:text-lime-200"
-			>
-				{isSubmitting ? 'Loading...' : 'Get your discount'}
-			</button>
+				disabled={isSubmitting}
+				label={isSubmitting ? 'Loading...' : 'Get your discount'}
+				intent="secondary"
+			/>
 			{errors.root && <div>{errors.root.message}</div>}
 		</form>
 	);

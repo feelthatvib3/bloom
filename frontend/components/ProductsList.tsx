@@ -6,7 +6,7 @@ import ProductCard from '@/components/productCard/ProductCard';
 
 import { Skeleton } from '@/components/ui/skeleton';
 
-import { useAppSelector } from '@/lib/redux-hooks';
+import { useAppSelector } from '@/app/lib/redux-hooks';
 
 export default function ProductList() {
 	const { products, isLoading } = useAppSelector(

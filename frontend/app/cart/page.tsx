@@ -3,11 +3,11 @@
 import type { CartProduct, RootState } from '@/app/lib/definitions';
 
 import Title from '@/components/Title';
-import Container from '@/components/Container';
-import CartListItem from '@/components/cart/CartListItem';
-import OrderSummary from '@/components/cart/OrderSummary';
+import Container from '@/app/ui/Container';
+import CartListItem from '@/app/cart/components/CartListItem';
+import OrderSummary from '@/app/cart/components/OrderSummary';
 
-import { useAppSelector } from '@/lib/redux-hooks';
+import { useAppSelector } from '@/app/lib/redux-hooks';
 
 export default function CartPage() {
 	const { products } = useAppSelector((state: RootState) => state.cart);
@@ -25,7 +25,7 @@ export default function CartPage() {
 		<Container className="pb-4 pt-[calc(1rem+69px)] lg:pb-8 lg:pt-[calc(2rem+69px)]">
 			<Title>Shopping cart</Title>
 			<div className="mt-8 flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 lg:gap-y-2">
-				<ul className="grid gap-y-2 lg:w-3/5">
+				<ul className="grid scroll-m-11 gap-y-2 lg:w-3/5">
 					{products.map((product: CartProduct) => (
 						<CartListItem key={product.id} product={product} />
 					))}

@@ -5,20 +5,22 @@ import type { Category, RootState } from '@/app/lib/definitions';
 import { useEffect } from 'react';
 
 import Title from '@/components/Title';
-import Container from '@/components/Container';
-import CategoriesListItem from '@/components/categories/CategoriesListItem';
+import Container from '@/app/ui/Container';
+import CategoriesListItem from '@/app/categories/components/CategoriesListItem';
 
 import { Skeleton } from '@/components/ui/skeleton';
 
-import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
+import { useAppDispatch, useAppSelector } from '@/app/lib/redux-hooks';
 import { fetchCategories } from '@/store/thunks/categories-thunks';
 
 export default function CategoriesPage() {
-	const dispatch = useAppDispatch();
 	const { categories, isLoading } = useAppSelector(
 		(state: RootState) => state.categories,
 	);
+	const dispatch = useAppDispatch();
+
 	const skeletonItems = Array(5).fill(null);
+
 	useEffect(() => {
 		dispatch(fetchCategories());
 	}, [dispatch]);

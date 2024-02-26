@@ -1,15 +1,34 @@
 'use client';
 
-import type { Product } from '@/app/lib/definitions';
+import type { MouseEvent } from 'react';
+import type { Product, RootState } from '@/app/lib/definitions';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { toast } from 'sonner';
+import { useEffect, useState } from 'react';
+import {
+	HeartIcon as HeartIconOutline,
+	BookmarkIcon as BookmarkIconOutline,
+} from '@heroicons/react/24/outline';
+import {
+	ShoppingCartIcon,
+	HeartIcon as HeartIconSolid,
+	BookmarkIcon as BookmarkIconSolid,
+} from '@heroicons/react/24/solid';
 
 import { ROOT_URL } from '@/app/lib/constants';
 
+import Button from '@/app/ui/Button';
+import IconButton from '@/app/ui/IconButton';
 import ProductPrice from '@/components/productCard/ProductPrice';
-import BookmarkButton from '@/components/productCard/BookmarkButton';
-import AddToCartButton from '@/components/productCard/AddToCartButton';
+
+import { useAppDispatch, useAppSelector } from '@/app/lib/redux-hooks';
+import { addToCart } from '@/store/slices/cart-slice';
+import {
+	addToBookmarks,
+	removeFromBookmarks,
+} from '@/store/slices/bookmarks-slice';
 
 interface ProductCardProps {
 	product: Product;
@@ -17,6 +36,56 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
 	const { id, categoryTitle, name, price, discount, image } = product;
+	const { products } = useAppSelector((state: RootState) => state.bookmarks);
+	const dispatch = useAppDispatch();
+
+	const [isProductAdded, setIsProductAdded] = useState<boolean>(false);
+
+	const isBookmarked = products.find(
+		(existingProduct) => existingProduct.id === product.id,
+	);
+
+	const handleAddToCart = (
+		event: MouseEvent<HTMLButtonElement>,
+		product: Product,
+	) => {
+		event.preventDefault();
+
+		dispatch(addToCart({ addedProduct: product, count: 1 }));
+		setIsProductAdded(true);
+		toast(`${product.name} has been added to your cart.`, {
+			icon: <ShoppingCartIcon />,
+		});
+	};
+
+	const handleAddToBookmarks = (
+		e: MouseEvent<HTMLButtonElement>,
+		product: Product,
+	) => {
+		e.preventDefault();
+
+		if (isBookmarked) {
+			dispatch(removeFromBookmarks(product.id));
+			toast(`${product.name} has been removed from your bookmarks.`, {
+				icon: <BookmarkIconOutline />,
+			});
+		} else {
+			dispatch(addToBookmarks(product));
+			toast(`${product.name} has been bookmarked.`, {
+				icon: <BookmarkIconSolid />,
+			});
+		}
+	};
+
+	useEffect(() => {
+		const timeoutId = setTimeout(() => {
+			setIsProductAdded(false);
+		}, 1.5 * 1000);
+
+		return () => {
+			clearTimeout(timeoutId);
+		};
+	}, [isProductAdded]);
 	return (
 		<li className="min-w-xs relative min-h-[450px] cursor-pointer text-lime-200">
 			<Link href={`/products/${id}`} className="block p-4">
@@ -54,8 +123,25 @@ export default function ProductCard({ product }: ProductCardProps) {
 						<div className="mt-6">
 							<ProductPrice regularPrice={price} discountPercent={discount} />
 							<div className="mt-2 flex gap-x-2">
-								<AddToCartButton product={product} />
-								<BookmarkButton product={product} />
+								<Button
+									disabled={isProductAdded}
+									onClick={(e) => handleAddToCart(e, product)}
+									label={isProductAdded ? 'Added' : 'Add to cart'}
+									intent="secondary"
+									className="text-xl"
+								/>
+								<IconButton
+									icon={
+										isBookmarked ? (
+											<HeartIconSolid className="h-6 w-6" />
+										) : (
+											<HeartIconOutline className="h-6 w-6" />
+										)
+									}
+									onClick={(event) => handleAddToBookmarks(event, product)}
+									className="min-w-12 grow-0"
+								/>
+								{/* <BookmarkButton product={product} /> */}
 							</div>
 						</div>
 					</div>

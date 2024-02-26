@@ -1,9 +1,9 @@
 'use client';
 
-import type { FilterOptions, SortType } from '@/app/lib/definitions';
+import type { FilterOptions, RootState, SortType } from '@/app/lib/definitions';
 
-import { CheckIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { CheckIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 import {
 	Select,
@@ -13,18 +13,19 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-import { useAppDispatch } from '@/lib/redux-hooks';
+import { useAppDispatch, useAppSelector } from '@/app/lib/redux-hooks';
 import { startLoading } from '@/store/slices/products-slice';
 import { fetchProducts } from '@/store/thunks/products-thunks';
 
 import { selectValues } from '@/public/data/filter-select-items';
-
+``;
 interface ProductsFilterProp {
 	endpoint: string;
 }
 
 export default function ProductsFilter({ endpoint }: ProductsFilterProp) {
 	const dispatch = useAppDispatch();
+	const { products } = useAppSelector((state: RootState) => state.products);
 
 	const [search, setSearch] = useState<string>('');
 	const [fromPrice, setFromPrice] = useState<number>(0);
@@ -79,7 +80,7 @@ export default function ProductsFilter({ endpoint }: ProductsFilterProp) {
 					<input
 						onChange={handleSearchQueryChange}
 						type="text"
-						placeholder="Search..."
+						placeholder="Freesia Flower"
 						className="h-full max-w-[200px] border border-lime-950 bg-transparent py-1 pl-2 pr-9 text-lg outline-none placeholder:text-lime-950/65"
 					/>
 					<MagnifyingGlassIcon className="absolute right-2 top-1/2 h-5 w-5 -translate-y-1/2 text-lime-950/65" />
@@ -112,7 +113,7 @@ export default function ProductsFilter({ endpoint }: ProductsFilterProp) {
 						{selectValues.map(({ value, label }, index) => (
 							<SelectItem
 								key={index}
-								className="cursor-pointer text-lg text-lime-200 focus:rounded-none focus:bg-lime-200/25 focus:text-lime-200"
+								className="cursor-pointer text-lg text-lime-200 transition-colors focus:rounded-none focus:bg-lime-200/25 focus:text-lime-200"
 								value={value}
 							>
 								{label}

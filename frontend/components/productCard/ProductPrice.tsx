@@ -27,7 +27,7 @@ export default function ProductPrice({
 				)}
 			</div>
 			{discountPercentShown && discountPercent && (
-				<div className="flex w-[15%] items-center justify-center bg-lime-200 text-lg font-medium text-lime-950 lg:w-[20%]">
+				<div className="flex min-w-12 items-center justify-center bg-lime-200 text-lg font-medium text-lime-950">
 					-{discountPercent}%
 				</div>
 			)}

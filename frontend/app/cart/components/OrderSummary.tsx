@@ -2,16 +2,16 @@
 
 import type { Product, RootState } from '@/app/lib/definitions';
 
+import { toast } from 'sonner';
 import { useState } from 'react';
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 
-import { toast } from 'sonner';
+import { ROOT_URL } from '@/app/lib/constants';
 
-import Button from '@/components/Button';
+import Button from '@/app/ui/Button';
 
 import { clearCart } from '@/store/slices/cart-slice';
-import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
-import { ROOT_URL } from '@/app/lib/constants';
+import { useAppDispatch, useAppSelector } from '@/app/lib/redux-hooks';
 
 export default function OrderSummary() {
 	const [isLoading, setIsLoading] = useState<boolean>(false);

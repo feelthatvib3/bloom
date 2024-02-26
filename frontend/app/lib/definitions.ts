@@ -1,5 +1,10 @@
 import { makeStore } from '@/store/store';
 
+// components
+
+export type ButtonIntent = 'primary' | 'secondary';
+export type ButtonIconPosition = 'left' | 'right';
+
 // store defs
 
 export type AppStore = ReturnType<typeof makeStore>;

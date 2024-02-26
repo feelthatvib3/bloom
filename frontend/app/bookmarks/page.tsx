@@ -2,11 +2,12 @@
 
 import type { RootState } from '@/app/lib/definitions';
 
-import Title from '@/components/Title';
-import Container from '@/components/Container';
-import BookmarksListItem from '@/components/bookmarks/BookmarksListItem';
+import BookmarksListItem from '@/app/bookmarks/components/BookmarksListItem';
 
-import { useAppSelector } from '@/lib/redux-hooks';
+import Title from '@/components/Title';
+import Container from '@/app/ui/Container';
+
+import { useAppSelector } from '@/app/lib/redux-hooks';
 
 export default function BookmarksPage() {
 	const { products } = useAppSelector((state: RootState) => state.bookmarks);

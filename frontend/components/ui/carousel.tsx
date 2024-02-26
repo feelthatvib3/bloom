@@ -6,7 +6,7 @@ import useEmblaCarousel, {
 	type UseEmblaCarouselType,
 } from 'embla-carousel-react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 

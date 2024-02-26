@@ -6,9 +6,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import ProductAmountCounter from '@/components/ProductAmountCounter';
-import RemoveProductButton from '@/components/cart/RemoveProductButton';
 import { ROOT_URL } from '@/app/lib/constants';
+
+import ProductAmountCounter from '@/components/ProductAmountCounter';
+import RemoveProductButton from '@/app/cart/components/RemoveProductButton';
 
 interface CartListItemProps {
 	product: CartProduct;
@@ -27,7 +28,7 @@ export default function CartListItem({ product }: CartListItemProps) {
 		: (evaluatedPrice = (price * amountAdded).toFixed(2));
 	return (
 		<li className="flex max-h-[200px] items-center gap-x-2 divide-x divide-lime-950 overflow-hidden border border-lime-950 sm:grid sm:grid-cols-8">
-			<div className="sm:col-span-2">
+			<div className="p-4 sm:col-span-2">
 				<Image
 					src={`${ROOT_URL}/${image}`}
 					alt={name}

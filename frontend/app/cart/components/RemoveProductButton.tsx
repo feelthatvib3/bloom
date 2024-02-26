@@ -1,6 +1,6 @@
 import { XMarkIcon } from '@heroicons/react/24/solid';
 
-import { useAppDispatch } from '@/lib/redux-hooks';
+import { useAppDispatch } from '@/app/lib/redux-hooks';
 import { removeFromCart } from '@/store/slices/cart-slice';
 
 interface RemoveProductButtonProps {

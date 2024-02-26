@@ -1,7 +1,7 @@
 import { ROOT_URL } from '@/app/lib/constants';
 
 import Title from '@/components/Title';
-import Container from '@/components/Container';
+import Container from '@/app/ui/Container';
 import ProductList from '@/components/ProductsList';
 import ProductsFilter from '@/components/ProductsFilter';
 

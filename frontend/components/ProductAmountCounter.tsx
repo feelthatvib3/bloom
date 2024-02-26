@@ -4,7 +4,7 @@ import type { Dispatch, SetStateAction } from 'react';
 
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid';
 
-import { useAppDispatch } from '@/lib/redux-hooks';
+import { useAppDispatch } from '@/app/lib/redux-hooks';
 import { decrementItem, incrementItem } from '@/store/slices/cart-slice';
 
 interface ProductAmountCounterProps {
@@ -31,6 +31,7 @@ export default function ProductAmountCounter({
 		if (productId) {
 			dispatch(decrementItem(productId));
 		}
+
 		setProductAmount(productAmount - 1);
 	};
 	return (
@@ -43,7 +44,7 @@ export default function ProductAmountCounter({
 				<MinusIcon className="h-6 w-6" />
 			</button>
 			<input
-				defaultValue={productAmount}
+				key={productAmount}
 				value={productAmount}
 				disabled
 				className="max-w-12 bg-transparent p-2 text-center text-lg text-lime-950 caret-lime-950 outline-none"

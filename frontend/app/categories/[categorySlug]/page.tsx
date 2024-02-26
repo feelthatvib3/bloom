@@ -1,14 +1,13 @@
 'use client';
 import { useParams } from 'next/navigation';
 
+import { capitalize } from '@/app/lib/utils';
 import { ROOT_URL } from '@/app/lib/constants';
 
 import Title from '@/components/Title';
-import Container from '@/components/Container';
+import Container from '@/app/ui/Container';
 import ProductList from '@/components/ProductsList';
 import ProductsFilter from '@/components/ProductsFilter';
-
-import { capitalize } from '@/lib/utils';
 
 export default function CategoryProductsPage() {
 	const { categorySlug } = useParams();
