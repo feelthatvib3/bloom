@@ -1,13 +1,13 @@
 'use client';
 
+import type { CartProduct, RootState } from '@/app/lib/definitions';
+
 import Title from '@/components/Title';
 import Container from '@/components/Container';
 import CartListItem from '@/components/cart/CartListItem';
 import OrderSummary from '@/components/cart/OrderSummary';
 
-import { RootState } from '@/store/store';
 import { useAppSelector } from '@/lib/redux-hooks';
-import { CartProduct } from '@/store/slices/cart-slice';
 
 export default function CartPage() {
 	const { products } = useAppSelector((state: RootState) => state.cart);

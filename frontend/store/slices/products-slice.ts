@@ -1,39 +1,12 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { ProductsState } from '@/app/lib/definitions';
 
-import { type Product, type FilterOptions } from '@/store/types';
-
-interface ProductsState {
-	products: Product[];
-	isLoading: boolean;
-}
-
-interface FetchProductsArgs {
-	endpoint: string;
-	filters?: FilterOptions;
-}
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchProducts } from '@/store/thunks/products-thunks';
 
 const initialState: ProductsState = {
 	products: [],
 	isLoading: true,
 };
-
-export const fetchProducts = createAsyncThunk(
-	'products/fetch',
-	async ({ endpoint, filters }: FetchProductsArgs, thunkAPI) => {
-		const url = new URL(endpoint, 'http://localhost:5555');
-		if (filters) {
-			Object.entries(filters).forEach(([key, value]) => {
-				url.searchParams.set(key, String(value));
-			});
-		}
-
-		const response = await fetch(url.toString());
-		if (response.status === 404) return [];
-
-		const data = await response.json();
-		return data;
-	},
-);
 
 export const productsSlice = createSlice({
 	name: 'products',

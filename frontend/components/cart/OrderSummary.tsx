@@ -1,5 +1,7 @@
 'use client';
 
+import type { Product, RootState } from '@/app/lib/definitions';
+
 import { useState } from 'react';
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 
@@ -7,10 +9,9 @@ import { toast } from 'sonner';
 
 import Button from '@/components/Button';
 
-import { Product } from '@/store/types';
-import { ROOT_URL, RootState } from '@/store/store';
 import { clearCart } from '@/store/slices/cart-slice';
 import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
+import { ROOT_URL } from '@/app/lib/constants';
 
 export default function OrderSummary() {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -25,7 +26,7 @@ export default function OrderSummary() {
 	const total = totalPrice + tax;
 
 	const postOrder = async (order: Product[]) => {
-		const response = await fetch(ROOT_URL + 'order/new', {
+		const response = await fetch(ROOT_URL + '/order/new', {
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -46,11 +47,12 @@ export default function OrderSummary() {
 			const responseMessage = await postOrder(products);
 			dispatch(clearCart());
 
-			toast(responseMessage, {
+			toast(`${responseMessage}.`, {
 				icon: <CheckIcon />,
 			});
 		} catch (error: any) {
-			toast(error.message, {
+			const errorMessage = error.message;
+			toast(`${errorMessage}.`, {
 				icon: <ExclamationTriangleIcon />,
 			});
 		} finally {

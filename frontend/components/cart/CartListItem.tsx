@@ -1,14 +1,14 @@
 'ues client';
 
+import type { CartProduct } from '@/app/lib/definitions';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 
 import ProductAmountCounter from '@/components/ProductAmountCounter';
 import RemoveProductButton from '@/components/cart/RemoveProductButton';
-
-import { ROOT_URL } from '@/store/store';
-import { CartProduct } from '@/store/slices/cart-slice';
+import { ROOT_URL } from '@/app/lib/constants';
 
 interface CartListItemProps {
 	product: CartProduct;
@@ -29,7 +29,7 @@ export default function CartListItem({ product }: CartListItemProps) {
 		<li className="flex max-h-[200px] items-center gap-x-2 divide-x divide-lime-950 overflow-hidden border border-lime-950 sm:grid sm:grid-cols-8">
 			<div className="sm:col-span-2">
 				<Image
-					src={ROOT_URL + image}
+					src={`${ROOT_URL}/${image}`}
 					alt={name}
 					width={300}
 					height={300}

@@ -1,16 +1,6 @@
+import type { CartState } from '@/app/lib/definitions';
+
 import { createSlice } from '@reduxjs/toolkit';
-
-import { type Product } from '@/store/types';
-
-export interface CartProduct extends Product {
-	amountAdded: number;
-}
-
-interface CartState {
-	products: CartProduct[];
-	totalItems: number;
-	totalPrice: number;
-}
 
 const initialState: CartState = {
 	products: [],

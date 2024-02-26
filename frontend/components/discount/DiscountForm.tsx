@@ -8,9 +8,9 @@ import {
 	ShieldCheckIcon,
 } from '@heroicons/react/24/solid';
 
-import { toast } from 'sonner';
+import { ROOT_URL } from '@/app/lib/constants';
 
-import { ROOT_URL } from '@/store/store';
+import { toast } from 'sonner';
 
 const schema = z.object({
 	email: z.string().email(),
@@ -30,7 +30,7 @@ export default function DiscountForm() {
 
 	const onSubmit: SubmitHandler<FormFields> = async (data) => {
 		try {
-			const response: Response = await fetch(ROOT_URL + 'discount/new', {
+			const response: Response = await fetch(`${ROOT_URL}/discount/new`, {
 				method: 'POST',
 				body: JSON.stringify(data.email),
 			});

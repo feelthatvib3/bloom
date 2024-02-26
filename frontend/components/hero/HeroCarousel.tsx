@@ -1,5 +1,7 @@
 'use client';
 
+import type { HeroCarouselItem } from '@/app/lib/definitions';
+
 import { useEffect, useState } from 'react';
 
 import {
@@ -13,10 +15,7 @@ import { type CarouselApi } from '@/components/ui/carousel';
 
 import CarouselSlidesCounter from '@/components/hero/CarouselSlidesCounter';
 
-import {
-	type HeroCarouselItem,
-	heroCarouselItems,
-} from '@/public/data/hero-carousel-tems';
+import { heroCarouselItems } from '@/public/data/hero-carousel-tems';
 
 export default function HeroCarousel() {
 	const [api, setApi] = useState<CarouselApi>();

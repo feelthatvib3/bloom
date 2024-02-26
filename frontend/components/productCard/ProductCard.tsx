@@ -1,14 +1,15 @@
 'use client';
 
+import type { Product } from '@/app/lib/definitions';
+
 import Link from 'next/link';
 import Image from 'next/image';
+
+import { ROOT_URL } from '@/app/lib/constants';
 
 import ProductPrice from '@/components/productCard/ProductPrice';
 import BookmarkButton from '@/components/productCard/BookmarkButton';
 import AddToCartButton from '@/components/productCard/AddToCartButton';
-
-import { ROOT_URL } from '@/store/store';
-import { type Product } from '@/store/types';
 
 interface ProductCardProps {
 	product: Product;
@@ -26,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
 				{/* background image */}
 				<Image
-					src={ROOT_URL + image}
+					src={`${ROOT_URL}/${image}`}
 					alt={name}
 					width={320}
 					height={320}
@@ -41,7 +42,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 				<div>
 					<div>
 						<Image
-							src={ROOT_URL + image}
+							src={`${ROOT_URL}/${image}`}
 							alt={name}
 							width={300}
 							height={300}

@@ -1,6 +1,7 @@
 'use client';
 
-import { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid';
 
 import { useAppDispatch } from '@/lib/redux-hooks';

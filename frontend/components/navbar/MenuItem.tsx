@@ -1,5 +1,5 @@
-import { LiHTMLAttributes } from 'react';
 import Link from 'next/link';
+import { LiHTMLAttributes } from 'react';
 
 interface MenuItemProps extends LiHTMLAttributes<HTMLElement> {
 	label: string;

@@ -1,10 +1,11 @@
 'use client';
 
+import type { RootState } from '@/app/lib/definitions';
+
 import Title from '@/components/Title';
 import Container from '@/components/Container';
 import BookmarksListItem from '@/components/bookmarks/BookmarksListItem';
 
-import { RootState } from '@/store/store';
 import { useAppSelector } from '@/lib/redux-hooks';
 
 export default function BookmarksPage() {

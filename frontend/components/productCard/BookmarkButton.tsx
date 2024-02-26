@@ -1,4 +1,6 @@
-import { MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
+import type { Product, RootState } from '@/app/lib/definitions';
+
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 import { BookmarkIcon as BookmarkIconSolid } from '@heroicons/react/24/solid';
@@ -10,8 +12,6 @@ import {
 	addToBookmarks,
 	removeFromBookmarks,
 } from '@/store/slices/bookmarks-slice';
-import { RootState } from '@/store/store';
-import { type Product } from '@/store/types';
 import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
 
 interface BookmarkButtonProps {

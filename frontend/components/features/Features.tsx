@@ -1,8 +1,10 @@
+import type { Feature } from '@/app/lib/definitions';
+
 import Title from '@/components/Title';
 import Container from '@/components/Container';
 import FeaturesItem from '@/components/features/FeaturesItem';
 
-import { type Feature, features } from '@/public/data/features';
+import { features } from '@/public/data/features';
 
 export default function Features() {
 	return (

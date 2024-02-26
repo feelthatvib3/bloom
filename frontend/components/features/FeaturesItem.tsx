@@ -1,4 +1,4 @@
-import { type Feature } from '@/public/data/features';
+import type { Feature } from '@/app/lib/definitions';
 
 interface FeaturesItemProps {
 	feature: Feature;

@@ -1,12 +1,12 @@
+import type {
+	FooterCategory as FooterCategoryType,
+	FooterCategoryItem as FooterCategoryItemType,
+} from '@/app/lib/definitions';
+
 import FooterCategoryItem from '@/components/footer/FooterCategoryItem';
 
-import {
-	type FooterCategoryItem as FooterCategoryItemType,
-	type FooterCategory,
-} from '@/public/data/footer-items';
-
 interface FooterCategoryProps {
-	category: FooterCategory;
+	category: FooterCategoryType;
 }
 
 export default function FooterCategory({ category }: FooterCategoryProps) {

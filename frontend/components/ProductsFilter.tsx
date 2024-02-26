@@ -1,11 +1,9 @@
 'use client';
 
+import type { FilterOptions, SortType } from '@/app/lib/definitions';
+
 import { CheckIcon } from '@heroicons/react/24/solid';
 import { ChangeEvent, useEffect, useState } from 'react';
-
-import { useAppDispatch } from '@/lib/redux-hooks';
-import { type FilterOptions, type SortType } from '@/store/types';
-import { fetchProducts, startLoading } from '@/store/slices/products-slice';
 
 import {
 	Select,
@@ -14,6 +12,10 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
+
+import { useAppDispatch } from '@/lib/redux-hooks';
+import { startLoading } from '@/store/slices/products-slice';
+import { fetchProducts } from '@/store/thunks/products-thunks';
 
 import { selectValues } from '@/public/data/filter-select-items';
 
@@ -93,7 +95,7 @@ export default function ProductsFilter({ endpoint }: ProductsFilterProp) {
 						{selectValues.map(({ value, label }, index) => (
 							<SelectItem
 								key={index}
-								className="text-lg text-lime-200 focus:rounded-none focus:bg-lime-200/25 focus:text-lime-200"
+								className="cursor-pointer text-lg text-lime-200 focus:rounded-none focus:bg-lime-200/25 focus:text-lime-200"
 								value={value}
 							>
 								{label}

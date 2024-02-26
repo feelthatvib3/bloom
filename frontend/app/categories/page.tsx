@@ -1,16 +1,17 @@
 'use client';
 
+import type { Category, RootState } from '@/app/lib/definitions';
+
 import { useEffect } from 'react';
 
 import Title from '@/components/Title';
 import Container from '@/components/Container';
-import { Skeleton } from '@/components/ui/skeleton';
 import CategoriesListItem from '@/components/categories/CategoriesListItem';
 
-import { RootState } from '@/store/store';
-import { type Category } from '@/store/types';
-import { fetchCategories } from '@/store/slices/categories-slice';
+import { Skeleton } from '@/components/ui/skeleton';
+
 import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
+import { fetchCategories } from '@/store/thunks/categories-thunks';
 
 export default function CategoriesPage() {
 	const dispatch = useAppDispatch();

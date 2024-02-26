@@ -1,8 +1,10 @@
+import type { Category } from '@/app/lib/definitions';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
-import { ROOT_URL } from '@/store/store';
-import { type Category } from '@/store/types';
+import { ROOT_URL } from '@/app/lib/constants';
 
 interface CategoriesListItemProps {
 	category: Category;
@@ -16,10 +18,21 @@ export default function CategoriesListItem({
 		<li className="categories-list-item group relative">
 			<Link href={`/categories/${slug}`} className="flex h-full items-end p-6">
 				{/* background image */}
-				<img
-					src={ROOT_URL + image}
+				<Image
+					src={`${ROOT_URL}/${image}`}
 					alt={`${title} category`}
-					className="absolute left-0 top-0 -z-20 h-full w-full object-cover"
+					className="absolute left-0 top-0 -z-20 h-full w-full object-cover lg:hidden"
+					width={735}
+					height={350}
+					quality={0}
+				/>
+				<Image
+					src={`${ROOT_URL}/${image}`}
+					alt={`${title} category`}
+					className="absolute left-0 top-0 -z-20 hidden h-full w-full object-cover lg:block"
+					width={1250}
+					height={400}
+					quality={0}
 				/>
 
 				{/* overlay */}

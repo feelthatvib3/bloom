@@ -1,8 +1,4 @@
-export interface MenuItem {
-	id: number;
-	label: string;
-	href: string;
-}
+import type { MenuItem } from '@/app/lib/definitions';
 
 export const menuItems: MenuItem[] = [
 	{

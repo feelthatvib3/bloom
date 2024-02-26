@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import type { FooterCategoryItem } from '@/app/lib/definitions';
 
-import { FooterCategoryItem } from '@/public/data/footer-items';
+import Link from 'next/link';
 
 interface FooterCategoryItemProps {
 	item: FooterCategoryItem;

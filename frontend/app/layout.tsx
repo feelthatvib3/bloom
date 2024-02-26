@@ -4,11 +4,12 @@ import { Space_Grotesk } from 'next/font/google';
 
 import './globals.css';
 
+import StoreProvider from '@/app/StoreProvider';
+
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
-import { Toaster } from '@/components/ui/sonner';
 
-import StoreProvider from '@/app/StoreProvider';
+import { Toaster } from '@/components/ui/sonner';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 

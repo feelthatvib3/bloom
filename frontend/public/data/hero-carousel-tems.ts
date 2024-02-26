@@ -1,8 +1,4 @@
-export interface HeroCarouselItem {
-	id: number;
-	imageSrc: string;
-	imageDescription: string;
-}
+import type { HeroCarouselItem } from '@/app/lib/definitions';
 
 export const heroCarouselItems: HeroCarouselItem[] = [
 	{

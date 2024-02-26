@@ -1,14 +1,4 @@
-export interface FooterCategory {
-	id: number;
-	title: string;
-	items: FooterCategoryItem[];
-}
-
-export interface FooterCategoryItem {
-	id: number;
-	label: string;
-	href: string;
-}
+import type { FooterCategory } from '@/app/lib/definitions';
 
 export const footerItems: FooterCategory[] = [
 	{

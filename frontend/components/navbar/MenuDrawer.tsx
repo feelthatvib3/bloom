@@ -1,4 +1,10 @@
+import type { MenuItem as MenuItemType } from '@/app/lib/definitions';
+
+import Link from 'next/link';
 import { useState } from 'react';
+
+import MenuItem from '@/components/navbar/MenuItem';
+import CartButton from '@/components/navbar/CartButton';
 
 import {
 	Sheet,
@@ -9,14 +15,7 @@ import {
 	SheetClose,
 } from '@/components/ui/sheet';
 
-import MenuItem from '@/components/navbar/MenuItem';
-import CartButton from '@/components/navbar/CartButton';
-
-import {
-	type MenuItem as MenuItemItem,
-	menuItems,
-} from '@/public/data/menu-items';
-import Link from 'next/link';
+import { menuItems } from '@/public/data/menu-items';
 
 interface MenuDrawerProps {
 	isScrolled: boolean;
@@ -59,7 +58,7 @@ export default function MenuDrawer({
 					</SheetClose>
 				</SheetHeader>
 				<ul className="mt-8 flex flex-col gap-y-2">
-					{menuItems.map(({ id, label, href }: MenuItemItem) => (
+					{menuItems.map(({ id, label, href }: MenuItemType) => (
 						<MenuItem
 							key={id}
 							label={label}

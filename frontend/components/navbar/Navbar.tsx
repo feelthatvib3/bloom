@@ -1,5 +1,7 @@
 'use client';
 
+import type { MenuItem as MenuItemType } from '@/app/lib/definitions';
+
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -9,10 +11,7 @@ import MenuItem from '@/components/navbar/MenuItem';
 import MenuDrawer from '@/components/navbar/MenuDrawer';
 import CartButton from '@/components/navbar/CartButton';
 
-import {
-	type MenuItem as MenuItemType,
-	menuItems,
-} from '@/public/data/menu-items';
+import { menuItems } from '@/public/data/menu-items';
 
 export default function Navbar() {
 	const currentPathname = usePathname();

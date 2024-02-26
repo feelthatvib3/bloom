@@ -1,9 +1,13 @@
 'use client';
 
+import type { RootState } from '@/app/lib/definitions';
+
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
+
+import { ROOT_URL } from '@/app/lib/constants';
 
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -13,9 +17,8 @@ import Container from '@/components/Container';
 import ProductPrice from '@/components/productCard/ProductPrice';
 import ProductAmountCounter from '@/components/ProductAmountCounter';
 
-import { ROOT_URL, RootState } from '@/store/store';
 import { addToCart } from '@/store/slices/cart-slice';
-import { fetchProduct } from '@/store/slices/product-slice';
+import { fetchProduct } from '@/store/thunks/product-thunks';
 import { useAppDispatch, useAppSelector } from '@/lib/redux-hooks';
 
 export default function ProductPage() {
@@ -63,9 +66,9 @@ export default function ProductPage() {
 
 	return (
 		<Container className="grid items-center gap-4 pb-4 pt-[calc(1rem+69px)] md:grid-cols-2 lg:pb-8 lg:pt-[calc(2rem+69px)]">
-			<div className="relative w-full shrink-0 border border-lime-950">
+			<div className="relative w-full shrink-0 border border-lime-950 p-4">
 				<Image
-					src={ROOT_URL + product?.image}
+					src={`${ROOT_URL}/${product?.image}`}
 					width={500}
 					height={500}
 					alt={product?.name as string}

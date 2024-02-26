@@ -4,10 +4,10 @@ import Discount from '@/components/discount/Discount';
 
 export default function Home() {
 	return (
-		<main>
+		<>
 			<Hero />
 			<Features />
 			<Discount />
-		</main>
+		</>
 	);
 }

@@ -1,9 +1,4 @@
-import { SortType } from '@/store/types';
-
-interface SelectValue {
-	value: SortType;
-	label: string;
-}
+import type { SelectValue } from '@/app/lib/definitions';
 
 export const selectValues: SelectValue[] = [
 	{

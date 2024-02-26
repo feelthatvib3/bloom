@@ -1,14 +1,13 @@
 'use client';
 
+import type { FooterCategory as FooterCategoryType } from '@/app/lib/definitions';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
 
-import {
-	type FooterCategory as FooterCategoryType,
-	footerItems,
-} from '@/public/data/footer-items';
+import { footerItems } from '@/public/data/footer-items';
 
 import FooterCategory from '@/components/footer/FooterCategory';
 

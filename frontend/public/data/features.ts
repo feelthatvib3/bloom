@@ -1,8 +1,4 @@
-export interface Feature {
-	id: number;
-	title: string;
-	description: string;
-}
+import type { Feature } from '@/app/lib/definitions';
 
 export const features: Feature[] = [
 	{

@@ -1,11 +1,12 @@
 'use client';
 
+import type { Product } from '@/app/lib/definitions';
+
 import { MouseEvent, useEffect, useState } from 'react';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
 import { toast } from 'sonner';
 
-import { type Product } from '@/store/types';
 import { useAppDispatch } from '@/lib/redux-hooks';
 import { addToCart } from '@/store/slices/cart-slice';
 

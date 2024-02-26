@@ -1,10 +1,11 @@
+import type { Product } from '@/app/lib/definitions';
+
 import Image from 'next/image';
+
+import { ROOT_URL } from '@/app/lib/constants';
 
 import ProductPrice from '@/components/productCard/ProductPrice';
 import BookmarkButton from '@/components/productCard/BookmarkButton';
-
-import { ROOT_URL } from '@/store/store';
-import { type Product } from '@/store/types';
 
 interface BookmarksListItemProps {
 	product: Product;
@@ -21,7 +22,7 @@ export default function BookmarksListItem({ product }: BookmarksListItemProps) {
 
 			{/* background image */}
 			<Image
-				src={ROOT_URL + image}
+				src={`${ROOT_URL}/${image}`}
 				alt={name}
 				width={320}
 				height={320}
@@ -36,7 +37,7 @@ export default function BookmarksListItem({ product }: BookmarksListItemProps) {
 			<div>
 				<div>
 					<Image
-						src={ROOT_URL + image}
+						src={`${ROOT_URL}/${image}`}
 						alt={name}
 						width={300}
 						height={300}

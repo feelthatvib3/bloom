@@ -1,28 +1,12 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { ProductState } from '@/app/lib/definitions';
 
-import { ROOT_URL } from '@/store/store';
-import { type Product } from '@/store/types';
-
-interface ProductState {
-	product: Product | null;
-	isLoading: boolean;
-}
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchProduct } from '@/store/thunks/product-thunks';
 
 const initialState: ProductState = {
 	product: null,
 	isLoading: true,
 };
-
-export const fetchProduct = createAsyncThunk(
-	'product/fetch',
-	async (productId: string, thunkAPI) => {
-		const response = await fetch(ROOT_URL + `product/${productId}`);
-		if (!response.ok) thunkAPI.rejectWithValue(response.statusText);
-
-		const data = await response.json();
-		return data;
-	},
-);
 
 export const productSlice = createSlice({
 	name: 'product',

@@ -1,10 +1,11 @@
 'use client';
 
-import { Skeleton } from '@/components/ui/skeleton';
+import type { Product, RootState } from '@/app/lib/definitions';
+
 import ProductCard from '@/components/productCard/ProductCard';
 
-import { RootState } from '@/store/store';
-import { type Product } from '@/store/types';
+import { Skeleton } from '@/components/ui/skeleton';
+
 import { useAppSelector } from '@/lib/redux-hooks';
 
 export default function ProductList() {

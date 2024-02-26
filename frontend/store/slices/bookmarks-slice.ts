@@ -1,10 +1,6 @@
+import type { BookmarksState } from '@/app/lib/definitions';
+
 import { createSlice } from '@reduxjs/toolkit';
-
-import { type Product } from '@/store/types';
-
-interface BookmarksState {
-	products: Product[];
-}
 
 const initialState: BookmarksState = {
 	products: [],
