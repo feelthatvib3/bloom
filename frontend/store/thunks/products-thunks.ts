@@ -1,6 +1,7 @@
+import type { FetchProductsArgs } from '@/app/lib/definitions';
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ROOT_URL } from '@/app/lib/constants';
-import type { FetchProductsArgs } from '@/app/lib/definitions';
 
 export const fetchProducts = createAsyncThunk(
 	'products/fetch',
