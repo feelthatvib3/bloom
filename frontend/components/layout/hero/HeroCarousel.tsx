@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/carousel';
 import { type CarouselApi } from '@/components/ui/carousel';
 
-import CarouselSlidesCounter from '@/components/hero/CarouselSlidesCounter';
+import CarouselSlidesCounter from '@/components/layout/hero/CarouselSlidesCounter';
 
 import { heroCarouselItems } from '@/public/data/hero-carousel-tems';
 

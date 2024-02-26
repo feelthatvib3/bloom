@@ -6,8 +6,8 @@ import './globals.css';
 
 import StoreProvider from '@/app/StoreProvider';
 
-import Navbar from '@/components/navbar/Navbar';
-import Footer from '@/components/footer/Footer';
+import Navbar from '@/components/layout/navbar/Navbar';
+import Footer from '@/components/layout/footer/Footer';
 
 import { Toaster } from '@/components/ui/sonner';
 

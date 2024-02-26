@@ -26,6 +26,7 @@ export interface Product {
 }
 
 export type FilterOptions = {
+	search: string;
 	fromPrice: number;
 	toPrice: number;
 	isDiscounted: boolean;

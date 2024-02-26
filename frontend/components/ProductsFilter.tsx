@@ -2,7 +2,7 @@
 
 import type { FilterOptions, SortType } from '@/app/lib/definitions';
 
-import { CheckIcon } from '@heroicons/react/24/solid';
+import { CheckIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 import {
@@ -26,10 +26,14 @@ interface ProductsFilterProp {
 export default function ProductsFilter({ endpoint }: ProductsFilterProp) {
 	const dispatch = useAppDispatch();
 
+	const [search, setSearch] = useState<string>('');
 	const [fromPrice, setFromPrice] = useState<number>(0);
 	const [toPrice, setToPrice] = useState<number>(Number.MAX_SAFE_INTEGER);
 	const [isDiscounted, setIsDiscounted] = useState<boolean>(false);
 	const [sortBy, setSortBy] = useState<SortType>('newest');
+
+	const handleSearchQueryChange = (event: ChangeEvent<HTMLInputElement>) =>
+		setSearch(event.target.value);
 
 	const handleFromPriceChange = (event: ChangeEvent<HTMLInputElement>) =>
 		setFromPrice(+event.target.value);
@@ -53,6 +57,7 @@ export default function ProductsFilter({ endpoint }: ProductsFilterProp) {
 
 		const timeoutId = setTimeout(() => {
 			const filters: FilterOptions = {
+				search,
 				fromPrice,
 				toPrice,
 				isDiscounted,
@@ -65,9 +70,21 @@ export default function ProductsFilter({ endpoint }: ProductsFilterProp) {
 		return () => {
 			clearTimeout(timeoutId);
 		};
-	}, [dispatch, fromPrice, toPrice, isDiscounted, sortBy, endpoint]);
+	}, [dispatch, search, fromPrice, toPrice, isDiscounted, sortBy, endpoint]);
 	return (
-		<form className="flex flex-col items-start gap-y-3 sm:flex-row sm:gap-x-4 sm:gap-y-0">
+		<form className="flex flex-wrap gap-x-4 gap-y-2">
+			<div className="space-y-1">
+				<span className="text-xl font-medium">Search</span>
+				<div className="relative h-[36px]">
+					<input
+						onChange={handleSearchQueryChange}
+						type="text"
+						placeholder="Search..."
+						className="h-full max-w-[200px] border border-lime-950 bg-transparent py-1 pl-2 pr-9 text-lg outline-none placeholder:text-lime-950/65"
+					/>
+					<MagnifyingGlassIcon className="absolute right-2 top-1/2 h-5 w-5 -translate-y-1/2 text-lime-950/65" />
+				</div>
+			</div>
 			<div className="space-y-1">
 				<span className="text-xl font-medium">Price</span>
 				<div className="space-x-2">

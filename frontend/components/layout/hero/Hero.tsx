@@ -4,7 +4,7 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 import Button from '@/components/Button';
 import Container from '@/components/Container';
-import HeroCarousel from '@/components/hero/HeroCarousel';
+import HeroCarousel from '@/components/layout/hero/HeroCarousel';
 
 export default function Hero() {
 	const scrollToCategoriesSection = () => {

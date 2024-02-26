@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import Container from '@/components/Container';
-import MenuItem from '@/components/navbar/MenuItem';
-import MenuDrawer from '@/components/navbar/MenuDrawer';
-import CartButton from '@/components/navbar/CartButton';
+import MenuItem from '@/components/layout/navbar/MenuItem';
+import MenuDrawer from '@/components/layout/navbar/MenuDrawer';
+import CartButton from '@/components/layout/navbar/CartButton';
 
 import { menuItems } from '@/public/data/menu-items';
 

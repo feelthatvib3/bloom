@@ -3,8 +3,8 @@ import type { MenuItem as MenuItemType } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import MenuItem from '@/components/navbar/MenuItem';
-import CartButton from '@/components/navbar/CartButton';
+import MenuItem from '@/components/layout/navbar/MenuItem';
+import CartButton from '@/components/layout/navbar/CartButton';
 
 import {
 	Sheet,

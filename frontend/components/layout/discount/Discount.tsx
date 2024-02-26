@@ -1,6 +1,6 @@
 import Title from '@/components/Title';
 import Container from '@/components/Container';
-import DiscountForm from '@/components/discount/DiscountForm';
+import DiscountForm from '@/components/layout/discount/DiscountForm';
 
 export default function Discount() {
 	return (

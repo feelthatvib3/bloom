@@ -9,7 +9,7 @@ import Container from '@/components/Container';
 
 import { footerItems } from '@/public/data/footer-items';
 
-import FooterCategory from '@/components/footer/FooterCategory';
+import FooterCategory from '@/components/layout/footer/FooterCategory';
 
 export default function Footer() {
 	const currentPathname = usePathname();

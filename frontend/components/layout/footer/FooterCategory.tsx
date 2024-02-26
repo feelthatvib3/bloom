@@ -3,7 +3,7 @@ import type {
 	FooterCategoryItem as FooterCategoryItemType,
 } from '@/app/lib/definitions';
 
-import FooterCategoryItem from '@/components/footer/FooterCategoryItem';
+import FooterCategoryItem from '@/components/layout/footer/FooterCategoryItem';
 
 interface FooterCategoryProps {
 	category: FooterCategoryType;

@@ -2,7 +2,7 @@ import type { Feature } from '@/app/lib/definitions';
 
 import Title from '@/components/Title';
 import Container from '@/components/Container';
-import FeaturesItem from '@/components/features/FeaturesItem';
+import FeaturesItem from '@/components/layout/features/FeaturesItem';
 
 import { features } from '@/public/data/features';
 
