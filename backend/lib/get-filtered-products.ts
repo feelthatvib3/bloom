@@ -1,24 +1,11 @@
+import type { GetFilteredProductsArgs, SortingOption } from 'definitions';
+
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export type FilterOptions = {
-	fromPrice: string;
-	toPrice: string;
-	isDiscounted: string;
-	sortBy: 'newest' | 'oldest' | 'alphabetical' | 'reverseAlphabetical';
-};
-
-interface GetFilteredProductsArgs extends FilterOptions {
-	categorySlug?: string;
-}
-
-type SortingOption = {
-	createdAt?: 'asc' | 'desc';
-	name?: 'asc' | 'desc';
-};
-
 export default async function getFilteredProducts({
+	search,
 	fromPrice,
 	toPrice,
 	isDiscounted,
@@ -62,10 +49,14 @@ export default async function getFilteredProducts({
 			}
 		}
 
+		const searchStringRegex = search ? new RegExp(search, 'i') : undefined;
 		const query = {
 			where: {
 				price: priceFilter,
 				discount: isDiscounted === 'true' ? { not: null } : undefined,
+				name: searchStringRegex
+					? { contains: searchStringRegex.source }
+					: undefined,
 			},
 			orderBy: sorting,
 		};

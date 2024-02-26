@@ -2,17 +2,18 @@ import express, { Router, Request, Response } from 'express';
 
 import getFilteredProducts, {
 	type FilterOptions,
-} from '@utils/get-filtered-products';
+} from '@lib/get-filtered-products';
 
 const router: Router = express.Router();
 
 router.get('/all', async (req: Request, res: Response) => {
 	try {
-		const { fromPrice, toPrice, isDiscounted, sortBy } =
+		const { search, fromPrice, toPrice, isDiscounted, sortBy } =
 			req.query as FilterOptions;
 		const { categorySlug } = req.params;
 
 		const products = await getFilteredProducts({
+			search,
 			fromPrice,
 			toPrice,
 			isDiscounted,
@@ -33,11 +34,12 @@ router.get('/all', async (req: Request, res: Response) => {
 
 router.get('/:categorySlug', async (req: Request, res: Response) => {
 	try {
-		const { fromPrice, toPrice, isDiscounted, sortBy } =
+		const { search, fromPrice, toPrice, isDiscounted, sortBy } =
 			req.query as FilterOptions;
 		const { categorySlug } = req.params;
 
 		const products = await getFilteredProducts({
+			search,
 			fromPrice,
 			toPrice,
 			isDiscounted,
