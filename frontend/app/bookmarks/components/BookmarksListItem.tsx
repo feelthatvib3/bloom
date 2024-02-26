@@ -1,16 +1,19 @@
+import type { MouseEvent } from 'react';
 import type { Product } from '@/app/lib/definitions';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { toast } from 'sonner';
+import { TrashIcon } from '@heroicons/react/24/solid';
+import { BookmarkIcon } from '@heroicons/react/24/outline';
 
 import { ROOT_URL } from '@/app/lib/constants';
-
-import ProductPrice from '@/components/productCard/ProductPrice';
-import { TrashIcon } from '@heroicons/react/24/solid';
 import { useAppDispatch } from '@/app/lib/redux-hooks';
-import { removeFromBookmarks } from '@/store/slices/bookmarks-slice';
-import { toast } from 'sonner';
+
 import Button from '@/app/ui/Button';
+import ProductPrice from '@/app/ui/ProductPrice';
+
+import { removeFromBookmarks } from '@/store/slices/bookmarks-slice';
 
 interface BookmarksListItemProps {
 	product: Product;
@@ -20,9 +23,13 @@ export default function BookmarksListItem({ product }: BookmarksListItemProps) {
 	const { id, categoryTitle, image, name, price, discount } = product;
 	const dispatch = useAppDispatch();
 
-	const handleRemoveFromBookmarks = () => {
+	const handleRemoveFromBookmarks = (event: MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+
 		dispatch(removeFromBookmarks(id));
-		toast(`${name} is successfully unbookmarked.`);
+		toast(`${name} is successfully unbookmarked.`, {
+			icon: <BookmarkIcon />,
+		});
 	};
 	return (
 		<li className="min-w-xs relative min-h-[450px] cursor-pointer p-4 text-lime-200">

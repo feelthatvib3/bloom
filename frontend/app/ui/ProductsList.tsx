@@ -2,7 +2,7 @@
 
 import type { Product, RootState } from '@/app/lib/definitions';
 
-import ProductCard from '@/components/productCard/ProductCard';
+import ProductCard from '@/app/ui/ProductCard';
 
 import { Skeleton } from '@/components/ui/skeleton';
 

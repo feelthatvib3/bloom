@@ -14,8 +14,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 import Button from '@/app/ui/Button';
 import Container from '@/app/ui/Container';
-import ProductPrice from '@/components/productCard/ProductPrice';
-import ProductAmountCounter from '@/components/ProductAmountCounter';
+import ProductPrice from '@/app/ui/ProductPrice';
+import ProductAmountCounter from '@/app/ui/ProductAmountCounter';
 
 import { addToCart } from '@/store/slices/cart-slice';
 import { fetchProduct } from '@/store/thunks/product-thunks';

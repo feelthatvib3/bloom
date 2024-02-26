@@ -21,7 +21,7 @@ import { ROOT_URL } from '@/app/lib/constants';
 
 import Button from '@/app/ui/Button';
 import IconButton from '@/app/ui/IconButton';
-import ProductPrice from '@/components/productCard/ProductPrice';
+import ProductPrice from '@/app/ui/ProductPrice';
 
 import { useAppDispatch, useAppSelector } from '@/app/lib/redux-hooks';
 import { addToCart } from '@/store/slices/cart-slice';
@@ -141,7 +141,6 @@ export default function ProductCard({ product }: ProductCardProps) {
 									onClick={(event) => handleAddToBookmarks(event, product)}
 									className="min-w-12 grow-0"
 								/>
-								{/* <BookmarkButton product={product} /> */}
 							</div>
 						</div>
 					</div>

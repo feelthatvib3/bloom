@@ -2,7 +2,7 @@
 
 import type { CartProduct, RootState } from '@/app/lib/definitions';
 
-import Title from '@/components/Title';
+import Title from '@/app/ui/Title';
 import Container from '@/app/ui/Container';
 import CartListItem from '@/app/cart/components/CartListItem';
 import OrderSummary from '@/app/cart/components/OrderSummary';

@@ -1,6 +1,6 @@
 import type { Feature } from '@/app/lib/definitions';
 
-import Title from '@/components/Title';
+import Title from '@/app/ui/Title';
 import Container from '@/app/ui/Container';
 import FeaturesItem from '@/components/layout/features/FeaturesItem';
 

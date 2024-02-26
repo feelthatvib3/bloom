@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 import { ROOT_URL } from '@/app/lib/constants';
 
-import ProductAmountCounter from '@/components/ProductAmountCounter';
+import ProductAmountCounter from '@/app/ui/ProductAmountCounter';
 import RemoveProductButton from '@/app/cart/components/RemoveProductButton';
 
 interface CartListItemProps {

@@ -4,7 +4,7 @@ import type { RootState } from '@/app/lib/definitions';
 
 import BookmarksListItem from '@/app/bookmarks/components/BookmarksListItem';
 
-import Title from '@/components/Title';
+import Title from '@/app/ui/Title';
 import Container from '@/app/ui/Container';
 
 import { useAppSelector } from '@/app/lib/redux-hooks';

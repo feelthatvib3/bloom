@@ -4,7 +4,7 @@ import type { Category, RootState } from '@/app/lib/definitions';
 
 import { useEffect } from 'react';
 
-import Title from '@/components/Title';
+import Title from '@/app/ui/Title';
 import Container from '@/app/ui/Container';
 import CategoriesListItem from '@/app/categories/components/CategoriesListItem';
 

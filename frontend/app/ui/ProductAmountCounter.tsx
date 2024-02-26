@@ -5,6 +5,7 @@ import type { Dispatch, SetStateAction } from 'react';
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid';
 
 import { useAppDispatch } from '@/app/lib/redux-hooks';
+
 import { decrementItem, incrementItem } from '@/store/slices/cart-slice';
 
 interface ProductAmountCounterProps {

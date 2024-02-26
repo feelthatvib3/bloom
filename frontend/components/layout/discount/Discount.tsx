@@ -1,4 +1,4 @@
-import Title from '@/components/Title';
+import Title from '@/app/ui/Title';
 import Container from '@/app/ui/Container';
 import DiscountForm from '@/components/layout/discount/DiscountForm';
 
