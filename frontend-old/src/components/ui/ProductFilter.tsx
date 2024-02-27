@@ -1,5 +1,8 @@
-import { ChangeEvent, KeyboardEvent, useRef } from 'react';
-import Select, { Option } from './Select';
+import type { Option } from '../../definitions';
+import type { ChangeEvent, KeyboardEvent } from 'react';
+
+import { useRef } from 'react';
+import Select from './Select';
 import { useAppDispatch } from '../../store';
 import {
     filterByPrice,
@@ -11,21 +14,14 @@ interface ProductFilterProps {
     type: 'category' | 'products' | 'sales';
 }
 
-export type SortValue =
-    | 'default'
-    | 'price-desc'
-    | 'price-asc'
-    | 'title-desc'
-    | 'title-asc';
-
 export default function ProductFilter({ type }: ProductFilterProps) {
     const dispatch = useAppDispatch();
     const filterOptions: Option[] = [
         { value: 'default', label: 'by default' },
         { value: 'price-desc', label: 'price: high-low' },
         { value: 'price-asc', label: 'price: low-high' },
-        { value: 'title-desc', label: 'price: A-Z' },
-        { value: 'title-asc', label: 'price: Z-A' },
+        { value: 'title-desc', label: 'alphabetical: A-Z' },
+        { value: 'title-asc', label: 'alphabetical: Z-A' },
     ];
 
     const formRef = useRef(null);

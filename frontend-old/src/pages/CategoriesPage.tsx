@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import Container from '../components/layout/Container';
+import Container from '../components/ui/Container';
 import Title from '../components/ui/Title';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
-import CategoryCard from '../components/CategoryCard';
+import CategoryCard from '../components/ui/CategoryCard';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import { fetchCategories } from '../store/thunks/categoriesThunk';
 

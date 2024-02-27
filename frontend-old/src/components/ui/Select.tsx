@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Option } from '../../definitions';
 
 interface SelectProps {
     options: Option[];
     onSelect: (option: Option) => void;
-}
-
-export interface Option {
-    value: string;
-    label: string;
 }
 
 export default function Select({ options, onSelect }: SelectProps) {
@@ -47,7 +43,7 @@ export default function Select({ options, onSelect }: SelectProps) {
                 </div>
             </div>
             {isOpened && (
-                <div className="absolute z-10 flex w-full flex-col gap-y-1 rounded-md bg-white p-4">
+                <div className="absolute z-10 flex w-full flex-col gap-y-1 rounded-md bg-white p-4 shadow-md">
                     {options.map((option: Option) => (
                         <div
                             key={option.value}

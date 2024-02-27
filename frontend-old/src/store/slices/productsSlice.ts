@@ -1,5 +1,4 @@
-import type { SortValue } from '../../components/ui/ProductFilter';
-import type { Product, ProductsState } from '../../definitions';
+import type { Product, ProductsState, SortValue } from '../../definitions';
 
 import { createSlice } from '@reduxjs/toolkit';
 import {

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import errorImage from '../assets/404.svg';
 import Button from '../components/ui/Button';
-import Container from '../components/layout/Container';
+import Container from '../components/ui/Container';
 import Title from '../components/ui/Title';
 
 export default function NotFoundPage() {

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Container from '../components/layout/Container';
+import Container from '../components/ui/Container';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import DiscountBadge from '../components/ui/DiscountBadge';

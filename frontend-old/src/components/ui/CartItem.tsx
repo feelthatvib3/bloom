@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { useAppDispatch } from '../store';
-import { CartProduct, removeProductFromCart } from '../store/slices/cartSlice';
-import ProductAmountCounter from './ui/ProductAmountCounter';
-import XButton from './ui/XButton';
+import { useAppDispatch } from '../../store';
+import {
+    CartProduct,
+    removeProductFromCart,
+} from '../../store/slices/cartSlice';
+import ProductAmountCounter from './ProductAmountCounter';
+import XButton from './XButton';
 
 interface CartItemProps {
     product: CartProduct;

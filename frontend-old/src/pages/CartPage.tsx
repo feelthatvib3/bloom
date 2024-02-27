@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import Container from '../components/layout/Container';
+import Container from '../components/ui/Container';
 import Title from '../components/ui/Title';
 import { RootState, useAppSelector } from '../store';
 import Button from '../components/ui/Button';
-import CartItemsList from '../components/CartItemsList';
+import CartItemsList from '../components/ui/CartItemsList';
 import OrderForm from '../components/OrderForm';
 
 export default function CartPage() {

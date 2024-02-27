@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 import Title from '../components/ui/Title';
 import Button from '../components/ui/Button';
-import ProductCard from '../components/ProductCard';
-import CategoryCard from '../components/CategoryCard';
-import Container from '../components/layout/Container';
-import DiscountBanner from '../components/layout/DiscountBanner';
+import ProductCard from '../components/ui/ProductCard';
+import CategoryCard from '../components/ui/CategoryCard';
+import Container from '../components/ui/Container';
+import DiscountBanner from '../components/DiscountBanner';
 
 import { useAppDispatch, useAppSelector } from '../store/index';
 import { fetchCategories } from '../store/thunks/categoriesThunk';

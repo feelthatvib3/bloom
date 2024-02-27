@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Link } from 'react-router-dom';
-import { navigationLinks } from '../../data/navigationLinks';
-import XButton from '../ui/XButton';
+import { navigationLinks } from '../data/navigationLinks';
+import XButton from './ui/XButton';
 
 interface MobileMenuProps {
     isMobileMenuOpened: boolean;

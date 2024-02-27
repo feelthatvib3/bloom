@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import CartButton from '../ui/CartButton';
+import CartButton from './ui/CartButton';
 import MobileMenu from './MobileMenu';
-import MobileMenuButton from '../MobileMenuButton';
-import Container from './Container';
-import Logo from '../ui/Logo';
-import NavigationLink from '../ui/NavigationLink';
-import { NavigationLink as NavigationLinkType } from '../../definitions';
-import { navigationLinks } from '../../data/navigationLinks';
+import MobileMenuButton from './MobileMenuButton';
+import Container from './ui/Container';
+import Logo from './ui/Logo';
+import NavigationLink from './ui/NavigationLink';
+import { NavigationLink as NavigationLinkType } from '../definitions';
+import { navigationLinks } from '../data/navigationLinks';
 
 export default function Header() {
     const [isMobileMenuOpened, setIsMobileMenuOpened] =

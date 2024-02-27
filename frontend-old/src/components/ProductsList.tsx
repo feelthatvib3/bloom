@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { clearProducts } from '../../store/slices/productsSlice';
-import ProductCard from '../ProductCard';
-import { RootState, useAppDispatch, useAppSelector } from '../../store';
+import { clearProducts } from '../store/slices/productsSlice';
+import ProductCard from './ui/ProductCard';
+import { RootState, useAppDispatch, useAppSelector } from '../store';
 import {
     fetchAllProducts,
     fetchDiscountedProducts,
     fetchProductsByCategoryId,
-} from '../../store/thunks/productsThunk';
+} from '../store/thunks/productsThunk';
 
 interface ProductsListProps {
     type: 'category' | 'products' | 'sales';

@@ -1,4 +1,4 @@
-import type { Category } from '../definitions';
+import type { Category } from '../../definitions';
 
 import { Link } from 'react-router-dom';
 

@@ -1,4 +1,4 @@
-import { CartProduct } from '../store/slices/cartSlice';
+import { CartProduct } from '../../store/slices/cartSlice';
 import CartItem from './CartItem';
 
 interface CartItemsProps {

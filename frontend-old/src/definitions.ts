@@ -50,3 +50,17 @@ export interface NavigationLink {
     name: string;
     href: string;
 }
+
+// other defs
+
+export interface Option {
+    value: string;
+    label: string;
+}
+
+export type SortValue =
+    | 'default'
+    | 'price-desc'
+    | 'price-asc'
+    | 'title-desc'
+    | 'title-asc';
