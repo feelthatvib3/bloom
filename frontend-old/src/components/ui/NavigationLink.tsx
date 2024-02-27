@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { NavigationLink as NavigationLinkType } from '../../data/navigationLinks';
+import { NavigationLink as NavigationLinkType } from '../../definitions';
 
 interface NavigationLinkProps {
     navigationLink: NavigationLinkType;

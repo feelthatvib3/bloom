@@ -45,3 +45,8 @@ export interface Category {
 export interface CategoriesState {
     categories: Category[];
 }
+
+export interface NavigationLink {
+    name: string;
+    href: string;
+}

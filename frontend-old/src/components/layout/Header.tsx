@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import {
-    NavigationLink as NavigationLinkType,
-    navigationLinks,
-} from '../../data/navigationLinks';
 import CartButton from '../ui/CartButton';
 import MobileMenu from './MobileMenu';
 import MobileMenuButton from '../MobileMenuButton';
 import Container from './Container';
 import Logo from '../ui/Logo';
 import NavigationLink from '../ui/NavigationLink';
+import { NavigationLink as NavigationLinkType } from '../../definitions';
+import { navigationLinks } from '../../data/navigationLinks';
 
 export default function Header() {
     const [isMobileMenuOpened, setIsMobileMenuOpened] =

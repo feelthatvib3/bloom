@@ -1,7 +1,4 @@
-export interface NavigationLink {
-    name: string;
-    href: string;
-}
+import { NavigationLink } from '../definitions';
 
 export const navigationLinks: NavigationLink[] = [
     { name: 'Main Page', href: '/' },
