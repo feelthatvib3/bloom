@@ -2,15 +2,13 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Container from '../components/layout/Container';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
-import {
-    clearCurrentProduct,
-    fetchProductById,
-} from '../store/slices/productsSlice';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import DiscountBadge from '../components/ui/DiscountBadge';
 import ProductAmountCounter from '../components/ui/ProductAmountCounter';
 import Button from '../components/ui/Button';
 import { addToCart } from '../store/slices/cartSlice';
+import { fetchProductById } from '../store/thunks/productThunk';
+import { clearCurrentProduct } from '../store/slices/productSlice';
 
 export default function ProductInfoPage() {
     const [isDescriptionCollapsed, setIsDescriptionCollapsed] =
@@ -18,7 +16,7 @@ export default function ProductInfoPage() {
     const [productAmount, setProductAmount] = useState<number>(1);
 
     const { currentProduct } = useAppSelector(
-        (state: RootState) => state.products,
+        (state: RootState) => state.product,
     );
     const dispatch = useAppDispatch();
 

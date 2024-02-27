@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Product } from '../store/slices/productsSlice';
 import DiscountBadge from './ui/DiscountBadge';
 import Button from './ui/Button';
 import { addToCart } from '../store/slices/cartSlice';
 import { MouseEvent, useState } from 'react';
 import { useAppDispatch } from '../store';
+import { Product } from '../definitions';
 
 interface ProductCardProps {
     product: Product;

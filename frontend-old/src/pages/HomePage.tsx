@@ -1,14 +1,18 @@
+import type { RootState } from '../store/index';
+
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Container from '../components/layout/Container';
-import Button from '../components/ui/Button';
+
 import Title from '../components/ui/Title';
-import { RootState, useAppDispatch, useAppSelector } from '../store/index';
-import { Category, fetchCategories } from '../store/slices/categoriesSlice';
-import DiscountBanner from '../components/layout/DiscountBanner';
+import Button from '../components/ui/Button';
 import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
-import { fetchDiscountedProducts } from '../store/slices/productsSlice';
+import Container from '../components/layout/Container';
+import DiscountBanner from '../components/layout/DiscountBanner';
+
+import { useAppDispatch, useAppSelector } from '../store/index';
+import { fetchCategories } from '../store/thunks/categoriesThunk';
+import { fetchDiscountedProducts } from '../store/thunks/productsThunk';
 
 export default function HomePage() {
     const saleSectionRef = useRef<HTMLDivElement | null>(null);
@@ -58,7 +62,7 @@ export default function HomePage() {
                         link={{ href: '/categories', text: 'All categories' }}
                     />
                     <ul className="mt-6 grid place-items-stretch gap-y-5 md:grid-cols-2 md:gap-x-5 lg:mt-8 xl:grid-cols-4">
-                        {firstFourCategories.map((category: Category) => (
+                        {firstFourCategories.map((category) => (
                             <CategoryCard
                                 key={category.id}
                                 category={category}

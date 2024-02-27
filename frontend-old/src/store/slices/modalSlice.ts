@@ -1,11 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ReactNode } from 'react';
+import type { ModalState } from '../../definitions';
 
-interface ModalState {
-    isOpened: boolean;
-    title: string;
-    children: ReactNode;
-}
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: ModalState = {
     isOpened: false,

@@ -1,5 +1,6 @@
+import type { Category } from '../definitions';
+
 import { Link } from 'react-router-dom';
-import { Category } from '../store/slices/categoriesSlice';
 
 interface CategoryCardProps {
     category: Category;
