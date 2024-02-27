@@ -4,11 +4,11 @@ import Container from '../components/layout/Container';
 import Button from '../components/ui/Button';
 import Title from '../components/ui/Title';
 import { RootState, useAppDispatch, useAppSelector } from '../store/index';
-import { Category, fetchCategories } from '../store/features/categoriesSlice';
+import { Category, fetchCategories } from '../store/slices/categoriesSlice';
 import DiscountBanner from '../components/layout/DiscountBanner';
 import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
-import { fetchDiscountedProducts } from '../store/features/productsSlice';
+import { fetchDiscountedProducts } from '../store/slices/productsSlice';
 
 export default function HomePage() {
     const saleSectionRef = useRef<HTMLDivElement | null>(null);

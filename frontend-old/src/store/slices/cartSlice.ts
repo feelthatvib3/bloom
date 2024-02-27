@@ -46,8 +46,15 @@ export const cartSlice = createSlice({
                 0,
             );
             state.productsTotalPrice = state.products.reduce(
-                (total, product) =>
-                    (total += product.price * product.amountAdded),
+                (total, product) => {
+                    if (product.discont_price) {
+                        total += product.discont_price * product.amountAdded;
+                    } else {
+                        total += product.price * product.amountAdded;
+                    }
+
+                    return total;
+                },
                 0,
             );
         },
@@ -61,8 +68,15 @@ export const cartSlice = createSlice({
                 0,
             );
             state.productsTotalPrice = state.products.reduce(
-                (total, product) =>
-                    (total += product.price * product.amountAdded),
+                (total, product) => {
+                    if (product.discont_price) {
+                        total += product.discont_price * product.amountAdded;
+                    } else {
+                        total += product.price * product.amountAdded;
+                    }
+
+                    return total;
+                },
                 0,
             );
         },
@@ -79,8 +93,15 @@ export const cartSlice = createSlice({
                 }
             });
             state.productsTotalPrice = state.products.reduce(
-                (total, product) =>
-                    (total += product.price * product.amountAdded),
+                (total, product) => {
+                    if (product.discont_price) {
+                        total += product.discont_price * product.amountAdded;
+                    } else {
+                        total += product.price * product.amountAdded;
+                    }
+
+                    return total;
+                },
                 0,
             );
         },
@@ -97,8 +118,15 @@ export const cartSlice = createSlice({
                 }
             });
             state.productsTotalPrice = state.products.reduce(
-                (total, product) =>
-                    (total += product.price * product.amountAdded),
+                (total, product) => {
+                    if (product.discont_price) {
+                        total += product.discont_price * product.amountAdded;
+                    } else {
+                        total += product.price * product.amountAdded;
+                    }
+
+                    return total;
+                },
                 0,
             );
         },

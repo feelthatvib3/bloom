@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../store';
-import {
-    CartProduct,
-    removeProductFromCart,
-} from '../store/features/cartSlice';
+import { CartProduct, removeProductFromCart } from '../store/slices/cartSlice';
 import ProductAmountCounter from './ui/ProductAmountCounter';
 import XButton from './ui/XButton';
 
@@ -47,11 +44,14 @@ export default function CartItem({ product }: CartItemProps) {
                     />
                     <div className="flex items-end gap-x-3">
                         <span className="text-4xl font-semibold">
-                            ${product.price}
+                            $
+                            {product.discont_price
+                                ? product.discont_price
+                                : product.price}
                         </span>
                         {product.discont_price && (
                             <span className="text-lg font-medium text-darkgray line-through">
-                                ${product.discont_price}
+                                ${product.price}
                             </span>
                         )}
                     </div>

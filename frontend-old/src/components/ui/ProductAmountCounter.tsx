@@ -4,7 +4,7 @@ import {
     decreaseProductCount,
     increaseProductCount,
     updateProductsAmount,
-} from '../../store/features/cartSlice';
+} from '../../store/slices/cartSlice';
 
 interface ProductAmountCounterProps {
     productAmount: number;

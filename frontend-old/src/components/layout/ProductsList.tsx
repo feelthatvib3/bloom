@@ -5,7 +5,7 @@ import {
     fetchAllProducts,
     fetchDiscountedProducts,
     fetchProductsByCategoryId,
-} from '../../store/features/productsSlice';
+} from '../../store/slices/productsSlice';
 import ProductCard from '../ProductCard';
 import { RootState, useAppDispatch, useAppSelector } from '../../store';
 
@@ -17,6 +17,10 @@ export default function ProductsList({ type }: ProductsListProps) {
     const { products } = useAppSelector((state: RootState) => state.products);
     const dispatch = useAppDispatch();
     const { categoryId } = useParams();
+
+    const filteredProducts = products.filter(
+        ({ isShown, isShownPrice }) => isShown && isShownPrice,
+    );
 
     useEffect(() => {
         if (type === 'products') {
@@ -33,7 +37,7 @@ export default function ProductsList({ type }: ProductsListProps) {
     }, [type]);
     return (
         <ul className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 2xl:gap-8">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
                 <ProductCard
                     key={product.id}
                     product={product}

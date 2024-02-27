@@ -16,3 +16,9 @@
         -webkit-appearance: none;
     }
 }
+
+@layer base {
+    .modal-open {
+        @apply overflow-hidden;
+    }
+}

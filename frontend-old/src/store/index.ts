@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux';
-import categoriesSlice from './features/categoriesSlice';
-import productsSlice from './features/productsSlice';
-import cartSlice from './features/cartSlice';
+import categoriesSlice from './slices/categoriesSlice';
+import productsSlice from './slices/productsSlice';
+import cartSlice from './slices/cartSlice';
+import modalSlice from './slices/modalSlice';
 
 export const store = configureStore({
     reducer: {
         categories: categoriesSlice,
         products: productsSlice,
+        modal: modalSlice,
         cart: cartSlice,
     },
 });

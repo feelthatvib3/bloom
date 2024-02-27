@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Product } from '../store/features/productsSlice';
+import { Product } from '../store/slices/productsSlice';
 import DiscountBadge from './ui/DiscountBadge';
 import Button from './ui/Button';
-import { addToCart } from '../store/features/cartSlice';
+import { addToCart } from '../store/slices/cartSlice';
 import { MouseEvent, useState } from 'react';
 import { useAppDispatch } from '../store';
 
@@ -66,10 +66,12 @@ export default function ProductCard({
                     </h3>
                     {/* price (regular/discount) */}
                     <div className="flex items-end gap-x-3">
-                        <span className="text-4xl font-semibold">${price}</span>
+                        <span className="text-4xl font-semibold">
+                            ${discont_price ? discont_price : price}
+                        </span>
                         {discont_price && (
                             <span className="text-lg font-medium text-darkgray line-through">
-                                ${discont_price}
+                                ${price}
                             </span>
                         )}
                     </div>

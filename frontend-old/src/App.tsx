@@ -7,6 +7,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductInfoPage from './pages/ProductInfoPage';
 import CartPage from './pages/CartPage';
+import Modal from './components/ui/Modal';
 
 export default function App() {
     return (
@@ -37,6 +38,7 @@ export default function App() {
                 </Routes>
             </div>
             <Footer />
+            <Modal />
         </>
     );
 }

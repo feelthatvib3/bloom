@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Container from '../components/layout/Container';
 import Title from '../components/ui/Title';
 import { RootState, useAppDispatch, useAppSelector } from '../store';
-import { Category, fetchCategories } from '../store/features/categoriesSlice';
+import { Category, fetchCategories } from '../store/slices/categoriesSlice';
 import CategoryCard from '../components/CategoryCard';
 import Breadcrumb from '../components/ui/Breadcrumb';
 

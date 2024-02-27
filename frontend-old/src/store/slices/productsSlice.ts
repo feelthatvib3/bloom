@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Category } from './categoriesSlice';
+import { SortValue } from '../../components/ui/ProductFilter';
 
 export interface Product {
     id: number;
@@ -15,8 +16,13 @@ export interface Product {
 
 interface ProductsState {
     categoryTitle: string;
-    products: Product[];
+    products: ExtendedProduct[];
     currentProduct: Product | null;
+}
+
+interface ExtendedProduct extends Product {
+    isShown: boolean;
+    isShownPrice: boolean;
 }
 
 const initialState: ProductsState = {
@@ -24,6 +30,9 @@ const initialState: ProductsState = {
     products: [],
     currentProduct: null,
 };
+
+const addIsShownProp = (array: Product[]) =>
+    array.map((product) => ({ ...product, isShown: true, isShownPrice: true }));
 
 export const fetchAllProducts = createAsyncThunk(
     'products/fetchAllProducts',
@@ -85,21 +94,69 @@ export const productsSlice = createSlice({
         clearCurrentProduct: (state) => {
             state.currentProduct = null;
         },
+        sortProducts: (state, action) => {
+            const sortValue = action.payload as SortValue;
+
+            if (sortValue === 'price-asc') {
+                state.products.sort((a, b) => a.price - b.price);
+            } else if (sortValue === 'price-desc') {
+                state.products.sort((a, b) => b.price - a.price);
+            } else if (sortValue === 'title-asc') {
+                state.products.sort((a, b) => b.title.localeCompare(a.title));
+            } else if (sortValue === 'title-desc') {
+                state.products.sort((a, b) => a.title.localeCompare(b.title));
+            } else {
+                state.products.sort((a, b) => a.id - b.id);
+            }
+        },
+        showDiscountedOnly: (state, action) => {
+            const checkboxChecked = action.payload;
+            if (checkboxChecked) {
+                state.products = state.products.map((product) => {
+                    if (!product.discont_price) product.isShown = false;
+
+                    return product;
+                });
+            } else {
+                state.products = state.products.map((product) => ({
+                    ...product,
+                    isShown: true,
+                }));
+            }
+        },
+        filterByPrice: (state, action) => {
+            const { from, to } = action.payload;
+
+            const showProducts = state.products.map((product) => ({
+                ...product,
+                isShownPrice: true,
+            }));
+
+            state.products = showProducts.map((product) => {
+                const price = product.discont_price ?? product.price;
+
+                if (price < from || price > to) {
+                    product.isShownPrice = false;
+                }
+
+                return product;
+            });
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
-            state.products = action.payload;
+            state.products = addIsShownProp(action.payload);
             state.categoryTitle = 'All products';
         });
         builder.addCase(
             fetchProductsByCategoryId.fulfilled,
             (state, action) => {
-                state.products = action.payload.data;
+                state.products = addIsShownProp(action.payload.data);
                 state.categoryTitle = action.payload.category.title;
             },
         );
         builder.addCase(fetchDiscountedProducts.fulfilled, (state, action) => {
-            state.products = action.payload;
+            state.products = addIsShownProp(action.payload);
             state.categoryTitle = 'Discounted items';
         });
         builder.addCase(fetchProductById.fulfilled, (state, action) => {
@@ -111,6 +168,12 @@ export const productsSlice = createSlice({
     },
 });
 
-export const { clearCurrentProduct, clearProducts } = productsSlice.actions;
+export const {
+    clearCurrentProduct,
+    clearProducts,
+    sortProducts,
+    showDiscountedOnly,
+    filterByPrice,
+} = productsSlice.actions;
 
 export default productsSlice.reducer;

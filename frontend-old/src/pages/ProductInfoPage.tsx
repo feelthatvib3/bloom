@@ -5,12 +5,12 @@ import { RootState, useAppDispatch, useAppSelector } from '../store';
 import {
     clearCurrentProduct,
     fetchProductById,
-} from '../store/features/productsSlice';
+} from '../store/slices/productsSlice';
 import Breadcrumb from '../components/ui/Breadcrumb';
 import DiscountBadge from '../components/ui/DiscountBadge';
 import ProductAmountCounter from '../components/ui/ProductAmountCounter';
 import Button from '../components/ui/Button';
-import { addToCart } from '../store/features/cartSlice';
+import { addToCart } from '../store/slices/cartSlice';
 
 export default function ProductInfoPage() {
     const [isDescriptionCollapsed, setIsDescriptionCollapsed] =
