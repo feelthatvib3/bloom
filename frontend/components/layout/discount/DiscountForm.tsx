@@ -30,7 +30,7 @@ export default function DiscountForm() {
 
 	const onSubmit: SubmitHandler<FormFields> = async (data) => {
 		try {
-			const response: Response = await fetch(`${ROOT_URL}/discount/new`, {
+			const response = await fetch(`${ROOT_URL}/discount/new`, {
 				method: 'POST',
 				body: JSON.stringify(data.email),
 			});
