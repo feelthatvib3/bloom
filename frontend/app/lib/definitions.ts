@@ -2,7 +2,7 @@ import { makeStore } from '@/store/store';
 
 // components
 
-export type ButtonIntent = 'primary' | 'secondary';
+export type ButtonIntent = 'primary' | 'secondary' | 'outline';
 export type ButtonIconPosition = 'left' | 'right';
 
 // store defs
