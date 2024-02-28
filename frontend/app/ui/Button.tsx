@@ -30,6 +30,7 @@ export default function Button({
 					'border-lime-950 bg-lime-950 text-lime-200 hover:bg-transparent hover:text-lime-950',
 				intent === 'secondary' &&
 					'border-lime-200 bg-lime-200 text-lime-950 hover:bg-transparent hover:text-lime-200',
+				intent === 'outline' && 'border-transparent hover:bg-lime-700/10',
 				iconPosition && iconPosition === 'left' && 'flex-row-reverse',
 				className,
 			)}
