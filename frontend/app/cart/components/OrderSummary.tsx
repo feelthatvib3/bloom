@@ -3,6 +3,7 @@
 import type { RootState } from '@/app/lib/definitions';
 
 import { useState } from 'react';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 
 import Button from '@/app/ui/Button';
 import CheckoutForm from '@/app/cart/components/CheckoutForm';
@@ -15,7 +16,6 @@ import {
 } from '@/components/ui/dialog';
 
 import { useAppSelector } from '@/app/lib/redux-hooks';
-import { XMarkIcon } from '@heroicons/react/24/solid';
 
 export default function OrderSummary() {
 	const [isModalOpened, setIsModalOpened] = useState<boolean>(false);

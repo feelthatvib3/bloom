@@ -9,8 +9,9 @@ import {
 	ShieldCheckIcon,
 } from '@heroicons/react/24/solid';
 
-import { ROOT_URL } from '@/app/lib/constants';
 import Button from '@/app/ui/Button';
+
+import { ROOT_URL } from '@/app/lib/constants';
 
 const schema = z.object({
 	email: z.string().email(),
