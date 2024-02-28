@@ -16,7 +16,7 @@ export default function RemoveProductButton({
 	};
 	return (
 		<button
-			className="flex items-center justify-center"
+			className="flex items-center justify-center p-1 transition-colors hover:bg-lime-700/10"
 			onClick={handleRemoveItem}
 		>
 			<XMarkIcon className="h-6 w-6" />
