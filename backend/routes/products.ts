@@ -1,8 +1,9 @@
-import express, { Router, Request, Response } from 'express';
+import type { FilterOptions } from 'definitions';
+import type { Router, Request, Response } from 'express';
 
-import getFilteredProducts, {
-	type FilterOptions,
-} from '@lib/get-filtered-products';
+import express from 'express';
+
+import getFilteredProducts from '@lib/get-filtered-products';
 
 const router: Router = express.Router();
 
