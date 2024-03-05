@@ -66,7 +66,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
 		if (isBookmarked) {
 			dispatch(removeFromBookmarks(product.id));
-			toast(`${product.name} has been removed from your bookmarks.`, {
+			toast(`${product.name} is successfully unbookmarked.`, {
 				icon: <BookmarkIconOutline />,
 			});
 		} else {
@@ -127,6 +127,8 @@ export default function ProductCard({ product }: ProductCardProps) {
 									disabled={isProductAdded}
 									onClick={(e) => handleAddToCart(e, product)}
 									label={isProductAdded ? 'Added' : 'Add to cart'}
+									icon={<ShoppingCartIcon className="h-6 w-6" />}
+									iconPosition="left"
 									intent="secondary"
 									className="text-xl"
 								/>
