@@ -69,8 +69,8 @@ export default function ProductPage() {
 			<div className="relative w-full shrink-0 border border-lime-950 p-4">
 				<Image
 					src={`${ROOT_URL}/${product?.image}`}
-					width={500}
-					height={500}
+					width={600}
+					height={600}
 					alt={product?.name as string}
 					className="h-full max-h-[500px] w-full object-cover"
 				/>
@@ -100,20 +100,13 @@ export default function ProductPage() {
 				</div>
 				<div className="space-y-2">
 					<p className="text-xl font-semibold">Product overview</p>
-					<p className="line-clamp-4 max-w-md">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-						similique expedita non quibusdam? Fugiat dolores cumque dolorem eos
-						eum doloribus beatae, quibusdam ex neque. Repellendus tempore
-						tempora ratione perspiciatis obcaecati at aliquam a. Quia voluptatum
-						atque iusto, vitae facilis debitis laborum, eos consequuntur
-						corporis est, eligendi assumenda minima neque delectus soluta error!
-						Animi, recusandae? Laboriosam asperiores porro obcaecati, minima
-						aliquid delectus quis aut veritatis, ullam alias omnis nisi nam
-						deserunt doloremque eos et voluptate rerum perspiciatis,
-						consequuntur cupiditate reprehenderit dolores! Ad, molestias? Labore
-						ut aut eius repellat incidunt? Dolores inventore magnam quam.
-						Impedit eaque animi recusandae quisquam praesentium veniam
-						excepturi.
+					<p className="max-w-md">
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+						accusamus quam ipsum? Velit tempora voluptatum, libero distinctio
+						corrupti iste inventore minima, placeat provident rerum quae
+						asperiores eaque quis. Sapiente voluptate nihil ea in illum quod
+						ipsa nostrum placeat consequatur veritatis, mollitia quos. Ad sequi
+						consectetur deserunt? Itaque distinctio neque culpa!
 					</p>
 				</div>
 			</div>
